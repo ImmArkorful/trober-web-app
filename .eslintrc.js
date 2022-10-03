@@ -1,16 +1,45 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true,
+    node: true,
+    es6: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb'],
+
+  settings: {
+    react: {
+      version: 'detect',
+    },
+    'import/resolver': {
+      node: {
+        extensions: ['.ts', '.tsx'],
+      },
+    },
+  },
+
+  extends: [
+    'plugin:react/recommended',
+    'airbnb',
+    'plugin:@typescript-eslint/recommended',
+    'airbnb',
+    'prettier',
+    'plugin:jsx-a11y/recommended',
+    'plugin:prettier/recommended',
+    'plugin:sonarjs/recommended',
+    'plugin:security/recommended',
+    'plugin:react-hooks/recommended',
+  ],
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
-  plugins: ['react'],
+  plugins: ['@typescript-eslint', 'react'],
   rules: {
+    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-explicit-any': 'error',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': [
       1,
@@ -40,5 +69,7 @@ module.exports = {
     'no-nested-ternary': 'off',
     'import/prefer-default-export': 'off',
     'implicit-arrow-linebreak': 'off',
+    'import/no-unresolved': 'off',
+    'react/function-component-definition': 'off',
   },
 };
