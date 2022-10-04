@@ -71,5 +71,6 @@ module.exports = {
     'implicit-arrow-linebreak': 'off',
     'import/no-unresolved': 'off',
     'react/function-component-definition': 'off',
+    'no-unused-expressions': 'off',
   },
 };
