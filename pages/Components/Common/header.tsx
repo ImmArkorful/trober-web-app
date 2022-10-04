@@ -21,11 +21,13 @@ const Header: NextPage = () => {
       <nav className="p-5 bg-primary shadow md:flex md:items-center md:justify-between">
         <div className="flex justify-between items-center ">
           <img
+            data-aos="fade-right"
             alt=""
             className="h-10 inline"
             src="https://tailwindcss.com/_next/static/media/social-square.b622e290e82093c36cca57092ffe494f.jpg"
           />
           <BiMenu
+            title="Hamburger menu Icon to trigger mobile view navigation bar"
             role="button"
             className="text-3xl cursor-pointer mx-2 md:hidden block"
             onClick={() => {
@@ -40,6 +42,7 @@ const Header: NextPage = () => {
         </div>
 
         <ul
+          data-aos={menuActive ? 'fade-left' : ''}
           className={`${menuStyle} bg-primary font-semibold text-white md:flex md:items-center z-[-1] md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 transition-all ease-in duration-500`}
         >
           <li className="mx-4 my-6 md:my-0">
