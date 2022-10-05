@@ -27,6 +27,7 @@ const Header: NextPage = () => {
             src="https://tailwindcss.com/_next/static/media/social-square.b622e290e82093c36cca57092ffe494f.jpg"
           />
           <BiMenu
+            data-aos="fade-right"
             title="Hamburger menu Icon to trigger mobile view navigation bar"
             role="button"
             className="text-3xl cursor-pointer mx-2 md:hidden block"

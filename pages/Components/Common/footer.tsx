@@ -7,10 +7,10 @@ import Image from 'next/image';
 
 const Footer: NextPage = () => {
   return (
-    <footer className="flex flex-col md:flex-row bg-primary shadow w-full items-center justify-between border-t px-8">
+    <footer className="flex flex-col md:flex-row bg-primary shadow w-full items-center justify-between border-t px-16">
       <a
         data-aos-offset="0"
-        data-aos="fade-up"
+        data-aos="zoom-out"
         className="flex items-center justify-center gap-2"
         href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
         target="_blank"
@@ -21,7 +21,7 @@ const Footer: NextPage = () => {
       </a>
       <div
         data-aos-offset="0"
-        data-aos="fade-up"
+        data-aos="zoom-out"
         className="flex flex-col text-sm md:text-lg font-semibold text-white"
       >
         <a href="mailto: info@troberapp.com" className="py-2 text-center">
