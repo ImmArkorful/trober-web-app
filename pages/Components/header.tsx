@@ -44,7 +44,7 @@ const Header: NextPage = () => {
 
         <ul
           data-aos={menuActive ? 'fade-left' : ''}
-          className={`${menuStyle} bg-primary font-semibold text-white md:flex md:items-center z-[-1] md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 transition-all ease-in duration-500`}
+          className={`${menuStyle} bg-primary font-semibold text-white md:flex md:items-center z-1 md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 transition-all ease-in duration-500`}
         >
           <li className="mx-4 my-6 md:my-0">
             <Link href="/">

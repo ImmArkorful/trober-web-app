@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 const Footer: NextPage = () => {
   return (
-    <footer className="flex flex-col md:flex-row bg-primary shadow w-full items-center justify-between border-t px-16">
+    <footer className="flex flex-col items-center justify-between w-full px-16 border-t shadow md:flex-row bg-primary">
       <a
         data-aos-offset="0"
         data-aos="zoom-out"
@@ -22,7 +22,7 @@ const Footer: NextPage = () => {
       <div
         data-aos-offset="0"
         data-aos="zoom-out"
-        className="flex flex-col text-sm md:text-lg font-semibold text-white"
+        className="flex flex-col text-sm font-semibold text-white md:text-lg"
       >
         <a href="mailto: info@troberapp.com" className="py-2 text-center">
           info@troberapp.com
