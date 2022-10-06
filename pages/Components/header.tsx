@@ -18,19 +18,19 @@ const Header: NextPage = () => {
   };
   return (
     <header>
-      <nav className="p-5 bg-primary shadow md:flex md:items-center md:justify-between">
-        <div className="flex justify-between items-center ">
+      <nav className="p-5 shadow bg-primary md:flex md:items-center md:justify-between">
+        <div className="flex items-center justify-between ">
           <img
             data-aos="fade-right"
             alt=""
-            className="h-10 inline"
+            className="inline h-10"
             src="https://tailwindcss.com/_next/static/media/social-square.b622e290e82093c36cca57092ffe494f.jpg"
           />
           <BiMenu
             data-aos="fade-right"
             title="Hamburger menu Icon to trigger mobile view navigation bar"
             role="button"
-            className="text-3xl cursor-pointer mx-2 md:hidden block"
+            className="block mx-2 text-3xl cursor-pointer md:hidden"
             onClick={() => {
               handleToggleMenu();
             }}
@@ -48,28 +48,28 @@ const Header: NextPage = () => {
         >
           <li className="mx-4 my-6 md:my-0">
             <Link href="/">
-              <a className="text-xl hover:text-cyan-500 duration-500">
+              <a className="text-xl duration-500 hover:text-cyan-500">
                 About Us
               </a>
             </Link>
           </li>
           <li className="mx-4 my-6 md:my-0">
             <Link href="/">
-              <a href="/" className="text-xl hover:text-cyan-500 duration-500">
+              <a href="/" className="text-xl duration-500 hover:text-cyan-500">
                 Services
               </a>
             </Link>
           </li>
           <li className="mx-4 my-6 md:my-0">
             <Link href="/">
-              <a href="/" className="text-xl hover:text-cyan-500 duration-500">
+              <a href="/" className="text-xl duration-500 hover:text-cyan-500">
                 Partners
               </a>
             </Link>
           </li>
           <li className="mx-4 my-6 md:my-0">
             <Link href="/">
-              <a href="/" className="text-xl hover:text-cyan-500 duration-500">
+              <a href="/" className="text-xl duration-500 hover:text-cyan-500">
                 Media
               </a>
             </Link>
