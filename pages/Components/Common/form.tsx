@@ -1,6 +1,5 @@
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { makeStyles } from '@mui/styles';
 import React, { useState } from 'react';
@@ -41,7 +40,7 @@ function TabPanel(props: TabPanelProps) {
     >
       {value === index && (
         <Box sx={{ py: 3 }}>
-          <Typography>{children}</Typography>
+          <Box>{children}</Box>
         </Box>
       )}
     </div>
@@ -66,7 +65,7 @@ const Form = ({ display }: FormProps) => {
 
   return (
     <div
-      className={`${display} bg-white z-10 flex items-center justify-center mx-3 shadow-xl lg:mx-20 bg-darkgray md:bg-graybg rounded-2xl md:w-6/6 lg:w-2/6`}
+      className={`${display} bg-white z-10 mb:48 md:mb-0 flex items-center justify-center mx-3 shadow-xl lg:mx-20 bg-darkgray md:bg-graybg rounded-2xl md:w-6/6 lg:w-2/6`}
     >
       <div className="flex flex-col justify-around h-full px-10 py-10 opacity-100 sm:w-full rounded-2xl ">
         <Box
