@@ -1,9 +1,10 @@
+import type { NextPage } from 'next';
 import Form from './Common/form';
 
-const Banner = () => {
+const Banner: NextPage = () => {
   return (
     <>
-      <div className="flex flex-col items-center w-full mb-48 text-center py-14 lg:h-screen lg:px-20 lg:flex-row bg-gradient-to-r from-gradientstart to-gradientend">
+      <div className="flex flex-col items-center w-full text-center lg:mb-48 py-14 lg:h-screen lg:px-20 lg:flex-row bg-gradient-to-r from-gradientstart to-gradientend">
         <div className="flex flex-col w-full text-center text-white lg:text-left lg:w-6/12 sm:pb-24">
           <h1 className="my-10 text-5xl font-semibold text-white mt-36 lg:mt-0 md:text-6xl lg:text-8xl">
             Move around <br /> the city with <br className="hidden lg:block" />{' '}
