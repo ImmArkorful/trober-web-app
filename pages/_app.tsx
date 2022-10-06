@@ -8,8 +8,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     AOS.init({
       offset: 200,
-      duration: 600,
-      easing: 'ease-in-sine',
+      duration: 1000,
+      easing: 'ease-in-out',
       delay: 100,
     });
   }, []);
