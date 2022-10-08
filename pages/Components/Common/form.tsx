@@ -82,11 +82,19 @@ const Form = ({ display }: FormProps) => {
             className={classes.tabs}
           >
             <Tab
-              label={<span className="text-xs">Book Bus</span>}
+              label={
+                <span className="text-xs md:text-base lg:text-lg">
+                  Book Bus
+                </span>
+              }
               {...a11yProps(0)}
             />
             <Tab
-              label={<span className="text-xs">For Business</span>}
+              label={
+                <span className="text-xs md:text-base lg:text-lg">
+                  For Business
+                </span>
+              }
               {...a11yProps(1)}
             />
           </Tabs>
@@ -147,7 +155,44 @@ const Form = ({ display }: FormProps) => {
           </div>
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Item Two
+          <div className="flex flex-col items-center font-normal tracking-wide text-left lg:px-8">
+            <p className="pb-5 md:px-10 lg:px-0">
+              Get access to our large network of vehicle partners to create a
+              beautiful experience
+            </p>
+            <form
+              className="flex flex-col items-start w-full"
+              onSubmit={(e) => {
+                e.preventDefault();
+              }}
+            >
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                className="w-full py-4 pl-4 mx-2 border rounded-lg my-7 border-bordergray"
+              />
+              <input
+                type="text"
+                name="companyname"
+                placeholder="Company Name"
+                className="w-full py-4 pl-4 mx-2 border rounded-lg my-7 border-bordergray"
+              />
+              <input
+                type="text"
+                name="email"
+                placeholder="Email"
+                className="w-full py-4 pl-4 mx-2 border rounded-lg my-7 border-bordergray"
+              />
+              <button
+                className="self-center px-10 py-2 mt-5 text-white rounded-lg shadow-xl md:py-4 md:px-16 bg-gradient-to-r from-gradientstart to-gradientend"
+                type="submit"
+                value="Submit"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
         </TabPanel>
       </div>
     </div>
