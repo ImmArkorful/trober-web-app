@@ -1,5 +1,3 @@
-import AboutUsIllustration from './Svgs/AboutUsIllustration';
-
 interface TextProps {
   text: string;
 }
@@ -19,7 +17,10 @@ const About = () => {
           </p>
         </div>
         <div className="flex self-center pt-5 lg:pt-0 lg:w-2/6">
-          <AboutUsIllustration />
+          <img
+            alt="about illustration"
+            src="https://res.cloudinary.com/troberapp-com/image/upload/v1665264638/Web%20app%20assets/Web/ilusstr_1_1_kcuxxw.svg"
+          />
         </div>
       </div>
       <div className="flex justify-center w-full px-1 pt-5 lg:pt-24">
