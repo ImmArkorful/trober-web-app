@@ -7,7 +7,7 @@ interface Props {
 
 const SelectDropDown = ({ options, selectionColor }: Props) => {
   return (
-    <div className="my-3 w-full ml-2">
+    <div className="w-full my-3 ml-2">
       <Select
         styles={{
           singleValue: (provided) => ({
@@ -28,7 +28,7 @@ const SelectDropDown = ({ options, selectionColor }: Props) => {
         className="basic-single"
         classNamePrefix="select"
         placeholder="Please select type of bus"
-        defaultValue={options.length ? options[0] : ''}
+        defaultValue={options?.length ? options[0] : ''}
         // isLoading={isLoading}
         // isClearable={isClearable}
         // isRtl={isRtl}
