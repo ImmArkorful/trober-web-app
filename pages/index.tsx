@@ -1,8 +1,10 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import About from './Components/about';
 import Banner from './Components/banner';
 import Footer from './Components/footer';
 import Header from './Components/header';
+import Offerings from './Components/offerings';
 
 const Home: NextPage = () => {
   return (
@@ -12,7 +14,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <Banner />
+      <div className="bg-pagebg">
+        <Banner />
+        <About />
+        <Offerings />
+      </div>
       <Footer />
     </>
   );

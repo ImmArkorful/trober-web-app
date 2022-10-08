@@ -6,15 +6,19 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    colors: {
-      primary: '#0F1A37',
-      white: '#FFF',
-      icongrey: '#8890A1',
-      gradientstart: '#1B3076',
-      gradientend: '#2B2DA9',
-      bordergray: '#979797',
+    extend: {
+      colors: {
+        primary: '#0F1A37',
+        white: '#FFF',
+        icongrey: '#8890A1',
+        gradientstart: '#1B3076',
+        gradientend: '#2B2DA9',
+        bordergray: '#979797',
+        pagebg: '#EDF5F4',
+        underlinecolor: '#8CCE10',
+        textblue: '#173990',
+      },
     },
-    extend: {},
   },
   plugins: [],
 };

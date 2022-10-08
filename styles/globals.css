@@ -1,10 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css?family=poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=jost&display=swap');
 
 @layer base {
   * {
-    font-family: poppins, Proxima Nova, system-ui, sans-serif;
+    font-family: jost, Proxima Nova, system-ui, sans-serif;
   }
 }

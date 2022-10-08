@@ -9,8 +9,6 @@ const Footer: NextPage = () => {
   return (
     <footer className="flex flex-col items-center justify-between w-full px-16 border-t shadow md:flex-row bg-primary">
       <a
-        data-aos-offset="0"
-        data-aos="zoom-out"
         className="flex items-center justify-center gap-2"
         href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
         target="_blank"
@@ -19,11 +17,7 @@ const Footer: NextPage = () => {
         Powered by{' '}
         <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
       </a>
-      <div
-        data-aos-offset="0"
-        data-aos="zoom-out"
-        className="flex flex-col text-sm font-semibold text-white md:text-lg"
-      >
+      <div className="flex flex-col text-sm font-semibold text-white md:text-lg">
         <a href="mailto: info@troberapp.com" className="py-2 text-center">
           info@troberapp.com
         </a>
