@@ -17,6 +17,12 @@ module.exports = {
         pagebg: '#EDF5F4',
         underlinecolor: '#8CCE10',
         textblue: '#173990',
+        featuresheader: '#3F3F3E',
+        featuresdescription: '#727372',
+      },
+      spacing: {
+        112: '28rem',
+        128: '32rem',
       },
     },
   },

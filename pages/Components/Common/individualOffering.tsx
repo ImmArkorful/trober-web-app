@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-// import BusinessesIllustration from '../Svgs/BusinessesIllustration';
+import React from 'react';
 
 import Arrow from '../Svgs/Arrow';
 
@@ -7,13 +7,14 @@ interface OfferingProps {
   heading: string;
   text: string;
   color: string;
+  src: string;
 }
 
-const IndividualOffering = ({ heading, text, color }: OfferingProps) => {
+const IndividualOffering = ({ heading, text, color, src }: OfferingProps) => {
   return (
-    <div className="px-3 py-10 mx-2 mt-10 bg-white shadow-md md:px-10 md:mx-0 md:mt-0 md:w-5/12 lg:w-4/12 rounded-3xl">
-      <div>
-        <div className="flex flex-row items-center">
+    <div className="pt-10 mx-2 mt-10 bg-white shadow-md md:mx-0 md:mt-0 md:w-5/12 lg:w-4/12 rounded-3xl">
+      <div className="px-3 md:px-10">
+        <div className="flex flex-row items-center ">
           <p className="mr-4 text-2xl font-bold tracking-wide md:text-4xl">
             {heading}
           </p>
@@ -23,8 +24,8 @@ const IndividualOffering = ({ heading, text, color }: OfferingProps) => {
           {text}
         </p>
       </div>
-      <div className="flex flex-1">
-        <img src="/image4.png" alt="Businesses" width="100%" />
+      <div className="flex justify-end flex-1 w-full">
+        <img src={src} alt="Businesses" width="100%" />
       </div>
     </div>
   );

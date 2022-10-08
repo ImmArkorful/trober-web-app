@@ -12,7 +12,7 @@ const Header: NextPage = () => {
   };
   const handleToggleMenu = () => {
     menuActive
-      ? setMenuStyle('top-[80px] opacity-100')
+      ? setMenuStyle('top-[80px] oplengthacity-100')
       : setMenuStyle('opacity-0 top-[-400px]');
     toggleMenuActive();
   };
@@ -23,7 +23,7 @@ const Header: NextPage = () => {
           <img
             alt=""
             className="inline h-10"
-            src="https://tailwindcss.com/_next/static/media/social-square.b622e290e82093c36cca57092ffe494f.jpg"
+            src="https://res.cloudinary.com/troberapp-com/image/upload/v1665265209/Web%20app%20assets/Web/Trober_logo1_3_dhkgng.svg"
           />
           <BiMenu
             title="Hamburger menu Icon to trigger mobile view navigation bar"
