@@ -65,7 +65,7 @@ const Form = ({ display }: FormProps) => {
 
   return (
     <div
-      className={`${display} bg-white z-10 mb:48 md:mb-0 flex items-center justify-center mx-3 shadow-xl lg:mx-20 bg-darkgray md:bg-graybg rounded-2xl md:w-6/6 lg:w-2/6`}
+      className={`${display} bg-white z-10 mb:48 mb-5 flex items-center justify-center mx-2 md:mx-20 shadow-lg lg:mx-20 bg-darkgray md:bg-graybg rounded-2xl md:w-6/6 lg:w-2/6`}
     >
       <div className="flex flex-col justify-around h-full px-10 py-10 opacity-100 sm:w-full rounded-2xl ">
         <Box
@@ -93,7 +93,7 @@ const Form = ({ display }: FormProps) => {
         </Box>
         <TabPanel value={value} index={0}>
           <div className="flex flex-col items-center font-normal tracking-wide text-left lg:px-8">
-            <p className="pb-5">
+            <p className="pb-5 md:px-10 lg:px-0">
               Get access to our large network of vehicle partners to create a
               beautiful experience
             </p>
