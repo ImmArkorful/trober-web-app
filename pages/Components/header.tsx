@@ -64,7 +64,7 @@ const Header: NextPage = () => {
         <div
           className={`${menuStyle} ${
             menuActive && 'h-screen items-center'
-          } bg-primary font-semibold md:mt-0 text-white justify-around flex-col pb-32 md:flex-row flex md:items-center z-50 md:z-auto md:static absolute w-full left-0 md:w-auto md:pl-0 pl-7 md:opacity-100 `}
+          } bg-primary font-semibold md:mt-0 text-white justify-around flex-col pb-32 sm:pb-0 md:flex-row flex md:items-center z-50 md:z-auto md:static absolute w-full left-0 md:w-auto md:pl-0 pl-7 md:opacity-100 `}
         >
           <ul className="md:flex md:flex-row">
             <li className="flex flex-row items-center my-2">
