@@ -28,7 +28,6 @@ const SelectDropDown = ({ options, selectionColor }: Props) => {
         className="basic-single"
         classNamePrefix="select"
         placeholder="Please select type of bus"
-        defaultValue={options?.length ? options[0] : ''}
         // isLoading={isLoading}
         // isClearable={isClearable}
         // isRtl={isRtl}

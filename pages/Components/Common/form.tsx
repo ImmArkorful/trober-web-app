@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     '& .MuiTabs-indicator': {
       backgroundColor: '#2D3079',
       height: 3,
-      fontFamily: 'poppins',
+      fontFamily: 'Jost',
     },
     '& .MuiTab-root.Mui-selected': {
       color: '#2D3079',
@@ -65,14 +65,14 @@ const Form = ({ display }: FormProps) => {
 
   return (
     <div
-      className={`${display} bg-white z-10 mb:48 mb-5 flex items-center justify-center mx-2 md:mx-20 shadow-lg lg:mx-20 bg-darkgray md:bg-graybg rounded-2xl md:w-6/6 lg:w-2/6`}
+      className={`${display} bg-white z-10 mb:48 mb-5 flex items-center justify-center mx-2 md:mx-20 shadow-lg lg:mx-20 bg-darkgray md:bg-graybg rounded-2xl md:w-6/6 lg:w-128`}
     >
       <div className="flex flex-col justify-around h-full px-10 py-10 opacity-100 sm:w-full rounded-2xl ">
         <Box
           sx={{
             borderBottom: 1,
             borderColor: 'black',
-            fontFamily: 'Poppins',
+            fontFamily: 'Jost',
           }}
         >
           <Tabs

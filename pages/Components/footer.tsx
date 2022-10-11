@@ -3,20 +3,15 @@ import { BsFacebook } from 'react-icons/bs';
 import { AiFillTwitterCircle } from 'react-icons/ai';
 import { ImInstagram } from 'react-icons/im';
 import { GrLinkedinOption } from 'react-icons/gr';
-import Image from 'next/image';
 
 const Footer: NextPage = () => {
   return (
     <footer className="flex flex-col items-center justify-between w-full px-16 border-t shadow md:flex-row bg-primary">
-      <a
-        className="flex items-center justify-center gap-2"
-        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Powered by{' '}
-        <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-      </a>
+      <img
+        alt=""
+        className="inline h-8 md:h-14"
+        src="https://res.cloudinary.com/troberapp-com/image/upload/v1665265209/Web%20app%20assets/Web/Trober_logo1_3_dhkgng.svg"
+      />
       <div className="flex flex-col text-sm font-semibold text-white md:text-lg">
         <a href="mailto: info@troberapp.com" className="py-2 text-center">
           info@troberapp.com

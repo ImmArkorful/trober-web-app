@@ -1,25 +1,48 @@
+/* eslint-disable react/no-unstable-nested-components */
 import type { NextPage } from 'next';
-import Head from 'next/head';
+import Slider from 'react-slick';
 import About from './Components/about';
 import Banner from './Components/banner';
+import Heading from './Components/Common/heading';
 import Features from './Components/Features';
 import Footer from './Components/footer';
 import Header from './Components/header';
 import Offerings from './Components/offerings';
 
 const Home: NextPage = () => {
+  const settings = {
+    // centerMode: true,
+    // centerPadding: '300px',
+    infinite: false,
+    slidesToShow: 4,
+    speed: 500,
+    dots: true,
+    arrows: false,
+    appendDots: (dots: number) => {
+      return <div className="w-full bg-green-200">{dots}</div>;
+    },
+    customPaging: () => {
+      return <div className="w-full h-1 mt-4 bg-[#DADAEE]" />;
+    },
+    responsive: [
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          initialSlide: 0,
+        },
+      },
+    ],
+  };
   return (
     <>
-      <Head>
-        <title>Trober - The new way to get to work</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <Header />
       <div className="bg-pagebg">
         <Banner />
         <About />
         <Offerings />
-        <div className="min-h-screen mt-24">
+        <div className="min-h-screen my-24">
           <Features
             background="bg-gradient-to-r from-gradientstart to-gradientend"
             header="Convenient Booking"
@@ -60,6 +83,41 @@ const Home: NextPage = () => {
             reverse={false}
             src="https://res.cloudinary.com/troberapp-com/image/upload/v1665236061/Web%20app%20assets/Web/Trober_route_icon_laptop_ib74i4.svg"
           />
+        </div>
+        <div className="flex justify-center">
+          <Heading text="Join the list of companies that trust Trober" />
+        </div>
+        <div className="pt-12 pb-24 mx-12 lg:mx-72">
+          <Slider {...settings}>
+            <div className="flex flex-row items-center">
+              <img
+                className="h-10 sm:h-16"
+                src="https://res.cloudinary.com/troberapp-com/image/upload/v1665499566/Web%20app%20assets/Web/image_10_ur0o91.svg"
+                alt=""
+              />
+            </div>
+            <div className="">
+              <img
+                className="h-10 sm:h-16"
+                src="https://res.cloudinary.com/troberapp-com/image/upload/v1665499566/Web%20app%20assets/Web/image_11_l6sq0l.svg"
+                alt=""
+              />
+            </div>
+            <div className="">
+              <img
+                className="h-10 sm:h-16"
+                src="https://res.cloudinary.com/troberapp-com/image/upload/v1665499567/Web%20app%20assets/Web/image_12_xuculr.svg"
+                alt=""
+              />
+            </div>
+            <div className="">
+              <img
+                className="h-10 pr-5 ml-5 sm:h-16"
+                src="https://res.cloudinary.com/troberapp-com/image/upload/v1665499567/Web%20app%20assets/Web/explore_1_hm6dwn.svg"
+                alt=""
+              />
+            </div>
+          </Slider>
         </div>
       </div>
       <Footer />
