@@ -3,6 +3,7 @@ import { BsFacebook } from 'react-icons/bs';
 import { AiFillTwitterCircle } from 'react-icons/ai';
 import { ImInstagram } from 'react-icons/im';
 import { GrLinkedinOption } from 'react-icons/gr';
+import TroberLogger from '../../utils/logEvent';
 
 const Footer: NextPage = () => {
   return (
@@ -17,35 +18,85 @@ const Footer: NextPage = () => {
           <div className="flex flex-col justify-between md:flex-row lg:w-5/12">
             <div className="flex flex-col text-sm font-semibold text-white md:mx-3 lg:mx-0 md:text-lg">
               <p className="text-gray-500">Legal</p>
-              <a className="py-2 text-left ">Privacy Policy</a>
-              <a className="py-2 text-left ">FAQ</a>
+              <a className="py-2 text-left hover:cursor-pointer">
+                Privacy Policy
+              </a>
+              <a className="py-2 text-left hover:cursor-pointer">Blog</a>
             </div>
-            <div className="flex flex-col text-sm font-semibold text-white md:mx-3 lg:mx-0 md:text-lg">
+            {/* <div className="flex flex-col text-sm font-semibold text-white md:mx-3 lg:mx-0 md:text-lg">
               <p className="text-gray-500">Offerings</p>
               <a className="py-2 text-left ">Business</a>
               <a className="py-2 text-left ">Drive for us</a>
               <a className="py-2 text-left ">Bus Partners</a>
               <a className="py-2 text-left ">Blog</a>
-            </div>
+            </div> */}
           </div>
           <div className="flex flex-col text-sm font-semibold text-white md:mx-3 lg:mx-0 md:text-lg">
             <p className="text-gray-500">Contact us</p>
-            <a href="mailto: info@troberapp.com" className="py-2 text-left ">
+            <a
+              onClick={async () => {
+                await TroberLogger('MailClicked');
+              }}
+              href="mailto: info@troberapp.com"
+              className="py-2 text-left "
+            >
               info@troberapp.com
             </a>
-            <a href="tel: +233553738944" className="py-2 text-left ">
+            <a
+              onClick={async () => {
+                await TroberLogger('PhoneClicked');
+              }}
+              href="tel: +233553738944"
+              className="py-2 text-left "
+            >
               +233 553 738 944
             </a>
             <div className="flex justify-center py-2">
-              <BsFacebook color="#8890A1" className="mx-2" size={24} />
-              <AiFillTwitterCircle color="#8890A1" className="mx-2" size={28} />
+              <a href="https://web.facebook.com/groups/715306866452170">
+                <BsFacebook
+                  onClick={async () => {
+                    await TroberLogger('FacebookClicked');
+                  }}
+                  color="white"
+                  className="mx-2 hover:cursor-pointer"
+                  size={26}
+                />
+              </a>
+              <a href="https://twitter.com/troberapp">
+                <AiFillTwitterCircle
+                  onClick={async () => {
+                    await TroberLogger('TwitterClicked');
+                  }}
+                  color="white"
+                  className="mx-2"
+                  size={30}
+                />
+              </a>
 
-              <div className="bg-icongrey rounded-full p-1.5 mx-2">
-                <ImInstagram color="black" size={14} />
-              </div>
-              <div className="bg-icongrey rounded-full p-1.5 mx-2">
-                <GrLinkedinOption color="black" size={14} />
-              </div>
+              <a
+                href="https://www.instagram.com/troberapp/"
+                className="px-2 pt-2 mx-2 bg-white rounded-full"
+              >
+                <ImInstagram
+                  onClick={async () => {
+                    await TroberLogger('InstagramClicked');
+                  }}
+                  color="black"
+                  size={14}
+                />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/troberapp/"
+                className="bg-white rounded-full py-1.5 px-2 mx-2"
+              >
+                <GrLinkedinOption
+                  onClick={async () => {
+                    await TroberLogger('LinkedInClicked');
+                  }}
+                  color="black"
+                  size={14}
+                />
+              </a>
             </div>
           </div>
         </div>
