@@ -19,10 +19,10 @@ const Home: NextPage = () => {
     dots: true,
     arrows: false,
     appendDots: (dots: number) => {
-      return <div className="w-full bg-green-200">{dots}</div>;
+      return <div className="bg-green-200 ">{dots}</div>;
     },
     customPaging: () => {
-      return <div className="w-full h-1 mt-4 bg-[#DADAEE]" />;
+      return <div className="h-1 mt-4 bg-[#DADAEE]" />;
     },
     responsive: [
       {
@@ -31,6 +31,12 @@ const Home: NextPage = () => {
           slidesToShow: 3,
           slidesToScroll: 1,
           initialSlide: 0,
+          appendDots: (dots: number) => {
+            return <div className="bg-green-200 ">{dots}</div>;
+          },
+          customPaging: () => {
+            return <div className="h-1 mt-4 bg-[#DADAEE]" />;
+          },
         },
       },
     ],
@@ -84,10 +90,10 @@ const Home: NextPage = () => {
             src="https://res.cloudinary.com/troberapp-com/image/upload/v1665236061/Web%20app%20assets/Web/Trober_route_icon_laptop_ib74i4.svg"
           />
         </div>
-        <div className="flex justify-center">
+        <div className="flex justify-center lg:mt-44">
           <Heading text="Join the list of companies that trust Trober" />
         </div>
-        <div className="pt-12 pb-24 mx-12 lg:mx-72">
+        <div className="pt-12 pb-24 mx-12 lg:pt-24 lg:mx-72 lg:pb-44">
           <Slider {...settings}>
             <div className="flex flex-row items-center">
               <img

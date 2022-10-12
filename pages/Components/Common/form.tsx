@@ -3,7 +3,12 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { makeStyles } from '@mui/styles';
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import SelectDropDown from './Select';
+import axiosInstance from '../../../utils/axiosInstance';
+
+const errorBorder = 'border-red-500';
+const defaultBorder = 'border-bordergray';
 
 interface TabPanelProps {
   children: React.ReactNode;
@@ -13,6 +18,11 @@ interface TabPanelProps {
 interface FormProps {
   display: string;
 }
+
+// interface Inputs {
+//   example: string;
+//   exampleRequired: string;
+// }
 
 const useStyles = makeStyles({
   tabs: {
@@ -55,8 +65,41 @@ function a11yProps(index: number) {
 }
 
 const Form = ({ display }: FormProps) => {
+  const defaultValuesRental = {
+    fullName: '',
+    phoneNumber: '',
+    destination: '',
+    duration: '',
+  };
+  const defaultValuesBusiness = {
+    fullName: '',
+    email: '',
+    companyName: '',
+  };
+  const defaultLabel = 'Please select capacity of bus';
+  const [busType, setBusType] = useState({
+    value: '',
+    label: defaultLabel,
+  });
+  const {
+    register,
+    handleSubmit,
+    clearErrors,
+    reset,
+    formState: { errors },
+  } = useForm({
+    defaultValues: defaultValuesRental,
+  });
+  const {
+    register: registerBusiness,
+    handleSubmit: handleSubmiteBusiness,
+    clearErrors: clearErrorsBusiness,
+    reset: resetBusiness,
+    formState: { errors: errorsBusiness },
+  } = useForm({
+    defaultValues: defaultValuesBusiness,
+  });
   const classes = useStyles();
-
   const [value, setValue] = useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -107,43 +150,88 @@ const Form = ({ display }: FormProps) => {
             </p>
             <form
               className="flex flex-col items-start w-full"
-              onSubmit={(e) => {
-                e.preventDefault();
-              }}
+              onSubmit={handleSubmit(async (data) => {
+                clearErrors();
+                try {
+                  await axiosInstance.post('/booking/rental', {
+                    ...data,
+                    typeOfBus: busType.value,
+                  });
+                  reset(defaultValuesRental);
+                  setBusType({
+                    label: defaultLabel,
+                    value: '',
+                  });
+                } catch (e) {
+                  console.log(e);
+                }
+              })}
             >
               <input
                 type="text"
-                name="name"
                 placeholder="Full name"
-                className="w-full py-3 pl-4 mx-2 my-3 border rounded-lg border-bordergray"
+                className={`w-full py-3 pl-4 mx-2 my-3 border rounded-lg ${
+                  errors.fullName ? errorBorder : defaultBorder
+                }`}
+                {...register('fullName', {
+                  required: 'Please Enter your full name',
+                })}
               />
               <input
-                type="text"
-                name="phonenumber"
                 placeholder="Phone Number"
-                className="w-full py-3 pl-4 mx-2 my-3 border rounded-lg border-bordergray"
+                className={`w-full py-3 pl-4 mx-2 my-3 border rounded-lg ${
+                  errors.phoneNumber ? errorBorder : defaultBorder
+                }`}
+                {...register('phoneNumber', {
+                  required: 'Please enter your phone number',
+                  minLength: 9,
+                })}
               />
               <input
                 type="text"
-                name="desitnation"
                 placeholder="Where will you be going?"
-                className="w-full py-3 pl-4 mx-2 my-3 border rounded-lg border-bordergray"
+                className={`w-full py-3 pl-4 mx-2 my-3 border rounded-lg ${
+                  errors.destination ? errorBorder : defaultBorder
+                }`}
+                {...register('destination', {
+                  required: 'Please enter your destination',
+                })}
               />
               <SelectDropDown
-                selectionColor="white"
+                selectionColor={
+                  busType.label === 'Please select capacity of bus'
+                    ? 'gray'
+                    : 'black'
+                }
                 options={[
                   {
-                    value: 'red',
-                    label: 'Pick Bus Stop',
+                    value: '15',
+                    label: '15 seater bus',
+                  },
+                  {
+                    value: '30',
+                    label: '30 seater bus',
                   },
                 ]}
+                busType={busType}
+                setBusType={setBusType}
               />
               <input
                 type="text"
-                name="duration"
-                placeholder="How long will you need it for?"
-                className="w-full py-3 pl-4 mx-2 my-3 border rounded-lg border-bordergray"
+                placeholder="How long will you need it for? (days)"
+                className={`w-full py-3 pl-4 mx-2 my-3 border rounded-lg ${
+                  errors.duration ? errorBorder : defaultBorder
+                }`}
+                {...register('duration', {
+                  required:
+                    "Please enter the number of days you'll need the bus",
+                })}
               />
+              {/* {errors.duration && (
+                <span className="pb-1 pl-4 text-sm text-red-500">
+                  {errors.duration.message}
+                </span>
+              )} */}
               <button
                 className="self-center px-10 py-2 mt-5 text-white rounded-lg shadow-xl md:py-4 md:px-16 bg-gradient-to-r from-gradientstart to-gradientend"
                 type="submit"
@@ -162,27 +250,51 @@ const Form = ({ display }: FormProps) => {
             </p>
             <form
               className="flex flex-col items-start w-full"
-              onSubmit={(e) => {
-                e.preventDefault();
-              }}
+              onSubmit={handleSubmiteBusiness(async (businessdata) => {
+                clearErrorsBusiness();
+                try {
+                  await axiosInstance.post('/booking/business', {
+                    ...businessdata,
+                  });
+                  resetBusiness(defaultValuesBusiness);
+                } catch (e) {
+                  console.log(e);
+                }
+              })}
             >
               <input
                 type="text"
-                name="name"
                 placeholder="Name"
-                className="w-full py-4 pl-4 mx-2 border rounded-lg my-7 border-bordergray"
+                className={`w-full py-4 pl-4 mx-2 border rounded-lg my-7 ${
+                  errorsBusiness.fullName ? errorBorder : defaultBorder
+                }`}
+                {...registerBusiness('fullName', {
+                  required: 'Please enter your name',
+                })}
               />
               <input
                 type="text"
-                name="companyname"
                 placeholder="Company Name"
-                className="w-full py-4 pl-4 mx-2 border rounded-lg my-7 border-bordergray"
+                className={`w-full py-4 pl-4 mx-2 border rounded-lg my-7 ${
+                  errorsBusiness.companyName ? errorBorder : defaultBorder
+                }`}
+                {...registerBusiness('companyName', {
+                  required: 'Please enter your company name',
+                })}
               />
               <input
                 type="text"
-                name="email"
-                placeholder="Email"
-                className="w-full py-4 pl-4 mx-2 border rounded-lg my-7 border-bordergray"
+                placeholder="Email (Preferable company email)"
+                className={`w-full py-4 pl-4 mx-2 border rounded-lg my-7 ${
+                  errorsBusiness.email ? errorBorder : defaultBorder
+                }`}
+                {...registerBusiness('email', {
+                  required: 'Please enter your email',
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: 'invalid email address',
+                  },
+                })}
               />
               <button
                 className="self-center px-10 py-2 mt-5 text-white rounded-lg shadow-xl md:py-4 md:px-16 bg-gradient-to-r from-gradientstart to-gradientend"

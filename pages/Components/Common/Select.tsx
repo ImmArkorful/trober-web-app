@@ -1,26 +1,34 @@
+import { Dispatch, SetStateAction } from 'react';
 import Select from 'react-select';
 
 interface Props {
   options: Array<{ label: string; value: string }>;
   selectionColor: string;
+  busType: { value: string; label: string };
+  setBusType: Dispatch<SetStateAction<{ value: string; label: string }>>;
 }
 
-const SelectDropDown = ({ options, selectionColor }: Props) => {
+const SelectDropDown = ({
+  options,
+  selectionColor,
+  busType,
+  setBusType,
+}: Props) => {
   return (
     <div className="w-full my-3 ml-2">
       <Select
+        isSearchable={false}
+        value={busType}
         styles={{
           singleValue: (provided) => ({
             ...provided,
-            display: 'flex',
             color: selectionColor,
-            justifyContent: 'center',
-            fontSize: '0.8rem',
+            fontSize: '1rem',
           }),
           control: (provided) => ({
             ...provided,
             border: '1px solid #979797',
-            height: '60px',
+            height: '50px',
             borderRadius: '10px',
             backgroundColor: 'transparent',
           }),
@@ -34,6 +42,9 @@ const SelectDropDown = ({ options, selectionColor }: Props) => {
         // isSearchable={isSearchable}
         name="color"
         options={options}
+        onChange={(option: { label: string; value: string } | null) => {
+          option && setBusType(option);
+        }}
       />
     </div>
   );
