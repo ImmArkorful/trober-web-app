@@ -4,7 +4,7 @@ import IndividualOffering from './Common/individualOffering';
 const Offerings = () => {
   return (
     <div className="flex flex-col mt-24 lg:px-20">
-      <div className="flex justify-center mb-10">
+      <div className="flex justify-center mb-2 md:mb-16 lg:mb-24">
         <Heading text="Our Offerings" />
       </div>
       <div className="flex flex-col justify-around md:flex-row">
