@@ -12,7 +12,7 @@ interface OfferingProps {
 
 const IndividualOffering = ({ heading, text, color, src }: OfferingProps) => {
   return (
-    <div className="pt-10 mx-2 mt-10 bg-white shadow-md md:mx-0 md:mt-0 md:w-5/12 lg:w-4/12 rounded-3xl">
+    <div className="pt-10 mx-2 mt-10 bg-white shadow-md hover:cursor-pointer md:mx-0 md:mt-0 md:w-5/12 lg:w-4/12 rounded-3xl">
       <div className="px-3 md:px-10">
         <div className="flex flex-row items-center ">
           <p className="mr-4 text-2xl font-medium tracking-wide md:text-4xl">

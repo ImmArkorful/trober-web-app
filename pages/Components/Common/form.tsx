@@ -6,6 +6,19 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import SelectDropDown from './Select';
 import axiosInstance from '../../../utils/axiosInstance';
+import SuccessModal from '../Modal';
+import TroberLogger from '../../../utils/logEvent';
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
 
 const errorBorder = 'border-red-500';
 const defaultBorder = 'border-bordergray';
@@ -18,11 +31,6 @@ interface TabPanelProps {
 interface FormProps {
   display: string;
 }
-
-// interface Inputs {
-//   example: string;
-//   exampleRequired: string;
-// }
 
 const useStyles = makeStyles({
   tabs: {
@@ -65,6 +73,16 @@ function a11yProps(index: number) {
 }
 
 const Form = ({ display }: FormProps) => {
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
   const defaultValuesRental = {
     fullName: '',
     phoneNumber: '',
@@ -102,13 +120,19 @@ const Form = ({ display }: FormProps) => {
   const classes = useStyles();
   const [value, setValue] = useState(0);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = async (
+    event: React.SyntheticEvent,
+    newValue: number
+  ) => {
+    newValue === 0
+      ? await TroberLogger('SwitchBookBus')
+      : await TroberLogger('SwitchBusiness');
     setValue(newValue);
   };
 
   return (
     <div
-      className={`${display} bg-white z-10 mb:48 mb-5 flex items-center justify-center mx-2 md:mx-20 shadow-lg lg:mx-20 bg-darkgray md:bg-graybg rounded-2xl md:w-6/6 lg:w-128`}
+      className={`${display} bg-white  mb:48 mb-5 flex items-center justify-center mx-2 md:mx-20 shadow-lg lg:mx-20 bg-darkgray md:bg-graybg rounded-2xl md:w-6/6 lg:w-128`}
     >
       <div className="flex flex-col justify-around h-full px-10 py-10 opacity-100 sm:w-full rounded-2xl ">
         <Box
@@ -151,6 +175,8 @@ const Form = ({ display }: FormProps) => {
             <form
               className="flex flex-col items-start w-full"
               onSubmit={handleSubmit(async (data) => {
+                await TroberLogger('BookBusSubmitClicked');
+                openModal();
                 clearErrors();
                 try {
                   await axiosInstance.post('/booking/rental', {
@@ -162,7 +188,13 @@ const Form = ({ display }: FormProps) => {
                     label: defaultLabel,
                     value: '',
                   });
-                } catch (e) {
+                  await TroberLogger('BookBusSubmitSuccess');
+                } catch (e: unknown) {
+                  if (e instanceof Error) {
+                    await TroberLogger('BookBusSubmitFailed', {
+                      error: e.message,
+                    });
+                  }
                   console.log(e);
                 }
               })}
@@ -251,13 +283,21 @@ const Form = ({ display }: FormProps) => {
             <form
               className="flex flex-col items-start w-full"
               onSubmit={handleSubmiteBusiness(async (businessdata) => {
+                await TroberLogger('BusinessSubmitClicked');
+                openModal();
                 clearErrorsBusiness();
                 try {
                   await axiosInstance.post('/booking/business', {
                     ...businessdata,
                   });
                   resetBusiness(defaultValuesBusiness);
-                } catch (e) {
+                  await TroberLogger('BusinessSubmitSuccess');
+                } catch (e: unknown) {
+                  if (e instanceof Error) {
+                    await TroberLogger('BusinessSubmitFailed', {
+                      error: e.message,
+                    });
+                  }
                   console.log(e);
                 }
               })}
@@ -307,6 +347,16 @@ const Form = ({ display }: FormProps) => {
           </div>
         </TabPanel>
       </div>
+      <SuccessModal
+        afterOpenModal={() => {
+          // setTimeout(() => {
+          //   closeModal();
+          // }, 5000);
+        }}
+        closeModal={() => closeModal()}
+        customStyles={customStyles}
+        modalIsOpen={modalIsOpen}
+      />
     </div>
   );
 };
