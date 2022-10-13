@@ -1,4 +1,6 @@
+import Lottie from 'lottie-react';
 import Modal from 'react-modal';
+import successAnimation from './lottie/successAnimation.json';
 
 interface ModalProps {
   modalIsOpen: boolean;
@@ -21,8 +23,11 @@ const SuccessModal = ({
         onRequestClose={closeModal}
         style={customStyles}
       >
-        <div className="w-screen h-screen text-center lg:p-28 p-14">
-          <p className="mt-64 text-3xl font-normal lg:text-5xl text-textblue lg:mt-96">
+        <div className="flex flex-col items-center justify-center w-screen h-screen text-center">
+          <div className="w-6/12 h-6/12 lg:w-3/12 lg:h-3/12">
+            <Lottie animationData={successAnimation} />
+          </div>
+          <p className="text-3xl font-normal lg:text-5xl text-textblue">
             Thank you!
           </p>
           <p className="pt-12 text-sm font-normal lg:text-xl">
