@@ -12,14 +12,14 @@ const Offerings = () => {
           heading="Businesses"
           text="Make commuting less of a concern for your employees."
           color="#462AD3"
-          src="https://res.cloudinary.com/troberapp-com/image/upload/v1665236009/Web%20app%20assets/Web/Trober_business_icon_laptop_dykmpf.svg"
+          src="https://res.cloudinary.com/troberapp-com/image/upload/v1665779437/Web%20app%20assets/new%20assets/Trober_business_icon_shpwgj.png"
           // illustration={<BusinessesIllustration />}
         />
         <IndividualOffering
           heading="Schools"
           text="Get a  safe bus service to transport your students with ease."
           color="#FF5000"
-          src="https://res.cloudinary.com/troberapp-com/image/upload/v1665236009/Web%20app%20assets/Web/Trober_school_icon_laptop_zr5gjk.svg"
+          src="https://res.cloudinary.com/troberapp-com/image/upload/v1665778999/Web%20app%20assets/new%20assets/Trober_school_icon_c9wbeq.png"
           // illustration={<Schools />}
         />
       </div>
@@ -28,14 +28,14 @@ const Offerings = () => {
           heading="Events"
           text="Have zero stress arranging transportation for special occasions."
           color="#020348"
-          src="https://res.cloudinary.com/troberapp-com/image/upload/v1665236011/Web%20app%20assets/Web/Trober_event_icon_laptop_tizd3d.svg"
+          src="https://res.cloudinary.com/troberapp-com/image/upload/v1665779481/Web%20app%20assets/new%20assets/Trober_events_icon_njsrnp.png"
           // illustration={<Events />}
         />
         <IndividualOffering
           heading="Churches"
           text="Provide your  church members with a timely and reliable transportation."
           color="#8CCE10"
-          src="https://res.cloudinary.com/troberapp-com/image/upload/v1665236011/Web%20app%20assets/Web/Trober_church_icon_laptop_qzlhi4.svg"
+          src="https://res.cloudinary.com/troberapp-com/image/upload/v1665779437/Web%20app%20assets/new%20assets/Trober_church_icon_a4cuuh.png"
           // illustration={<Churches />}
         />
       </div>

@@ -25,7 +25,7 @@ const IndividualOffering = ({ heading, text, color, src }: OfferingProps) => {
         </p>
       </div>
       <div className="flex justify-end flex-1 w-full">
-        <img src={src} alt="Businesses" width="100%" />
+        <img src={src} alt="Businesses" width="100%" className="rounded-3xl" />
       </div>
     </div>
   );

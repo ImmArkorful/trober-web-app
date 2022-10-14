@@ -99,6 +99,10 @@ const Form = ({ display }: FormProps) => {
     value: '',
     label: defaultLabel,
   });
+  const [subscription, setSubscription] = useState({
+    value: '',
+    label: 'Subscription',
+  });
   const {
     register,
     handleSubmit,
@@ -151,6 +155,14 @@ const Form = ({ display }: FormProps) => {
             <Tab
               label={
                 <span className="text-xs md:text-base lg:text-lg">
+                  Daily Ride
+                </span>
+              }
+              {...a11yProps(0)}
+            />
+            <Tab
+              label={
+                <span className="text-xs md:text-base lg:text-lg">
                   Book Bus
                 </span>
               }
@@ -167,6 +179,116 @@ const Form = ({ display }: FormProps) => {
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
+          <div className="flex flex-col items-center font-normal tracking-wide text-left lg:px-8">
+            <p className="pb-5 md:px-10 lg:px-0">
+              Book a Trober for your daily commute. We will pick you up at your
+              bus stop
+            </p>
+            <form
+              className="flex flex-col items-start w-full"
+              onSubmit={async (e) => {
+                e.preventDefault();
+                await TroberLogger('DailyRideSubmitClicked');
+                openModal();
+              }}
+              // onSubmit={handleSubmit(async (data) => {
+              //   await TroberLogger('BookBusSubmitClicked');
+              //   openModal();
+              //   clearErrors();
+              //   try {
+              //     await axiosInstance.post('/booking/rental', {
+              //       ...data,
+              //       typeOfBus: busType.value,
+              //     });
+              //     reset(defaultValuesRental);
+              //     setBusType({
+              //       label: defaultLabel,
+              //       value: '',
+              //     });
+              //     await TroberLogger('BookBusSubmitSuccess');
+              //   } catch (e: unknown) {
+              //     if (e instanceof Error) {
+              //       await TroberLogger('BookBusSubmitFailed', {
+              //         error: e.message,
+              //       });
+              //     }
+              //     console.log(e);
+              //   }
+              // })}
+            >
+              <input
+                type="text"
+                placeholder="Full name"
+                className={`w-full py-3 pl-4 mx-2 my-3 border rounded-lg ${
+                  errors.fullName ? errorBorder : defaultBorder
+                }`}
+                {...register('fullName', {
+                  required: 'Please Enter your full name',
+                })}
+              />
+              <input
+                placeholder="Phone Number"
+                className={`w-full py-3 pl-4 mx-2 my-3 border rounded-lg ${
+                  errors.phoneNumber ? errorBorder : defaultBorder
+                }`}
+                {...register('phoneNumber', {
+                  required: 'Please enter your phone number',
+                  minLength: 9,
+                })}
+              />
+              <input
+                type="text"
+                placeholder="Pickup Bus Stop"
+                className={`w-full py-3 pl-4 mx-2 my-3 border rounded-lg ${
+                  errors.destination ? errorBorder : defaultBorder
+                }`}
+                {...register('destination', {
+                  required: 'Please enter your pickup bus stop',
+                })}
+              />
+              <input
+                type="text"
+                placeholder="Dropoff Bus Stop"
+                className={`w-full py-3 pl-4 mx-2 my-3 border rounded-lg ${
+                  errors.duration ? errorBorder : defaultBorder
+                }`}
+                {...register('duration', {
+                  required: 'Please enter your dropoff bus stop',
+                })}
+              />
+              <SelectDropDown
+                selectionColor={
+                  subscription.label === 'Subscription' ? 'gray' : 'black'
+                }
+                options={[
+                  {
+                    value: 'Weekly',
+                    label: 'Weekly',
+                  },
+                  {
+                    value: 'Monthly',
+                    label: 'Monthly',
+                  },
+                ]}
+                busType={subscription}
+                setBusType={setSubscription}
+              />
+              {/* {errors.duration && (
+                <span className="pb-1 pl-4 text-sm text-red-500">
+                  {errors.duration.message}
+                </span>
+              )} */}
+              <button
+                className="self-center px-10 py-2 mt-5 text-white rounded-lg shadow-xl md:py-4 md:px-16 bg-gradient-to-r from-gradientstart to-gradientend"
+                type="submit"
+                value="Submit"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </TabPanel>
+        <TabPanel value={value} index={1}>
           <div className="flex flex-col items-center font-normal tracking-wide text-left lg:px-8">
             <p className="pb-5 md:px-10 lg:px-0">
               Get access to our large network of vehicle partners to create a
@@ -274,7 +396,7 @@ const Form = ({ display }: FormProps) => {
             </form>
           </div>
         </TabPanel>
-        <TabPanel value={value} index={1}>
+        <TabPanel value={value} index={2}>
           <div className="flex flex-col items-center font-normal tracking-wide text-left lg:px-8">
             <p className="pb-5 md:px-10 lg:px-0">
               Get access to our large network of vehicle partners to create a
