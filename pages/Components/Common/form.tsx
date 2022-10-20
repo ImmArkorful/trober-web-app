@@ -94,6 +94,13 @@ const Form = ({ display }: FormProps) => {
     email: '',
     companyName: '',
   };
+  const defaultValuesDaily = {
+    name: '',
+    phoneNumber: '',
+    pickupLocation: '',
+    dropoffLocation: '',
+    subscription: '',
+  };
   const defaultLabel = 'Please select capacity of bus';
   const [busType, setBusType] = useState({
     value: '',
@@ -120,6 +127,15 @@ const Form = ({ display }: FormProps) => {
     formState: { errors: errorsBusiness },
   } = useForm({
     defaultValues: defaultValuesBusiness,
+  });
+  const {
+    register: registerDaily,
+    handleSubmit: handleSubmitDaily,
+    clearErrors: clearErrorsDaily,
+    reset: resetDaily,
+    formState: { errors: errorsDaily },
+  } = useForm({
+    defaultValues: defaultValuesDaily,
   });
   const classes = useStyles();
   const [value, setValue] = useState(0);
@@ -186,52 +202,52 @@ const Form = ({ display }: FormProps) => {
             </p>
             <form
               className="flex flex-col items-start w-full"
-              onSubmit={async (e) => {
-                e.preventDefault();
-                await TroberLogger('DailyRideSubmitClicked');
+              onSubmit={handleSubmitDaily(async (data) => {
+                await TroberLogger('DailySubmitClicked');
                 openModal();
-              }}
-              // onSubmit={handleSubmit(async (data) => {
-              //   await TroberLogger('BookBusSubmitClicked');
-              //   openModal();
-              //   clearErrors();
-              //   try {
-              //     await axiosInstance.post('/booking/rental', {
-              //       ...data,
-              //       typeOfBus: busType.value,
-              //     });
-              //     reset(defaultValuesRental);
-              //     setBusType({
-              //       label: defaultLabel,
-              //       value: '',
-              //     });
-              //     await TroberLogger('BookBusSubmitSuccess');
-              //   } catch (e: unknown) {
-              //     if (e instanceof Error) {
-              //       await TroberLogger('BookBusSubmitFailed', {
-              //         error: e.message,
-              //       });
-              //     }
-              //     console.log(e);
-              //   }
-              // })}
+                clearErrorsDaily();
+                console.log({ data });
+                try {
+                  await axiosInstance.post(
+                    '/waitlist/saveUserRouteToWaitlist',
+                    {
+                      ...data,
+                      subscription: subscription.value,
+                    }
+                  );
+                  resetDaily(defaultValuesDaily);
+                  setSubscription({
+                    label: 'Subscription',
+                    value: '',
+                  });
+                  await TroberLogger('BookBusSubmitSuccess');
+                } catch (e: unknown) {
+                  if (e instanceof Error) {
+                    await TroberLogger('BookBusSubmitFailed', {
+                      error: e.message,
+                    });
+                  }
+                  console.log(e);
+                }
+              })}
             >
               <input
                 type="text"
                 placeholder="Full name"
-                className={`w-full py-3 pl-4 mx-2 my-3 border rounded-lg ${
-                  errors.fullName ? errorBorder : defaultBorder
+                className={`w-full py-3 px-4 mx-2 my-3 border rounded-lg ${
+                  errorsDaily.name ? errorBorder : defaultBorder
                 }`}
-                {...register('fullName', {
+                {...registerDaily('name', {
                   required: 'Please Enter your full name',
                 })}
               />
               <input
+                type="number"
                 placeholder="Phone Number"
-                className={`w-full py-3 pl-4 mx-2 my-3 border rounded-lg ${
-                  errors.phoneNumber ? errorBorder : defaultBorder
+                className={`w-full py-3 px-4 mx-2 my-3 border rounded-lg ${
+                  errorsDaily.phoneNumber ? errorBorder : defaultBorder
                 }`}
-                {...register('phoneNumber', {
+                {...registerDaily('phoneNumber', {
                   required: 'Please enter your phone number',
                   minLength: 9,
                 })}
@@ -239,20 +255,20 @@ const Form = ({ display }: FormProps) => {
               <input
                 type="text"
                 placeholder="Pickup Bus Stop"
-                className={`w-full py-3 pl-4 mx-2 my-3 border rounded-lg ${
-                  errors.destination ? errorBorder : defaultBorder
+                className={`w-full py-3 px-4 mx-2 my-3 border rounded-lg ${
+                  errorsDaily.pickupLocation ? errorBorder : defaultBorder
                 }`}
-                {...register('destination', {
+                {...registerDaily('pickupLocation', {
                   required: 'Please enter your pickup bus stop',
                 })}
               />
               <input
                 type="text"
                 placeholder="Dropoff Bus Stop"
-                className={`w-full py-3 pl-4 mx-2 my-3 border rounded-lg ${
-                  errors.duration ? errorBorder : defaultBorder
+                className={`w-full py-3 px-4 mx-2 my-3 border rounded-lg ${
+                  errorsDaily.dropoffLocation ? errorBorder : defaultBorder
                 }`}
-                {...register('duration', {
+                {...registerDaily('dropoffLocation', {
                   required: 'Please enter your dropoff bus stop',
                 })}
               />
@@ -261,6 +277,10 @@ const Form = ({ display }: FormProps) => {
                   subscription.label === 'Subscription' ? 'gray' : 'black'
                 }
                 options={[
+                  {
+                    value: 'payasyougo',
+                    label: 'Pay As You Go',
+                  },
                   {
                     value: 'Weekly',
                     label: 'Weekly',
@@ -324,7 +344,7 @@ const Form = ({ display }: FormProps) => {
               <input
                 type="text"
                 placeholder="Full name"
-                className={`w-full py-3 pl-4 mx-2 my-3 border rounded-lg ${
+                className={`w-full py-3 px-4 mx-2 my-3 border rounded-lg ${
                   errors.fullName ? errorBorder : defaultBorder
                 }`}
                 {...register('fullName', {
@@ -333,7 +353,7 @@ const Form = ({ display }: FormProps) => {
               />
               <input
                 placeholder="Phone Number"
-                className={`w-full py-3 pl-4 mx-2 my-3 border rounded-lg ${
+                className={`w-full py-3 px-4 mx-2 my-3 border rounded-lg ${
                   errors.phoneNumber ? errorBorder : defaultBorder
                 }`}
                 {...register('phoneNumber', {
@@ -344,7 +364,7 @@ const Form = ({ display }: FormProps) => {
               <input
                 type="text"
                 placeholder="Where will you be going?"
-                className={`w-full py-3 pl-4 mx-2 my-3 border rounded-lg ${
+                className={`w-full py-3 px-4 mx-2 my-3 border rounded-lg ${
                   errors.destination ? errorBorder : defaultBorder
                 }`}
                 {...register('destination', {
@@ -371,9 +391,9 @@ const Form = ({ display }: FormProps) => {
                 setBusType={setBusType}
               />
               <input
-                type="text"
+                type="number"
                 placeholder="How long will you need it for? (days)"
-                className={`w-full py-3 pl-4 mx-2 my-3 border rounded-lg ${
+                className={`w-full py-3 px-4 mx-2 my-3 border rounded-lg ${
                   errors.duration ? errorBorder : defaultBorder
                 }`}
                 {...register('duration', {
@@ -446,7 +466,7 @@ const Form = ({ display }: FormProps) => {
               />
               <input
                 type="text"
-                placeholder="Email (Preferable company email)"
+                placeholder="Email (Preferably company email)"
                 className={`w-full py-4 pl-4 mx-2 border rounded-lg my-7 ${
                   errorsBusiness.email ? errorBorder : defaultBorder
                 }`}

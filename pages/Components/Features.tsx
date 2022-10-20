@@ -19,7 +19,7 @@ const Features = ({
 }: FeatureProps) => {
   return (
     <div
-      className={` rounded-3xl py-10 md:m-0 md:rounded-none flex md:h-96 lg:h-128 flex-col md:flex-row justify-between mx-2 my-10 shadow-xl ${background} ${
+      className={` rounded-3xl lg:items-center py-10 md:py-0 md:m-0 md:rounded-none flex md:h-96 lg:h-128 flex-col md:flex-row justify-between mx-2 my-10 shadow-xl ${background} ${
         reverse
           ? 'md:flex-row-reverse lg:pl-64 md:pl-36 md:pr-24'
           : 'md:pr-0 md:pl-24'
@@ -33,7 +33,7 @@ const Features = ({
       <div className="flex flex-col pt-10 md:pt-24 md:w-6/12 lg:w-3/6 md:pb-44">
         <Heading text={header} color={reverse ? 'featuresheader' : 'white'} />
         <p
-          className={`mt-5 px-5 md:px-0 text-sm lg:text-xl text-center md:text-base md:text-left font-medium tracking-wide md:w-4/6 lg:w-5/6 ${
+          className={`mt-5 px-5 md:px-0 text-sm lg:text-xl text-center md:text-base md:text-left font-medium tracking-wide md:w-5/6 ${
             reverse ? 'text-featuresdescription' : 'text-white'
           }`}
         >

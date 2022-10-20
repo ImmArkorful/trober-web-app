@@ -69,7 +69,7 @@ const Header: NextPage = () => {
           <ul className="md:flex md:flex-row">
             <li className="flex flex-row items-center my-2">
               <Link href="/">
-                <a className="mr-5 text-xl duration-500 hover:text-cyan-500">
+                <a className="mr-5 text-xl duration-500 hover:text-[#ACFE14]">
                   About Us
                 </a>
               </Link>
@@ -81,7 +81,7 @@ const Header: NextPage = () => {
               <Link href="/">
                 <a
                   href="/"
-                  className="mr-5 text-xl duration-500 hover:text-cyan-500"
+                  className="mr-5 text-xl duration-500 hover:text-[#ACFE14]"
                 >
                   Services
                 </a>
@@ -94,7 +94,7 @@ const Header: NextPage = () => {
               <Link href="/">
                 <a
                   href="/"
-                  className="mr-5 text-xl duration-500 hover:text-cyan-500"
+                  className="mr-5 text-xl duration-500 hover:text-[#ACFE14]"
                 >
                   Partners
                 </a>
@@ -107,7 +107,7 @@ const Header: NextPage = () => {
               <Link href="/">
                 <a
                   href="/"
-                  className="mr-5 text-xl duration-500 hover:text-cyan-500"
+                  className="mr-5 text-xl duration-500 hover:text-[#ACFE14]"
                 >
                   Media
                 </a>
