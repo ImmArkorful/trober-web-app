@@ -4,18 +4,23 @@ import Link from 'next/link';
 import { BiMenu } from 'react-icons/bi';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import disableScroll from 'disable-scroll';
+import { useDispatch } from 'react-redux';
 import ArrowRight from './ArrowRight';
+import useNavBarVisible from '../hooks/useNavBarVisible';
+import { setActiveTab } from '../store/form/formTab';
 
 const Header: NextPage = () => {
-  const [menuActive, setMenuActive] = useState(false);
+  const { isVisible, setIsVisible } = useNavBarVisible();
+  const dispatch = useDispatch();
+
   const [menuStyle, setMenuStyle] = useState('opacity-0 top-[-400px]');
 
   const toggleMenuActive = () => {
-    setMenuActive(!menuActive);
+    setIsVisible(!isVisible);
   };
   const handleToggleMenu = () => {
-    !menuActive ? disableScroll.on() : disableScroll.off();
-    !menuActive
+    !isVisible ? disableScroll.on() : disableScroll.off();
+    !isVisible
       ? setMenuStyle(
           'transition-all ease-in duration-500 top-[70px] opacity-100'
         )
@@ -31,7 +36,7 @@ const Header: NextPage = () => {
             className="inline h-8 md:h-14"
             src="https://res.cloudinary.com/troberapp-com/image/upload/v1665265209/Web%20app%20assets/Web/Trober_logo1_3_dhkgng.svg"
           />
-          {menuActive ? (
+          {isVisible ? (
             <AiOutlineCloseCircle
               title="Hamburger menu Icon to trigger mobile view navigation bar"
               role="button"
@@ -63,7 +68,7 @@ const Header: NextPage = () => {
         </div>
         <div
           className={`${menuStyle} ${
-            menuActive && 'h-screen items-center'
+            isVisible && 'h-screen items-center'
           } bg-primary font-semibold md:mt-0 text-white justify-around flex-col pb-32 sm:pb-0 md:flex-row flex md:items-center z-50 md:z-auto md:static absolute w-full left-0 md:w-auto md:pl-0 pl-7 md:opacity-100 `}
         >
           <ul className="md:flex md:flex-row">
@@ -119,6 +124,11 @@ const Header: NextPage = () => {
           </ul>
           <div className="flex flex-row justify-center w-full md:hidden">
             <button
+              onClick={() => {
+                dispatch(setActiveTab(1));
+                window.scrollTo({ top: 300, behavior: 'smooth' });
+                handleToggleMenu();
+              }}
               type="button"
               className="p-3 bg-white rounded-xl text-primary"
             >
@@ -126,6 +136,11 @@ const Header: NextPage = () => {
             </button>
             <div className="w-1/12" />
             <button
+              onClick={() => {
+                dispatch(setActiveTab(2));
+                window.scrollTo({ top: 300, behavior: 'smooth' });
+                handleToggleMenu();
+              }}
               type="button"
               className="p-3 text-white border border-white bg-primary rounded-xl"
             >

@@ -79,7 +79,7 @@ const Home: NextPage = () => {
             description="You can save a seat for a whole week or month ahead on our clean, safe, comfortable and high quality buses. You can save a seat for a whole week or month ahead on our clean, safe, comfortable and high quality buses. "
             list={false}
             reverse
-            src="https://img.freepik.com/free-vector/subscriber-concept-illustration_114360-2949.jpg?w=2000"
+            src="https://res.cloudinary.com/troberapp-com/image/upload/v1666173924/Web%20app%20assets/new/Trober_Icons_subscrry_vo3mng.svg"
           />
           <Features
             background="bg-gradient-to-r from-gradientstart to-gradientend"
