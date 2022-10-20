@@ -33,9 +33,12 @@ const HeadAndTags = () => {
       <meta property="og:locale" content="en_US" />
       <meta httpEquiv="X-UA-Compatible" content="IE=7" />
       <meta property="og:title" content="Trober - Move with ease" />
-      <meta property="og:site_name" content="Trober" />
+      <meta property="og:site_name" content="Trober - Move with ease" />
       <meta property="og:url" content="https://troberapp.com" />
-      <meta property="og:image" content="https://troberapp.com/trober.ico" />
+      <meta
+        property="og:image"
+        content="https://troberapp.com/trobericon.png"
+      />
     </Head>
   );
 };
