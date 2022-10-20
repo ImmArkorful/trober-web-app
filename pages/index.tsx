@@ -67,24 +67,24 @@ const Home: NextPage = () => {
           />
           <Features
             background="bg-gradient-to-r from-gradientstart to-gradientend"
-            header="Subscription"
-            description="You can save a seat for a whole week or month ahead on our clean, safe, comfortable and high quality buses. "
+            header="Tracking"
+            description="No need to wait for long hours at bus stops. Get an estimate of your pickup and drop-off time. No need to wait for long hours at bus stops. Get an estimate of your pickup and drop-off time. "
             list={false}
             reverse={false}
-            src="https://res.cloudinary.com/troberapp-com/image/upload/v1665770711/Web%20app%20assets/new%20assets/Trober_Icons_subscriptt_mxiktt.svg"
+            src="https://res.cloudinary.com/troberapp-com/image/upload/v1665236060/Web%20app%20assets/Web/Trober_trackingicon_laptop_vpx8wx.svg"
           />
           <Features
             background="bg-white"
-            header="Tracking"
-            description="No need to wait for long hours at bus stops. Get an estimate of your pickup and drop-off time. "
+            header="Subscription"
+            description="You can save a seat for a whole week or month ahead on our clean, safe, comfortable and high quality buses. You can save a seat for a whole week or month ahead on our clean, safe, comfortable and high quality buses. "
             list={false}
             reverse
-            src="https://res.cloudinary.com/troberapp-com/image/upload/v1665236060/Web%20app%20assets/Web/Trober_trackingicon_laptop_vpx8wx.svg"
+            src="https://img.freepik.com/free-vector/subscriber-concept-illustration_114360-2949.jpg?w=2000"
           />
           <Features
             background="bg-gradient-to-r from-gradientstart to-gradientend"
             header="Smart Routing"
-            description="To increase ridership and minimise travel time, we use data to determine and optimise routes for our fleet of buses."
+            description="To increase ridership and minimise travel time, we use data to determine and optimise routes for our fleet of buses. To increase ridership and minimise travel time, we use data to determine and optimise routes for our fleet of buses. "
             list={false}
             reverse={false}
             src="https://res.cloudinary.com/troberapp-com/image/upload/v1665236061/Web%20app%20assets/Web/Trober_route_icon_laptop_ib74i4.svg"
