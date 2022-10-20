@@ -2,12 +2,15 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { makeStyles } from '@mui/styles';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useSelector, useDispatch } from 'react-redux';
 import SelectDropDown from './Select';
 import axiosInstance from '../../../utils/axiosInstance';
 import SuccessModal from '../Modal';
 import TroberLogger from '../../../utils/logEvent';
+import { RootState } from '../../store/store';
+import { setActiveTab } from '../../store/form/formTab';
 
 const customStyles = {
   content: {
@@ -75,6 +78,13 @@ function a11yProps(index: number) {
 const Form = ({ display }: FormProps) => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
+  const dispatch = useDispatch();
+  const activeTab = useSelector((state: RootState) => state.form.activeTab);
+
+  useEffect(() => {
+    console.log(activeTab);
+  }, [activeTab]);
+
   function openModal() {
     setIsOpen(true);
   }
@@ -138,7 +148,6 @@ const Form = ({ display }: FormProps) => {
     defaultValues: defaultValuesDaily,
   });
   const classes = useStyles();
-  const [value, setValue] = useState(0);
 
   const handleChange = async (
     event: React.SyntheticEvent,
@@ -147,7 +156,7 @@ const Form = ({ display }: FormProps) => {
     newValue === 0
       ? await TroberLogger('SwitchBookBus')
       : await TroberLogger('SwitchBusiness');
-    setValue(newValue);
+    dispatch(setActiveTab(newValue));
   };
 
   return (
@@ -163,7 +172,7 @@ const Form = ({ display }: FormProps) => {
           }}
         >
           <Tabs
-            value={value}
+            value={activeTab}
             onChange={handleChange}
             aria-label="basic tabs example"
             className={classes.tabs}
@@ -194,7 +203,7 @@ const Form = ({ display }: FormProps) => {
             />
           </Tabs>
         </Box>
-        <TabPanel value={value} index={0}>
+        <TabPanel value={activeTab} index={0}>
           <div className="flex flex-col items-center font-normal tracking-wide text-left lg:px-8">
             <p className="pb-5 md:px-10 lg:px-0">
               Book a Trober for your daily commute. We will pick you up at your
@@ -308,7 +317,7 @@ const Form = ({ display }: FormProps) => {
             </form>
           </div>
         </TabPanel>
-        <TabPanel value={value} index={1}>
+        <TabPanel value={activeTab} index={1}>
           <div className="flex flex-col items-center font-normal tracking-wide text-left lg:px-8">
             <p className="pb-5 md:px-10 lg:px-0">
               Get access to our large network of vehicle partners to create a
@@ -416,7 +425,7 @@ const Form = ({ display }: FormProps) => {
             </form>
           </div>
         </TabPanel>
-        <TabPanel value={value} index={2}>
+        <TabPanel value={activeTab} index={2}>
           <div className="flex flex-col items-center font-normal tracking-wide text-left lg:px-8">
             <p className="pb-5 md:px-10 lg:px-0">
               Get access to our large network of vehicle partners to create a
