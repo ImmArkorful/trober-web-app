@@ -27,6 +27,10 @@ const HeadAndTags = () => {
         content="Trober is an online platform here to redefine the public transport system. Simply book a seat on Trober and move with ease"
       />
       <meta
+        property="og:description"
+        content="Trober is an online platform here to redefine the public transport system. Simply book a seat on Trober and move with ease"
+      />
+      <meta
         name="keywords"
         content="trober travel transport trotro ridesharing ghana minibus trasportation comfort ride convenience timely public transport shared mobility carbon offset projects in ghana africa west africa sub suhara africa trober"
       />
@@ -37,7 +41,7 @@ const HeadAndTags = () => {
       <meta property="og:url" content="https://troberapp.com" />
       <meta
         property="og:image"
-        content="https://troberapp.com/trobericon.png"
+        content="https://troberapp.com/trobericon.jpg"
       />
     </Head>
   );
