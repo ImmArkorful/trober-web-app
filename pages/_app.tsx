@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { initializeApp } from 'firebase/app';
 import { Analytics, getAnalytics } from 'firebase/analytics';
 import { Provider } from 'react-redux';
-import { store } from './store/store';
+import { store } from '../store/store';
 import firebaseConfig from '../utils/contants';
 
 const app = initializeApp(firebaseConfig);

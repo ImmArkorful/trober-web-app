@@ -9,8 +9,8 @@ import SelectDropDown from './Select';
 import axiosInstance from '../../../utils/axiosInstance';
 import SuccessModal from '../Modal';
 import TroberLogger from '../../../utils/logEvent';
-import { RootState } from '../../store/store';
-import { setActiveTab } from '../../store/form/formTab';
+import { RootState } from '../../../store/store';
+import { setActiveTab } from '../../../store/form/formTab';
 
 const customStyles = {
   content: {

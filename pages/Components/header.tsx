@@ -6,8 +6,8 @@ import { AiOutlineCloseCircle } from 'react-icons/ai';
 import disableScroll from 'disable-scroll';
 import { useDispatch } from 'react-redux';
 import ArrowRight from './ArrowRight';
-import useNavBarVisible from '../hooks/useNavBarVisible';
-import { setActiveTab } from '../store/form/formTab';
+import useNavBarVisible from '../../hooks/useNavBarVisible';
+import { setActiveTab } from '../../store/form/formTab';
 
 const Header: NextPage = () => {
   const { isVisible, setIsVisible } = useNavBarVisible();
