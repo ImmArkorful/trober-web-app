@@ -68,7 +68,7 @@ const Home: NextPage = () => {
           <Features
             background="bg-gradient-to-r from-gradientstart to-gradientend"
             header="Tracking"
-            description="No need to wait for long hours at bus stops. Get an estimate of your pickup and drop-off time. No need to wait for long hours at bus stops. Get an estimate of your pickup and drop-off time. "
+            description="Track your ride in real time. No need to wait for long hours at bus stops. Get an estimate of your pickup and drop-off time. "
             list={false}
             reverse={false}
             src="https://res.cloudinary.com/troberapp-com/image/upload/v1665236060/Web%20app%20assets/Web/Trober_trackingicon_laptop_vpx8wx.svg"
@@ -76,7 +76,7 @@ const Home: NextPage = () => {
           <Features
             background="bg-white"
             header="Subscription"
-            description="You can save a seat for a whole week or month ahead on our clean, safe, comfortable and high quality buses. You can save a seat for a whole week or month ahead on our clean, safe, comfortable and high quality buses. "
+            description="Subscribe and save a seat. You can save a seat for a whole week or month ahead on our clean, safe, comfortable and high quality buses. "
             list={false}
             reverse
             src="https://res.cloudinary.com/troberapp-com/image/upload/v1666173924/Web%20app%20assets/new/Trober_Icons_subscrry_vo3mng.svg"
@@ -84,7 +84,7 @@ const Home: NextPage = () => {
           <Features
             background="bg-gradient-to-r from-gradientstart to-gradientend"
             header="Smart Routing"
-            description="To increase ridership and minimise travel time, we use data to determine and optimise routes for our fleet of buses. To increase ridership and minimise travel time, we use data to determine and optimise routes for our fleet of buses. "
+            description="Reduced stops, less traffic. To increase ridership and minimise travel time, we use data to determine and optimise routes for our fleet of buses. "
             list={false}
             reverse={false}
             src="https://res.cloudinary.com/troberapp-com/image/upload/v1665236061/Web%20app%20assets/Web/Trober_route_icon_laptop_ib74i4.svg"
