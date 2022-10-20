@@ -2,7 +2,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { makeStyles } from '@mui/styles';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelector, useDispatch } from 'react-redux';
 import SelectDropDown from './Select';
@@ -80,10 +80,6 @@ const Form = ({ display }: FormProps) => {
 
   const dispatch = useDispatch();
   const activeTab = useSelector((state: RootState) => state.form.activeTab);
-
-  useEffect(() => {
-    console.log(activeTab);
-  }, [activeTab]);
 
   function openModal() {
     setIsOpen(true);
@@ -215,7 +211,6 @@ const Form = ({ display }: FormProps) => {
                 await TroberLogger('DailySubmitClicked');
                 openModal();
                 clearErrorsDaily();
-                console.log({ data });
                 try {
                   await axiosInstance.post(
                     '/waitlist/saveUserRouteToWaitlist',
