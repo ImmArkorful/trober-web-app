@@ -3,6 +3,7 @@ import { BsFacebook } from 'react-icons/bs';
 import { AiFillTwitterCircle } from 'react-icons/ai';
 import { ImInstagram } from 'react-icons/im';
 import { GrLinkedinOption } from 'react-icons/gr';
+import Link from 'next/link';
 import TroberLogger from '../../utils/logEvent';
 
 const Footer: NextPage = () => {
@@ -18,9 +19,11 @@ const Footer: NextPage = () => {
           <div className="flex flex-col justify-between md:flex-row lg:w-5/12">
             <div className="flex flex-col text-sm font-semibold text-white md:mx-3 lg:mx-0 md:text-lg">
               <p className="text-gray-500">Legal</p>
-              <a className="py-2 text-left hover:cursor-pointer">
-                Privacy Policy
-              </a>
+              <Link href="/privacypolicy">
+                <a className="py-2 text-left hover:cursor-pointer">
+                  Privacy Policy
+                </a>
+              </Link>
               <a className="py-2 text-left hover:cursor-pointer">Blog</a>
             </div>
             {/* <div className="flex flex-col text-sm font-semibold text-white md:mx-3 lg:mx-0 md:text-lg">

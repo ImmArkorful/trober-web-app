@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import type { NextPage } from 'next';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { BiMenu } from 'react-icons/bi';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import disableScroll from 'disable-scroll';
 import { useDispatch } from 'react-redux';
-import ArrowRight from './ArrowRight';
+// import ArrowRight from './ArrowRight';
 import useNavBarVisible from '../../hooks/useNavBarVisible';
 import { setActiveTab } from '../../store/form/formTab';
 
@@ -71,7 +71,7 @@ const Header: NextPage = () => {
             isVisible && 'h-screen items-center'
           } bg-primary font-semibold md:mt-0 text-white justify-around flex-col pb-32 sm:pb-0 md:flex-row flex md:items-center z-50 md:z-auto md:static absolute w-full left-0 md:w-auto md:pl-0 pl-7 md:opacity-100 `}
         >
-          <ul className="md:flex md:flex-row">
+          {/* <ul className="md:flex md:flex-row">
             <li className="flex flex-row items-center my-2">
               <Link href="/">
                 <a className="mr-5 text-xl duration-500 hover:text-[#ACFE14]">
@@ -121,7 +121,7 @@ const Header: NextPage = () => {
                 <ArrowRight />
               </div>
             </li>
-          </ul>
+          </ul> */}
           <div className="flex flex-row justify-center w-full md:hidden">
             <button
               onClick={() => {
