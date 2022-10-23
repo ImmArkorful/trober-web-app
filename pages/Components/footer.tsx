@@ -24,7 +24,14 @@ const Footer: NextPage = () => {
                   Privacy Policy
                 </a>
               </Link>
-              <a className="py-2 text-left hover:cursor-pointer">Blog</a>
+              <Link href="https://troberapp.medium.com/" passHref>
+                <a
+                  target="_blank"
+                  className="py-2 text-left hover:cursor-pointer"
+                >
+                  Blog
+                </a>
+              </Link>
             </div>
             {/* <div className="flex flex-col text-sm font-semibold text-white md:mx-3 lg:mx-0 md:text-lg">
               <p className="text-gray-500">Offerings</p>

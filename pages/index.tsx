@@ -28,8 +28,10 @@ const Home: NextPage = () => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 1,
           slidesToScroll: 1,
+          // centerMode: true,
+          // centerPadding: '0px',
           initialSlide: 0,
           appendDots: (dots: number) => {
             return <div className="bg-green-200 ">{dots}</div>;
@@ -93,32 +95,32 @@ const Home: NextPage = () => {
         <div className="flex justify-center lg:mt-44">
           <Heading text="Join the list of companies that trust Trober" />
         </div>
-        <div className="pt-12 pb-24 mx-12 lg:pt-24 lg:mx-72 lg:pb-44">
+        <div className="pt-12 pb-24 mx-24 lg:pt-24 lg:mx-72 lg:pb-44">
           <Slider {...settings}>
             <div className="flex flex-row items-center">
               <img
-                className="h-10 sm:h-16"
+                className="h-20 sm:h-16 w-full"
                 src="https://res.cloudinary.com/troberapp-com/image/upload/v1665499566/Web%20app%20assets/Web/image_10_ur0o91.svg"
                 alt=""
               />
             </div>
-            <div className="">
+            <div className="flex flex-row items-center">
               <img
-                className="h-10 sm:h-16"
+                className="h-20 sm:h-16 w-full"
                 src="https://res.cloudinary.com/troberapp-com/image/upload/v1665499566/Web%20app%20assets/Web/image_11_l6sq0l.svg"
                 alt=""
               />
             </div>
-            <div className="">
+            <div className="flex flex-row items-center">
               <img
-                className="h-10 sm:h-16"
+                className="h-20 sm:h-16 w-full"
                 src="https://res.cloudinary.com/troberapp-com/image/upload/v1665499567/Web%20app%20assets/Web/image_12_xuculr.svg"
                 alt=""
               />
             </div>
-            <div className="">
+            <div className="flex flex-row items-center">
               <img
-                className="h-10 pr-5 ml-5 sm:h-16"
+                className="h-20 pr-5 ml-5 sm:h-16 w-full"
                 src="https://res.cloudinary.com/troberapp-com/image/upload/v1665499567/Web%20app%20assets/Web/explore_1_hm6dwn.svg"
                 alt=""
               />
