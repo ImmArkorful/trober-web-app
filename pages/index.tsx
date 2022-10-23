@@ -30,9 +30,10 @@ const Home: NextPage = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          // centerMode: true,
-          // centerPadding: '0px',
+          autoplay: true,
+          autoplaySpeed: 2000,
           initialSlide: 0,
+          infinite: true,
           appendDots: (dots: number) => {
             return <div className="bg-green-200 ">{dots}</div>;
           },
