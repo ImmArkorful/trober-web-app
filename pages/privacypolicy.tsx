@@ -1,7 +1,7 @@
 /* eslint-disable */
 const PrivacyPolicy = () => {
   return (
-    <div>
+    <div className="p-10">
       <div>
         <style
           dangerouslySetInnerHTML={{
