@@ -4,14 +4,19 @@ import type { NextPage } from 'next';
 import { BiMenu } from 'react-icons/bi';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import disableScroll from 'disable-scroll';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // import ArrowRight from './ArrowRight';
 import useNavBarVisible from '../../hooks/useNavBarVisible';
 import { setActiveTab } from '../../store/form/formTab';
+import { RootState } from '../../store/store';
+
+const buttonActive = 'bg-white text-primary';
+const inactiveButton = 'text-white border border-white bg-primary';
 
 const Header: NextPage = () => {
   const { isVisible, setIsVisible } = useNavBarVisible();
   const dispatch = useDispatch();
+  const activeTab = useSelector((state: RootState) => state.form.activeTab);
 
   const [menuStyle, setMenuStyle] = useState('opacity-0 top-[-400px]');
 
@@ -122,7 +127,20 @@ const Header: NextPage = () => {
               </div>
             </li>
           </ul> */}
-          <div className="flex flex-row justify-center w-full md:hidden">
+          <div className="flex flex-row gap-3 justify-center w-full md:hidden">
+            <button
+              onClick={() => {
+                dispatch(setActiveTab(0));
+                window.scrollTo({ top: 300, behavior: 'smooth' });
+                handleToggleMenu();
+              }}
+              type="button"
+              className={`p-3 rounded-xl ${
+                activeTab === 0 ? buttonActive : inactiveButton
+              }`}
+            >
+              Daily Ride
+            </button>
             <button
               onClick={() => {
                 dispatch(setActiveTab(1));
@@ -130,11 +148,12 @@ const Header: NextPage = () => {
                 handleToggleMenu();
               }}
               type="button"
-              className="p-3 bg-white rounded-xl text-primary"
+              className={`p-3 rounded-xl ${
+                activeTab === 1 ? buttonActive : inactiveButton
+              }`}
             >
               Book Bus
             </button>
-            <div className="w-1/12" />
             <button
               onClick={() => {
                 dispatch(setActiveTab(2));
@@ -142,7 +161,9 @@ const Header: NextPage = () => {
                 handleToggleMenu();
               }}
               type="button"
-              className="p-3 text-white border border-white bg-primary rounded-xl"
+              className={`p-3 rounded-xl ${
+                activeTab === 2 ? buttonActive : inactiveButton
+              }`}
             >
               For Business
             </button>
