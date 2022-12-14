@@ -39,7 +39,7 @@ module.exports = {
   plugins: ['@typescript-eslint', 'react'],
   rules: {
     '@typescript-eslint/no-unused-vars': 'error',
-    '@typescript-eslint/no-explicit-any': 'error',
+    '@typescript-eslint/no-explicit-any': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': [
       1,
@@ -72,5 +72,6 @@ module.exports = {
     'import/no-unresolved': 'off',
     'react/function-component-definition': 'off',
     'no-unused-expressions': 'off',
+    'sonarjs/cognitive-complexity': 'off',
   },
 };
