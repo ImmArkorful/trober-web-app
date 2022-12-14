@@ -11,6 +11,7 @@ import SuccessModal from '../Modal';
 import TroberLogger from '../../../utils/logEvent';
 import { RootState } from '../../../store/store';
 import { setActiveTab } from '../../../store/form/formTab';
+import Spinner from '../Svgs/Spinner.jsx';
 
 const customStyles = {
   content: {
@@ -75,8 +76,49 @@ function a11yProps(index: number) {
   };
 }
 
+interface ButtonProps {
+  isLoading: boolean;
+}
+
+interface ErrorButtonProps {
+  error: string;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+}
+const Button = (props: ButtonProps) => {
+  const { isLoading } = props;
+  return (
+    <div>
+      <button
+        className="self-center px-10 py-2 mt-5 text-white rounded-lg shadow-xl md:py-4 md:px-16 bg-gradient-to-r from-gradientstart to-gradientend"
+        type="submit"
+        value="Submit"
+      >
+        {isLoading ? <Spinner /> : 'Submit'}
+      </button>
+    </div>
+  );
+};
+
+const ErrorButton = (props: ErrorButtonProps) => {
+  const { error, onClick } = props;
+  return (
+    <div className="self-center mt-5 ">
+      {error}
+      <button
+        className="text-red-500 underline cursor-pointer ml-3"
+        type="button"
+        onClick={onClick}
+      >
+        Try Again?
+      </button>
+    </div>
+  );
+};
+
 const Form = ({ display }: FormProps) => {
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const dispatch = useDispatch();
   const activeTab = useSelector((state: RootState) => state.form.activeTab);
@@ -229,8 +271,8 @@ const Form = ({ display }: FormProps) => {
             <form
               className="flex flex-col items-start w-full"
               onSubmit={handleSubmitDaily(async (data) => {
+                setIsLoading(true);
                 await TroberLogger('DailySubmitClicked');
-                openModal();
                 clearErrorsDaily();
                 try {
                   await axiosInstance.post(
@@ -246,13 +288,17 @@ const Form = ({ display }: FormProps) => {
                     value: '',
                   });
                   await TroberLogger('BookBusSubmitSuccess');
-                } catch (e: unknown) {
+                  setIsLoading(false);
+                  openModal();
+                } catch (e: any) {
                   if (e instanceof Error) {
                     await TroberLogger('BookBusSubmitFailed', {
                       error: e.message,
                     });
                   }
-                  console.log(e);
+
+                  setIsLoading(false);
+                  setError(e.message);
                 }
               })}
             >
@@ -323,13 +369,13 @@ const Form = ({ display }: FormProps) => {
                   {errors.duration.message}
                 </span>
               )} */}
-              <button
-                className="self-center px-10 py-2 mt-5 text-white rounded-lg shadow-xl md:py-4 md:px-16 bg-gradient-to-r from-gradientstart to-gradientend"
-                type="submit"
-                value="Submit"
-              >
-                Submit
-              </button>
+              <div className="self-center">
+                {error ? (
+                  <ErrorButton error={error} onClick={() => setError('')} />
+                ) : (
+                  <Button isLoading={isLoading} />
+                )}
+              </div>
             </form>
           </div>
         </TabPanel>
@@ -343,7 +389,7 @@ const Form = ({ display }: FormProps) => {
               className="flex flex-col items-start w-full"
               onSubmit={handleSubmit(async (data) => {
                 await TroberLogger('BookBusSubmitClicked');
-                openModal();
+                setIsLoading(true);
                 clearErrors();
                 try {
                   await axiosInstance.post('/booking/rental', {
@@ -356,13 +402,17 @@ const Form = ({ display }: FormProps) => {
                     value: '',
                   });
                   await TroberLogger('BookBusSubmitSuccess');
-                } catch (e: unknown) {
+                  setIsLoading(false);
+                  openModal();
+                } catch (e: any) {
                   if (e instanceof Error) {
                     await TroberLogger('BookBusSubmitFailed', {
                       error: e.message,
                     });
                   }
-                  console.log(e);
+
+                  setIsLoading(false);
+                  setError(e.message);
                 }
               })}
             >
@@ -431,13 +481,13 @@ const Form = ({ display }: FormProps) => {
                   {errors.duration.message}
                 </span>
               )} */}
-              <button
-                className="self-center px-10 py-2 mt-5 text-white rounded-lg shadow-xl md:py-4 md:px-16 bg-gradient-to-r from-gradientstart to-gradientend"
-                type="submit"
-                value="Submit"
-              >
-                Submit
-              </button>
+              <div className="self-center">
+                {error ? (
+                  <ErrorButton error={error} onClick={() => setError('')} />
+                ) : (
+                  <Button isLoading={isLoading} />
+                )}
+              </div>
             </form>
           </div>
         </TabPanel>
@@ -451,7 +501,7 @@ const Form = ({ display }: FormProps) => {
               className="flex flex-col items-start w-full"
               onSubmit={handleSubmiteBusiness(async (businessdata) => {
                 await TroberLogger('BusinessSubmitClicked');
-                openModal();
+                setIsLoading(true);
                 clearErrorsBusiness();
                 try {
                   await axiosInstance.post('/booking/business', {
@@ -459,13 +509,17 @@ const Form = ({ display }: FormProps) => {
                   });
                   resetBusiness(defaultValuesBusiness);
                   await TroberLogger('BusinessSubmitSuccess');
-                } catch (e: unknown) {
+                  setIsLoading(false);
+                  openModal();
+                } catch (e: any) {
                   if (e instanceof Error) {
                     await TroberLogger('BusinessSubmitFailed', {
                       error: e.message,
                     });
                   }
-                  console.log(e);
+
+                  setIsLoading(false);
+                  setError(e.message);
                 }
               })}
             >
@@ -503,13 +557,13 @@ const Form = ({ display }: FormProps) => {
                   },
                 })}
               />
-              <button
-                className="self-center px-10 py-2 mt-5 text-white rounded-lg shadow-xl md:py-4 md:px-16 bg-gradient-to-r from-gradientstart to-gradientend"
-                type="submit"
-                value="Submit"
-              >
-                Submit
-              </button>
+              <div className="self-center">
+                {error ? (
+                  <ErrorButton error={error} onClick={() => setError('')} />
+                ) : (
+                  <Button isLoading={isLoading} />
+                )}
+              </div>
             </form>
           </div>
         </TabPanel>
