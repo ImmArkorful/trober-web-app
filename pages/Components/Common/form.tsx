@@ -155,6 +155,21 @@ const Form = ({ display }: FormProps) => {
     dispatch(setActiveTab(newValue));
   };
 
+  // added code
+  const handleReset = () => {
+    resetDaily(defaultValuesDaily);
+    resetBusiness(defaultValuesBusiness);
+    reset(defaultValuesRental);
+    setBusType({
+      label: defaultLabel,
+      value: '',
+    });
+    setSubscription({
+      label: 'Subscription',
+      value: '',
+    });
+  };
+
   return (
     <div
       className={`${display} bg-white  mb:48 mb-5 flex items-center justify-center mx-2 md:mx-20 shadow-lg lg:mx-20 bg-darkgray md:bg-graybg rounded-2xl md:w-6/6 lg:w-128`}
@@ -180,6 +195,8 @@ const Form = ({ display }: FormProps) => {
                 </span>
               }
               {...a11yProps(0)}
+              // added code
+              onClick={handleReset}
             />
             <Tab
               label={
@@ -188,6 +205,8 @@ const Form = ({ display }: FormProps) => {
                 </span>
               }
               {...a11yProps(0)}
+              // added code
+              onClick={handleReset}
             />
             <Tab
               label={
@@ -196,6 +215,8 @@ const Form = ({ display }: FormProps) => {
                 </span>
               }
               {...a11yProps(1)}
+              // added code
+              onClick={handleReset}
             />
           </Tabs>
         </Box>
