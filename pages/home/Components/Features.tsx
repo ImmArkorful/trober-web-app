@@ -1,4 +1,4 @@
-import Heading from './Common/heading';
+import Heading from '../../Components/Common/heading';
 
 interface FeatureProps {
   background: string;

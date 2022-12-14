@@ -1,5 +1,5 @@
-import Heading from './Common/heading';
-import IndividualOffering from './Common/individualOffering';
+import Heading from '../../Components/Common/heading';
+import IndividualOffering from '../../Components/Common/individualOffering';
 
 const Offerings = () => {
   return (
