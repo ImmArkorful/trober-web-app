@@ -1,6 +1,6 @@
 import Lottie from 'lottie-react';
 import Modal from 'react-modal';
-import successAnimation from './lottie/successAnimation.json';
+import successAnimation from '../../Components/lottie/successAnimation.json';
 
 interface ModalProps {
   modalIsOpen: boolean;
