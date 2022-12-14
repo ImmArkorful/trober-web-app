@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 import { useSelector, useDispatch } from 'react-redux';
 import SelectDropDown from './Select';
 import axiosInstance from '../../../utils/axiosInstance';
-import SuccessModal from '../Modal';
+import SuccessModal from '../../home/Components/Modal';
 import TroberLogger from '../../../utils/logEvent';
 import { RootState } from '../../../store/store';
 import { setActiveTab } from '../../../store/form/formTab';
@@ -246,7 +246,7 @@ const Form = ({ display }: FormProps) => {
                   Book Bus
                 </span>
               }
-              {...a11yProps(0)}
+              {...a11yProps(1)}
               // added code
               onClick={handleReset}
             />
@@ -256,7 +256,7 @@ const Form = ({ display }: FormProps) => {
                   For Business
                 </span>
               }
-              {...a11yProps(1)}
+              {...a11yProps(2)}
               // added code
               onClick={handleReset}
             />

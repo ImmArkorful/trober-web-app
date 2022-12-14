@@ -1,13 +1,13 @@
 /* eslint-disable react/no-unstable-nested-components */
 import type { NextPage } from 'next';
 import Slider from 'react-slick';
-import About from './Components/about';
+import About from './home/Components/about';
 import Banner from './Components/banner';
 import Heading from './Components/Common/heading';
-import Features from './Components/Features';
+import Features from './home/Components/Features';
 import Footer from './Components/footer';
 import Header from './Components/header';
-import Offerings from './Components/offerings';
+import Offerings from './home/Components/offerings';
 
 const Home: NextPage = () => {
   const settings = {
