@@ -24,6 +24,12 @@ module.exports = {
         112: '28rem',
         128: '32rem',
       },
+      backgroundImage: {
+        'businesswoman-image':
+          "url('/images/businesswoman-riding-bus-work.jpg')",
+        'businesswoman-mobile-bg': "url('/images/mobile-contactUs-bg.jpg')",
+        'businesswoman-large-bg': "url('/images/business-woman-largeSC.jpg')",
+      },
     },
   },
   plugins: [],
