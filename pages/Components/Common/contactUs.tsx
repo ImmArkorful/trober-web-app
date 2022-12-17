@@ -4,7 +4,7 @@ const ContactUs = () => {
   return (
     <div className="w-full my-32  md:min-h-[70%] 2xl:min-h-[90%] flex flex-col items-center justify-between p-14 2xl:py-44 bg-businesswoman-mobile-bg md:bg-businesswoman-image 2xl:bg-business-woman-largeSC bg-cover object-cover ">
       <span className="text-3xl underline text-white decoration-underlinecolor">
-        Contact Us
+        Contact Us Us
       </span>
       <div className="mt-24 flex flex-col items-center  md:flex-row md:justify-evenly w-full mb-10 2xl:px-44">
         <div className="flex flex-col items-center justify-center">
