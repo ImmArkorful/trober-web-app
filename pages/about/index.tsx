@@ -51,70 +51,81 @@ const AboutPage: NextPage = () => {
           <h1 className="decoration-underlinecolor underline text-3xl mb-10">
             Our Core Values
           </h1>
-          <div className="flex flex-row md:flex-col md:m-10">
-            <div className="grid gird-rows-3 md:grid-cols-3 items-start justify-evenly md:m-5">
-              <div className="flex flex-row p-5 ">
-                <NurturingRelationships />
-                <div className="ml-2 ">
-                  <h1 className="text-lg font-bold">Nurturing Relationships</h1>
-                  <p className="mt-5">
-                    Relationships matter to us. We prioritize the wellbeing of
-                    our employees, partners and customers.
-                  </p>
+          <div className="flex flex-row md:flex-col md:m-10 gap-x-2 md:gap-0">
+            <div className="grid grid-row-3 md:grid-cols-3 gap-5  items-start justify-evenly mb-5">
+              <div className="grid grid-rows-2 grid-cols-3">
+                <div className=" flex items-center justify-center">
+                  <NurturingRelationships />
                 </div>
+                <h1 className="text-lg font-bold col-span-2  flex items-center justify-start">
+                  Nurturing Relationships
+                </h1>
+                <p className="col-start-2 col-span-2   justify-self-start ">
+                  Relationships matter to us. We prioritize the wellbeing of our
+                  employees, partners and customers.
+                </p>
               </div>
-              <div className="flex flex-row p-5">
-                <Intergrity />
-                <div className="ml-2 ">
-                  <h1 className="text-lg font-bold">Integrity</h1>
-                  <p className="mt-5">
-                    Our word is our bond. We stay true to our values and walk
-                    the talk.
-                  </p>
+              <div className="grid grid-rows-2 grid-cols-3">
+                <div className=" flex items-center justify-center">
+                  <Intergrity />
                 </div>
+                <h1 className="text-lg font-bold col-span-2  flex items-center justify-start">
+                  Integrity
+                </h1>
+                <p className="col-start-2 col-span-2   justify-self-start ">
+                  Relationships matter to us. We prioritize the wellbeing of our
+                  employees, partners and customers.
+                </p>
               </div>
-              <div className="flex flex-row p-5">
-                <ImpactDriven />
-                <div className="ml-2 ">
-                  <h1 className="text-lg font-bold">Impact-Driven</h1>
-                  <p className="mt-5">
-                    Shared mobility for sustainable cities. We are saving the
-                    planet by ensuring mass transportation to reduce CO2
-                    emissions.
-                  </p>
+              <div className="grid grid-rows-2 grid-cols-3">
+                <div className=" flex items-center justify-center">
+                  <ImpactDriven />
                 </div>
+                <h1 className="text-lg font-bold col-span-2  flex items-center justify-start">
+                  Impact-driven
+                </h1>
+                <p className="col-start-2 col-span-2   justify-self-start ">
+                  Relationships matter to us. We prioritize the wellbeing of our
+                  employees, partners and customers.
+                </p>
               </div>
             </div>
-            <div className="grid gird-rows-3 md:grid-cols-3 items-start justify-evenly  md:m-5">
-              <div className="flex flex-row p-5">
-                <Teamwork />
-                <div className="ml-2 ">
-                  <h1 className="text-lg font-bold">Teamwork</h1>
-                  <p className="mt-5">
-                    Alone we can do little but together, we can do so much. We
-                    work together to make Trober a reality.
-                  </p>
+            <div className="grid grid-row-3 md:grid-cols-3 gap-5 items-start justify-evenly">
+              <div className="grid grid-rows-2 grid-cols-3">
+                <div className=" flex items-center justify-center">
+                  <Teamwork />
                 </div>
+                <h1 className="text-lg font-bold col-span-2  flex items-center justify-start">
+                  Teamwork
+                </h1>
+                <p className="col-start-2 col-span-2   justify-self-start ">
+                  Relationships matter to us. We prioritize the wellbeing of our
+                  employees, partners and customers.
+                </p>
               </div>
-              <div className="flex flex-row p-5">
-                <BeProductive />
-                <div className="ml-2 ">
-                  <h1 className="text-lg font-bold">Be Productive</h1>
-                  <p className="mt-5">
-                    Effective and efficient work output. We pride ourseves in
-                    providing services that meets high quality standards.
-                  </p>
+              <div className="grid grid-rows-2 grid-cols-3">
+                <div className=" flex items-center justify-center">
+                  <BeProductive />
                 </div>
+                <h1 className="text-lg font-bold col-span-2  flex items-center justify-start">
+                  Be Productive
+                </h1>
+                <p className="col-start-2 col-span-2   justify-self-start ">
+                  Relationships matter to us. We prioritize the wellbeing of our
+                  employees, partners and customers.
+                </p>
               </div>
-              <div className="flex flex-row p-5">
-                <Innovation />
-                <div className="ml-2 ">
-                  <h1 className="text-lg font-bold">Innovation</h1>
-                  <p className="mt-5">
-                    We continuously improve our products and services with a
-                    customer focused approach.
-                  </p>
+              <div className="grid grid-rows-2 grid-cols-3">
+                <div className=" flex items-center justify-center">
+                  <Innovation />
                 </div>
+                <h1 className="text-lg font-bold col-span-2 flex items-center justify-start">
+                  Innovation
+                </h1>
+                <p className="col-start-2 col-span-2  justify-self-start ">
+                  Relationships matter to us. We prioritize the wellbeing of our
+                  employees, partners and customers.
+                </p>
               </div>
             </div>
           </div>
