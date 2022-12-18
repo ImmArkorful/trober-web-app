@@ -5,8 +5,8 @@ import { BiMenu } from 'react-icons/bi';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import disableScroll from 'disable-scroll';
 import { useDispatch, useSelector } from 'react-redux';
-import { useRouter } from 'next/router';
-import ArrowRight from './ArrowRight';
+// import { useRouter } from 'next/router';
+// import ArrowRight from './ArrowRight';
 import useNavBarVisible from '../../hooks/useNavBarVisible';
 import { setActiveTab } from '../../store/form/formTab';
 import { RootState } from '../../store/store';
@@ -15,7 +15,7 @@ const buttonActive = 'bg-white text-primary';
 const inactiveButton = 'text-white border border-white bg-primary';
 
 const Header: NextPage = () => {
-  const router = useRouter();
+  // const router = useRouter();
   const { isVisible, setIsVisible } = useNavBarVisible();
   const dispatch = useDispatch();
   const activeTab = useSelector((state: RootState) => state.form.activeTab);
@@ -35,24 +35,24 @@ const Header: NextPage = () => {
     toggleMenuActive();
   };
 
-  const routes = [
-    {
-      route: '/about',
-      name: 'About Us',
-    },
-    {
-      route: '/services',
-      name: 'Services',
-    },
-    {
-      route: '/partners',
-      name: 'Partners',
-    },
-    {
-      route: '/media',
-      name: 'Media',
-    },
-  ];
+  // const routes = [
+  //   {
+  //     route: '/about',
+  //     name: 'About Us',
+  //   },
+  //   {
+  //     route: '/services',
+  //     name: 'Services',
+  //   },
+  //   {
+  //     route: '/partners',
+  //     name: 'Partners',
+  //   },
+  //   {
+  //     route: '/media',
+  //     name: 'Media',
+  //   },
+  // ];
 
   return (
     <header>
@@ -60,7 +60,7 @@ const Header: NextPage = () => {
         <div className="flex items-center justify-between">
           <Link href="/">
             <img
-              alt=""
+              alt="Trober Logo"
               className="inline h-8 md:h-14 hover:cursor-pointer"
               src="https://res.cloudinary.com/troberapp-com/image/upload/v1665265209/Web%20app%20assets/Web/Trober_logo1_3_dhkgng.svg"
             />
@@ -100,7 +100,7 @@ const Header: NextPage = () => {
             isVisible && 'h-screen items-center'
           } bg-primary font-semibold md:mt-0 text-white justify-around flex-col pb-32 sm:pb-0 md:flex-row flex md:items-center z-50 md:z-auto md:static absolute w-full left-0 md:w-auto md:pl-0 pl-7 md:opacity-100 `}
         >
-          <ul className="md:flex md:flex-row">
+          {/* <ul className="md:flex md:flex-row">
             {routes.map((route) => {
               return (
                 <li
@@ -122,7 +122,7 @@ const Header: NextPage = () => {
                 </li>
               );
             })}
-          </ul>
+          </ul> */}
           <div className="flex flex-row gap-3 justify-center w-full md:hidden">
             <button
               onClick={() => {
