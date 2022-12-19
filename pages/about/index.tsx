@@ -25,9 +25,9 @@ const AboutPage: NextPage = () => {
         <div className="h-screen w-full flex flex-col md:flex-row items-center justify-evenly mt-16 md:mt-0  mb-16 md:mb-0">
           <div
             className="rounded-lg bg-gradient-to-r from-gradientstart to-gradientend
-         text-white w-[40%] 2xl:w-[30%] h-112 flex flex-col items-center justify-center p-5 mb-10 md:mb-0"
+         text-white w-[70%] md:w-[40%] 2xl:w-[30%] h-112 flex flex-col items-center justify-center p-5 mb-10 md:mb-0"
           >
-            <h1 className="decoration-underlinecolor underline text-3xl mb-9">
+            <h1 className="decoration-underlinecolor underline text-3xl text-center mb-9">
               Mission Statement
             </h1>
             <p className="text-center">
@@ -37,7 +37,7 @@ const AboutPage: NextPage = () => {
           </div>
           <div
             className="rounded-lg bg-gradient-to-r from-gradientstart to-gradientend
-         text-white w-[40%] 2xl:w-[30%] h-112 flex flex-col items-center justify-center p-5"
+         text-white w-[70%] md:w-[40%] 2xl:w-[30%] h-112 flex flex-col items-center justify-center p-5"
           >
             <h1 className="decoration-underlinecolor underline text-3xl mb-9">
               Vision
@@ -51,8 +51,8 @@ const AboutPage: NextPage = () => {
           <h1 className="decoration-underlinecolor underline text-3xl mb-10">
             Our Core Values
           </h1>
-          <div className="flex flex-row md:flex-col md:m-10 gap-x-2 md:gap-0">
-            <div className="grid grid-row-3 md:grid-cols-3 gap-5  items-start justify-evenly mb-5">
+          <div className="p-5 md:m-10 gap-x-2 md:gap-0">
+            <div className="grid frid-row-6 md:grid-row-3 lg:grid-row-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  items-start justify-evenly mb-5">
               <div className="grid grid-rows-2 grid-cols-3">
                 <div className=" flex items-center justify-center">
                   <NurturingRelationships />
@@ -89,8 +89,6 @@ const AboutPage: NextPage = () => {
                   employees, partners and customers.
                 </p>
               </div>
-            </div>
-            <div className="grid grid-row-3 md:grid-cols-3 gap-5 items-start justify-evenly">
               <div className="grid grid-rows-2 grid-cols-3">
                 <div className=" flex items-center justify-center">
                   <Teamwork />
