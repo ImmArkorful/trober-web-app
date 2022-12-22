@@ -5,13 +5,13 @@ import Footer from '../Components/footer';
 import Header from '../Components/header';
 import NoFormBanner from '../Components/noFormBanner';
 
-const ServicesPage: NextPage = () => {
+const Churches: NextPage = () => {
   return (
     <>
       <Header />
       <NoFormBanner
-        title="Trober for your Employees"
-        paragraph="The days of standing in queues and struggling to secure a seat on a bus are over. We connect you and other riders traveling along the same route with bus service providers."
+        title="Trober for your Church"
+        paragraph="The days of standing in queues and struggling to secure a seat on a bus are over. We connect you and other riders traveling along the same route with bus service providers. "
         buttonText="Get in Touch"
       />
       <Services />
@@ -21,4 +21,4 @@ const ServicesPage: NextPage = () => {
   );
 };
 
-export default ServicesPage;
+export default Churches;

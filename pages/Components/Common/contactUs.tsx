@@ -1,7 +1,8 @@
 const ContactUs = () => {
   return (
     <div
-      className={`w-full my-32  md:min-h-[70%] 2xl:min-h-[90%] flex flex-col items-center justify-between p-14 2xl:py-44 bg-businesswoman-mobile-bg md:bg-businesswoman-image 2xl:bg-business-woman-largeSC bg-cover object-cover `}
+      className={`w-full my-32  md:min-h-[70%] 2xl:min-h-[90%] flex flex-col items-center justify-between p-14 2xl:py-44 
+      md:bg-businesswoman-image  bg-businesswoman-mobile-bg bg-cover object-cover `}
     >
       <span className="text-3xl text-white underline decoration-underlinecolor">
         Contact Us

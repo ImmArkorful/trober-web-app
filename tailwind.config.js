@@ -28,7 +28,8 @@ module.exports = {
         'businesswoman-image':
           "url('/images/businesswoman-riding-bus-work.jpg')",
         'businesswoman-mobile-bg': "url('/images/mobile-contactUs-bg.jpg')",
-        'businesswoman-large-bg': "url('/images/business-woman-largeSC.jpg')",
+        'services-large': "url('/images/services-lg.jpg')",
+        'services-small': "url('/images/services-sm.jpg')",
       },
     },
   },

@@ -123,7 +123,7 @@ const Header: NextPage = () => {
               );
             })}
           </ul>
-          <div className="flex flex-row gap-3 justify-center w-full md:hidden">
+          <div className="flex flex-row justify-center w-full gap-3 md:hidden">
             <button
               onClick={() => {
                 dispatch(setActiveTab(0));
