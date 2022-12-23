@@ -4,6 +4,7 @@ import Footer from '../Components/footer';
 // import Header from '../Components/header';
 import TestHeader from '../Components/newTestHeader';
 import NoFormBanner from '../Components/noFormBanner';
+import AutomatedProcess from '../Components/Svgs/AutomatedProcess';
 import BusinessAnalytics from '../Components/Svgs/BusinessAnalytics';
 import ComfortableSeats from '../Components/Svgs/ComfortableSeats';
 
@@ -40,7 +41,7 @@ your business."
             </div>
             <div className="grid grid-cols-3 grid-rows-2">
               <div className="flex items-center justify-center ">
-                <BusinessAnalytics />
+                <AutomatedProcess />
               </div>
               <h1 className="flex items-center justify-start col-span-2 text-lg font-bold">
                 Automated Process
