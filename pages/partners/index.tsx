@@ -1,7 +1,8 @@
 import type { NextPage } from 'next';
 import ContactUs from '../Components/Common/contactUs';
 import Footer from '../Components/footer';
-import Header from '../Components/header';
+// import Header from '../Components/header';
+import TestHeader from '../Components/newTestHeader';
 import NoFormBanner from '../Components/noFormBanner';
 import BusinessAnalytics from '../Components/Svgs/BusinessAnalytics';
 import ComfortableSeats from '../Components/Svgs/ComfortableSeats';
@@ -9,7 +10,7 @@ import ComfortableSeats from '../Components/Svgs/ComfortableSeats';
 const PartnersPage: NextPage = () => {
   return (
     <>
-      <Header />
+      <TestHeader />
       <NoFormBanner
         title="Partner with us. Grow 
 your business."
@@ -63,6 +64,21 @@ your business."
             </div>
           </div>
         </div>
+        {/* <div className="relative w-full bg-gray-400 h-80">
+          <img
+            src="/images/bus-owner.jpg"
+            alt=""
+            className="absolute h-56 ml-16 w-128 -top-6"
+          />
+          <div className="h-48 bg-green-400 w-128 ml-[37rem] flex flex-col justify-end ">
+            <h1>Bus Owners</h1>
+            <p>
+              Earn extra income by listing your bus on our platform. We can
+              assist in getting a driver for your bus even if you do not have
+              one.
+            </p>
+          </div>
+        </div> */}
       </div>
       <ContactUs />
       <Footer />

@@ -1,7 +1,8 @@
 import type { NextPage } from 'next';
 import ContactUs from '../Components/Common/contactUs';
 import Footer from '../Components/footer';
-import Header from '../Components/header';
+// import Header from '../Components/header';
+import TestHeader from '../Components/newTestHeader';
 import NoFormBanner from '../Components/noFormBanner';
 import BeProductive from '../Components/Svgs/BeProductive';
 import ImpactDriven from '../Components/Svgs/ImpactDriven';
@@ -13,7 +14,7 @@ import Teamwork from '../Components/Svgs/Teamwork';
 const AboutPage: NextPage = () => {
   return (
     <>
-      <Header />
+      <TestHeader />
 
       <div className=" bg-pagebg">
         <NoFormBanner
