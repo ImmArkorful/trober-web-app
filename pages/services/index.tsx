@@ -16,7 +16,10 @@ const ServicesPage: NextPage = () => {
         buttonText="Get in Touch"
       />
       <Services />
-      <ContactUs />
+      <ContactUs
+        backgroundLg="md:bg-businessMan-large"
+        backgroundSm="bg-businessMan-small"
+      />
       <Footer />
     </>
   );

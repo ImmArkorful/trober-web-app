@@ -16,7 +16,7 @@ const Events: NextPage = () => {
         buttonText="Get in Touch"
       />
       <Services />
-      <ContactUs />
+      <ContactUs backgroundLg="md:bg-events-lg" backgroundSm="bg-events-sm" />
       <Footer />
     </>
   );

@@ -16,7 +16,7 @@ const Churches: NextPage = () => {
         buttonText="Get in Touch"
       />
       <Services />
-      <ContactUs />
+      <ContactUs backgroundLg="md:bg-church-lg" backgroundSm="bg-church-sm" />
       <Footer />
     </>
   );

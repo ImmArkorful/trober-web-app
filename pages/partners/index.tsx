@@ -84,7 +84,10 @@ your business."
           />
         </div>
       </div>
-      <ContactUs />
+      <ContactUs
+        backgroundLg="md:bg-businesswoman-image"
+        backgroundSm="bg-businesswoman-mobile-bg"
+      />
       <Footer />
     </>
   );

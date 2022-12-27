@@ -130,7 +130,10 @@ const AboutPage: NextPage = () => {
             </div>
           </div>
         </div>
-        <ContactUs />
+        <ContactUs
+          backgroundLg="md:bg-businesswoman-image"
+          backgroundSm="bg-businesswoman-mobile-bg"
+        />
         <Footer />
       </div>
     </>

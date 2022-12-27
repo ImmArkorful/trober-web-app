@@ -1,8 +1,12 @@
-const ContactUs = () => {
+interface ContactUsProps {
+  backgroundLg: string;
+  backgroundSm: string;
+}
+const ContactUs = ({ backgroundLg, backgroundSm }: ContactUsProps) => {
   return (
     <div
       className={`w-full my-32  md:min-h-[70%] 2xl:min-h-[90%] flex flex-col items-center justify-between py-14 2xl:py-44 
-      md:bg-businesswoman-image  bg-businesswoman-mobile-bg bg-cover object-cover `}
+      ${backgroundLg}  ${backgroundSm} bg-cover object-cover `}
     >
       <span className="text-3xl text-white underline decoration-underlinecolor">
         Contact Us

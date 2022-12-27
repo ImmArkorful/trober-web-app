@@ -16,7 +16,7 @@ const School: NextPage = () => {
         buttonText="Get in Touch"
       />
       <Services />
-      <ContactUs />
+      <ContactUs backgroundLg="md:bg-school-lg" backgroundSm="bg-school-sm" />
       <Footer />
     </>
   );
