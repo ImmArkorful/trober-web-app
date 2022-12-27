@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import ContactUs from '../Components/Common/contactUs';
+import PartnersFlyer from '../Components/Common/partnersFlyer';
 import Footer from '../Components/footer';
 // import Header from '../Components/header';
 import TestHeader from '../Components/newTestHeader';
@@ -65,21 +66,26 @@ your business."
             </div>
           </div>
         </div>
-        {/* <div className="relative w-full bg-gray-400 h-80">
-          <img
-            src="/images/bus-owner.jpg"
-            alt=""
-            className="absolute h-56 ml-16 w-128 -top-6"
+        <div className="flex flex-col gap-20">
+          <PartnersFlyer
+            image="images/bus-owner.jpg"
+            underLinedHeading="Bus Owner"
+            heading="s"
+            text="Earn extra income by listing your bus on our platform. We can assist in getting a driver for your bus even if you do not have one. "
           />
-          <div className="h-48 bg-green-400 w-128 ml-[37rem] flex flex-col justify-end ">
-            <h1>Bus Owners</h1>
-            <p>
-              Earn extra income by listing your bus on our platform. We can
-              assist in getting a driver for your bus even if you do not have
-              one.
-            </p>
-          </div>
-        </div> */}
+          <PartnersFlyer
+            image="images/manager.jpg"
+            underLinedHeading="Fleet Mana"
+            heading="gers"
+            text="Increase orders for rides and reduce idle mileage by onboarding your drivers and fleet of buses. "
+          />
+          <PartnersFlyer
+            image="images/investors.jpg"
+            underLinedHeading="Investors"
+            heading=""
+            text="Invest in Trober and lets move the masses with shared rides to save the planet. Less cars on our roads means less pollution. "
+          />
+        </div>
       </div>
       <ContactUs />
       <Footer />
