@@ -1,14 +1,14 @@
 const ContactUs = () => {
   return (
     <div
-      className={`w-full my-32  md:min-h-[70%] 2xl:min-h-[90%] flex flex-col items-center justify-between p-14 2xl:py-44 
+      className={`w-full my-32  md:min-h-[70%] 2xl:min-h-[90%] flex flex-col items-center justify-between py-14 2xl:py-44 
       md:bg-businesswoman-image  bg-businesswoman-mobile-bg bg-cover object-cover `}
     >
       <span className="text-3xl text-white underline decoration-underlinecolor">
         Contact Us
       </span>
       <form className="flex flex-col items-center justify-center w-full">
-        <div className="flex flex-col items-center w-full mt-24 md:flex-row md:justify-evenly mb-102xl:px-44">
+        <div className="flex flex-col items-center w-full px-10 mt-16 lg:mt-24 md:flex-row md:justify-evenly mb-102xl:px-44">
           <div className="flex flex-col items-center justify-center w-full ">
             <input
               type="text"

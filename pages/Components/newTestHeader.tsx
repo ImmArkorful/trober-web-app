@@ -33,32 +33,41 @@ interface DropDownProps {
 const DropDown = ({ page, open, router, onClick }: DropDownProps) => {
   return (
     <div>
-      <div className="absolute flex flex-row items-center">
+      <div className="flex flex-row items-center md:absolute">
         <button
           type="button"
           className={`flex flex-row items-center hover:cursor-pointer ${
             router.pathname.includes(page.route) && color
-          } mr-5 text-xl duration-500 hover:${color}`}
+          } mr-5 text-xl duration-500 hover:${color} pr-3`}
           onClick={onClick}
         >
           {page.name}
-          {open ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
+          <div className="hidden md:block">
+            {open ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
+          </div>
         </button>
+        <div className={`block ${open && 'rotate-90'} md:hidden`}>
+          <ArrowRight />
+        </div>
       </div>
       <nav
-        className={`relative bg-primary top-[4rem] w-28 py-2 ${
-          open ? 'block' : 'hidden'
+        className={`bg-primary md:top-[4rem] w-32 py-2 pr-4 md:px-4 md:right-4 transition-all ease-in duration-300 ${
+          open
+            ? 'relative opacity-100'
+            : 'absolute opacity-0 -z-10 transition-none'
         }`}
       >
         <ul>
           {page.subMenu.map((menu) => (
             <li
-              className={` font-normal border-b-[1px] border-dotted mx-1`}
+              className={` font-normal border-[#EDF5F450] ${
+                menu.name !== 'Churches' && 'border-b-[1px]'
+              } border-dotted mx-1`}
               key={menu.name}
             >
               <Link href={menu.route}>
                 <a
-                  className={`flex flex-row items-center ${
+                  className={`flex flex-row items-center px-2 ${
                     router.pathname === menu.route && color
                   }`}
                 >
@@ -189,7 +198,7 @@ const TestHeader: NextPage = () => {
                   className="flex flex-row items-center my-2"
                   key={route.name}
                 >
-                  <div className="h-8 w-28">
+                  <div className="h-full md:h-8 w-28">
                     {route.dropdown ? (
                       <DropDown
                         page={route}
@@ -209,9 +218,11 @@ const TestHeader: NextPage = () => {
                       </Link>
                     )}
                   </div>
-                  <div className="block md:hidden">
-                    <ArrowRight />
-                  </div>
+                  {route.name !== 'Services' && (
+                    <div className="block md:hidden">
+                      <ArrowRight />
+                    </div>
+                  )}
                 </li>
               );
             })}

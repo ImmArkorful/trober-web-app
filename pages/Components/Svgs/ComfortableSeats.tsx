@@ -2,28 +2,35 @@ import React from 'react';
 
 const ComfortableSeats = () => {
   return (
-    <div>
-      <svg
-        width="41"
-        height="61"
-        viewBox="0 0 41 61"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M31.4262 59.3948H12.8096L14.448 49.4033H29.7959L31.4262 59.3948Z"
-          stroke="#101235"
-          strokeWidth="4"
-          strokeLinejoin="round"
+    <svg
+      width="32"
+      height="47"
+      viewBox="0 0 32 47"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+    >
+      <rect width="32" height="47" fill="url(#seats)" />
+      <defs>
+        <pattern
+          id="seats"
+          patternContentUnits="objectBoundingBox"
+          width="1"
+          height="1"
+        >
+          <use
+            xlinkHref="#image0_57_683"
+            transform="scale(0.03125 0.0212766)"
+          />
+        </pattern>
+        <image
+          id="image0_57_683"
+          width="32"
+          height="47"
+          xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAvCAYAAACCLMghAAAC8UlEQVRYhb2YO3ITQRCG/38sChExcogDTEaGVEixRU4V5gQq3wBuYIoDcATszKFvYBHzEiGZnLgIhwhVWaUmmJnd1Ure7ZVG7qqt1WMe3/zb09s9RMGsfXkMcgRgCNJCMAXlDIv5uXOTKXZg9BN3Ldj6DPJ4bSsRB+Er575OUgMYjxEmFwEQLwAi/iItKFfWDrrJAaztD7PJSXhR6P8lw2+IEJ+SA4B4F2aobukBh6lVMACONPNnSkCGaQFIq2opsQcTKyDyV9UyEwAv0gIAzbYWkVgB0gcYqWlZaJPSEQ0gHoAKgtxREwIs2CDESuy1AwU0jyBKIJISYO6dkHWBoMjBo2QAzk1cox7ipUrliCYM+kXdI7EjmnB3AaRBTzlMB8AQjFRuEB0RSd4JHmARFNARREsSkuMj8ApoH0FIUqztbv0YAsB8w3xvb2tHNACQJZzaWBCbJXg1m+yT4Je6l2T3rR0xB4DoA1Iu1NaOmAMQ4wCiI0jkiGb1J60fxGy5tVWmnM1mbX8Iw6s8Pa8z8WKRgGACwRlqs6vb63KFVQAYdGHw0w/aYAlq4Kz9GML3scpa6mn3Bw1eBsVBw0iVgYyFxFYcRE6c+365DNDpT0E+3QhCZQIII6yDzHtlJ9xJBZwbc6VIC/PgdBmAnETQezGRN8sAi5gh73jiQsFbfgT3qwDWrDVzxKbbsYkVtu5qJBSehg87mh3FhZ3vlf+bzW4m7UcHz0B2/b7mDpQIAy5u364AAMDs381lu/2kB/J5HmA2UURK8IUvC5w492O8FgAAZrObi/bDg2tAetkZQjyy0V4o3POq6tpHwW8XJaS7zdpBF8RHEK9F5DeBP7WdsupJPoQVO4DjjU/abKc/tvsDsbavyoJspz/17asrqDX5wJ0WBpprVxDCulQeAakA/EEmHwOAupaMGZapzhuVCrT86pvUkHmxU5myKQHCIGxymJEVO5UALdVQRg7DhhnZ/cGoAUTtWYJOgUbHOCWrqTf+A0/i+4gwXZ/5AAAAAElFTkSuQmCC"
         />
-        <path
-          d="M17.2179 31.138L17.2198 31.1473L17.2217 31.1565C17.5817 32.8676 18.5196 34.4026 19.8777 35.5042C21.2358 36.6057 22.9315 37.2067 24.6803 37.2068H24.6803H33.9244H33.9252C34.9584 37.2064 35.967 37.521 36.8163 38.1084C37.6656 38.6957 38.3151 39.5279 38.6783 40.4935C38.9651 41.2597 39.062 42.0838 38.9608 42.8956C38.8596 43.7081 38.5628 44.4841 38.0958 45.1573C37.6288 45.8304 37.0054 46.3805 36.2789 46.7606C35.5525 47.1407 34.7446 47.3392 33.9244 47.3393C33.9244 47.3393 33.9244 47.3393 33.9243 47.3393H14.1191H14.1186C12.3434 47.3397 10.6275 46.7016 9.2848 45.5419L8.03484 46.9892L9.2848 45.5419C7.94284 44.383 7.06324 42.7805 6.80623 41.0275C6.80609 41.0266 6.80595 41.0256 6.80581 41.0247L2.0458 7.75383C2.01641 7.52758 2.00112 7.29972 2.00001 7.07156C1.99878 6.40675 2.12865 5.74817 2.38224 5.13345C2.63611 4.51807 3.009 3.95867 3.47966 3.4873C3.95032 3.01592 4.50949 2.64186 5.12515 2.38663C5.74083 2.13139 6.40091 2 7.06759 2H7.21947C8.39111 2.00103 9.52614 2.40692 10.4321 3.14857C11.338 3.89017 11.9592 4.92179 12.1905 6.06831C12.1906 6.06859 12.1906 6.06887 12.1907 6.06916L17.2179 31.138Z"
-          fill="#EDF5F4"
-          stroke="#78CA04"
-          strokeWidth="4"
-        />
-      </svg>
-    </div>
+      </defs>
+    </svg>
   );
 };
 
