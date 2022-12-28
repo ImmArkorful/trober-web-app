@@ -6,8 +6,9 @@ import Banner from './Components/banner';
 import Heading from './Components/Common/heading';
 import Features from './home/Components/Features';
 import Footer from './Components/footer';
-import Header from './Components/header';
+// import Header from './Components/header';
 import Offerings from './home/Components/offerings';
+import TestHeader from './Components/newTestHeader';
 
 const Home: NextPage = () => {
   const settings = {
@@ -46,7 +47,7 @@ const Home: NextPage = () => {
   };
   return (
     <>
-      <Header />
+      <TestHeader />
       <div className="bg-pagebg">
         <Banner />
         <About />
@@ -100,28 +101,28 @@ const Home: NextPage = () => {
           <Slider {...settings}>
             <div className="flex flex-row items-center">
               <img
-                className="h-20 sm:h-16 w-full"
+                className="w-full h-20 sm:h-16"
                 src="https://res.cloudinary.com/troberapp-com/image/upload/v1665499566/Web%20app%20assets/Web/image_10_ur0o91.svg"
                 alt=""
               />
             </div>
             <div className="flex flex-row items-center">
               <img
-                className="h-20 sm:h-16 w-full"
+                className="w-full h-20 sm:h-16"
                 src="https://res.cloudinary.com/troberapp-com/image/upload/v1665499566/Web%20app%20assets/Web/image_11_l6sq0l.svg"
                 alt=""
               />
             </div>
             <div className="flex flex-row items-center">
               <img
-                className="h-20 sm:h-16 w-full"
+                className="w-full h-20 sm:h-16"
                 src="https://res.cloudinary.com/troberapp-com/image/upload/v1665499567/Web%20app%20assets/Web/image_12_xuculr.svg"
                 alt=""
               />
             </div>
             <div className="flex flex-row items-center">
               <img
-                className="h-20 pr-5 ml-5 sm:h-16 w-full"
+                className="w-full h-20 pr-5 ml-5 sm:h-16"
                 src="https://res.cloudinary.com/troberapp-com/image/upload/v1665499567/Web%20app%20assets/Web/explore_1_hm6dwn.svg"
                 alt=""
               />

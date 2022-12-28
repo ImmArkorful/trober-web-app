@@ -3,6 +3,7 @@ import type { NextPage } from 'next';
 import Link from 'next/link';
 import { BiMenu } from 'react-icons/bi';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
+import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 import disableScroll from 'disable-scroll';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
@@ -11,14 +12,85 @@ import useNavBarVisible from '../../hooks/useNavBarVisible';
 import { setActiveTab } from '../../store/form/formTab';
 import { RootState } from '../../store/store';
 
+const color = 'text-[#ACFE14]';
+
+interface DropDownProps {
+  page: {
+    route: string;
+    name: string;
+    subMenu: {
+      route: string;
+      name: string;
+    }[];
+  };
+  open: boolean;
+  router: {
+    pathname: string;
+  };
+  onClick: any;
+}
+
+const DropDown = ({ page, open, router, onClick }: DropDownProps) => {
+  return (
+    <div>
+      <div className="flex flex-row items-center md:absolute">
+        <button
+          type="button"
+          className={`flex flex-row items-center hover:cursor-pointer ${
+            router.pathname.includes(page.route) && color
+          } mr-5 text-xl duration-500 hover:${color} pr-3`}
+          onClick={onClick}
+        >
+          {page.name}
+          <div className="hidden md:block">
+            {open ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
+          </div>
+        </button>
+        <div className={`block ${open && 'rotate-90'} md:hidden`}>
+          <ArrowRight />
+        </div>
+      </div>
+      <nav
+        className={`bg-primary md:top-[4rem] w-32 py-2 pr-4 md:px-4 md:right-4 transition-all ease-in duration-300 ${
+          open
+            ? 'relative opacity-100'
+            : 'absolute opacity-0 -z-10 transition-none'
+        }`}
+      >
+        <ul>
+          {page.subMenu.map((menu) => (
+            <li
+              className={` font-normal border-[#EDF5F450] ${
+                menu.name !== 'Churches' && 'border-b-[1px]'
+              } border-dotted mx-1`}
+              key={menu.name}
+            >
+              <Link href={menu.route}>
+                <a
+                  className={`flex flex-row items-center px-2 ${
+                    router.pathname === menu.route && color
+                  }`}
+                >
+                  {menu.name}
+                </a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+  );
+};
+
 const buttonActive = 'bg-white text-primary';
 const inactiveButton = 'text-white border border-white bg-primary';
 
-const Header: NextPage = () => {
+const TestHeader: NextPage = () => {
   const router = useRouter();
   const { isVisible, setIsVisible } = useNavBarVisible();
   const dispatch = useDispatch();
   const activeTab = useSelector((state: RootState) => state.form.activeTab);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const [menuStyle, setMenuStyle] = useState('opacity-0 top-[-400px]');
 
@@ -43,6 +115,25 @@ const Header: NextPage = () => {
     {
       route: '/services',
       name: 'Services',
+      dropdown: true,
+      subMenu: [
+        {
+          route: '/services',
+          name: 'Business',
+        },
+        {
+          route: '/services/school',
+          name: 'Schools',
+        },
+        {
+          route: '/services/events',
+          name: 'Events',
+        },
+        {
+          route: '/services/churches',
+          name: 'Churches',
+        },
+      ],
     },
     {
       route: '/partners',
@@ -107,18 +198,31 @@ const Header: NextPage = () => {
                   className="flex flex-row items-center my-2"
                   key={route.name}
                 >
-                  <Link href={route.route}>
-                    <a
-                      className={`${
-                        router.pathname === route.route && 'text-[#ACFE14]'
-                      } mr-5 text-xl duration-500 hover:text-[#ACFE14]`}
-                    >
-                      {route.name}
-                    </a>
-                  </Link>
-                  <div className="block md:hidden">
-                    <ArrowRight />
+                  <div className="h-full md:h-8 w-28">
+                    {route.dropdown ? (
+                      <DropDown
+                        page={route}
+                        open={menuOpen}
+                        router={router}
+                        onClick={() => setMenuOpen(!menuOpen)}
+                      />
+                    ) : (
+                      <Link href={route.route}>
+                        <a
+                          className={`${
+                            router.pathname === route.route && color
+                          } mr-5 text-xl duration-500 hover:${color}`}
+                        >
+                          {route.name}
+                        </a>
+                      </Link>
+                    )}
                   </div>
+                  {route.name !== 'Services' && (
+                    <div className="block md:hidden">
+                      <ArrowRight />
+                    </div>
+                  )}
                 </li>
               );
             })}
@@ -171,4 +275,4 @@ const Header: NextPage = () => {
   );
 };
 
-export default Header;
+export default TestHeader;
