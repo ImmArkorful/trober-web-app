@@ -10,11 +10,13 @@ const Footer: NextPage = () => {
   return (
     <footer className="bg-primary">
       <div className="flex flex-col items-start justify-between w-full py-5 text-white md:items-center md:py-12 lg:py-24 md:px-8 lg:px-16 md:flex-row ">
-        <img
-          alt=""
-          className="inline pl-5 h-14 md:pl-0"
-          src="https://res.cloudinary.com/troberapp-com/image/upload/v1665265209/Web%20app%20assets/Web/Trober_logo1_3_dhkgng.svg"
-        />
+        <Link href="/">
+          <img
+            alt="Trober Logo"
+            className="inline pl-5 h-14 md:pl-0 hover:cursor-pointer"
+            src="https://res.cloudinary.com/troberapp-com/image/upload/v1665265209/Web%20app%20assets/Web/Trober_logo1_3_dhkgng.svg"
+          />
+        </Link>
         <div className="flex flex-row justify-between w-full px-5 md:w-9/12 lg:justify-around lg:w-6/12">
           <div className="flex flex-col justify-between md:flex-row lg:w-5/12">
             <div className="flex flex-col text-sm font-semibold text-white md:mx-3 lg:mx-0 md:text-lg">

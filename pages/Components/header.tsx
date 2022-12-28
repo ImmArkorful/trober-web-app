@@ -60,7 +60,7 @@ const Header: NextPage = () => {
         <div className="flex items-center justify-between">
           <Link href="/">
             <img
-              alt=""
+              alt="Trober Logo"
               className="inline h-8 md:h-14 hover:cursor-pointer"
               src="https://res.cloudinary.com/troberapp-com/image/upload/v1665265209/Web%20app%20assets/Web/Trober_logo1_3_dhkgng.svg"
             />
