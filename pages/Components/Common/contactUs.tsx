@@ -1,14 +1,18 @@
-const ContactUs = () => {
+interface ContactUsProps {
+  backgroundLg: string;
+  backgroundSm: string;
+}
+const ContactUs = ({ backgroundLg, backgroundSm }: ContactUsProps) => {
   return (
-    <div className="w-full my-32  md:min-h-[70%] 2xl:min-h-[90%] flex flex-col items-center justify-between p-14 2xl:py-44 bg-businesswoman-mobile-bg md:bg-businesswoman-image 2xl:bg-business-woman-largeSC bg-cover object-cover ">
-      <span className="text-3xl underline text-white decoration-underlinecolor">
+    <div
+      className={`w-full my-32  md:min-h-[70%] 2xl:min-h-[90%] flex flex-col items-center justify-between py-14 2xl:py-44 
+      ${backgroundLg}  ${backgroundSm} bg-cover object-cover `}
+    >
+      <span className="text-3xl text-white underline decoration-underlinecolor">
         Contact Us
       </span>
-      <form
-        action=""
-        className="w-full flex flex-col items-center justify-center"
-      >
-        <div className="mt-24 flex flex-col items-center  md:flex-row md:justify-evenly w-full mb-102xl:px-44">
+      <form className="flex flex-col items-center justify-center w-full">
+        <div className="flex flex-col items-center w-full px-10 mt-16 lg:mt-24 md:flex-row md:justify-evenly mb-102xl:px-44">
           <div className="flex flex-col items-center justify-center w-full ">
             <input
               type="text"
@@ -26,7 +30,7 @@ const ContactUs = () => {
               placeholder="Email"
             />
           </div>
-          <div className="flex mt-4 md:mt-0 w-full md:items-end">
+          <div className="flex w-full mt-4 md:mt-0 md:items-end">
             <textarea
               name="message"
               id="message"
