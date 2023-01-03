@@ -6,7 +6,7 @@ const ContactUs = ({ backgroundLg, backgroundSm }: ContactUsProps) => {
   return (
     <div
       className={`w-full my-32  md:min-h-[70%] 2xl:min-h-[90%] flex flex-col items-center justify-between py-14 2xl:py-44 
-      ${backgroundLg}  ${backgroundSm} bg-cover object-cover `}
+      ${backgroundLg}  ${backgroundSm} bg-cover bg-center `}
     >
       <span className="text-3xl text-white underline decoration-underlinecolor">
         Contact Us
@@ -40,7 +40,7 @@ const ContactUs = ({ backgroundLg, backgroundSm }: ContactUsProps) => {
           </div>
         </div>
         <button
-          className="mt-2 bg-[#ACFE14] text-black rounded-xl p-3 w-32 font-bold "
+          className="mt-2 bg-[#ACFE14] hover:opacity-70 text-black rounded-xl p-3 w-32 font-bold "
           type="submit"
         >
           Submit
