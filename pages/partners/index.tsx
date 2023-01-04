@@ -39,7 +39,7 @@ your business."
       />
       <div className="flex flex-col items-center justify-center mt-32">
         <h1 className=" text-4xl md:text-5xl mb-5 text-[#0F1A37] font-semibold">
-          Why
+          <span>Why </span>
           <span className="underline decoration-underlinecolor">
             Join Trober
           </span>
@@ -68,18 +68,27 @@ your business."
             image="images/bus-owner.jpg"
             underLinedHeading="Bus Owner"
             heading="s"
+            headingSize="text-2xl"
+            borderSize="border-b-2"
+            arrowPresent
             text="Earn extra income by listing your bus on our platform. We can assist in getting a driver for your bus even if you do not have one. "
           />
           <PartnersFlyer
             image="images/manager.jpg"
             underLinedHeading="Fleet Mana"
             heading="gers"
+            headingSize="text-2xl"
+            borderSize="border-b-2"
+            arrowPresent
             text="Increase orders for rides and reduce idle mileage by onboarding your drivers and fleet of buses. "
           />
           <PartnersFlyer
             image="images/investors.jpg"
             underLinedHeading="Investors"
             heading=""
+            headingSize="text-2xl"
+            borderSize="border-b-2"
+            arrowPresent
             text="Invest in Trober and lets move the masses with shared rides to save the planet. Less cars on our roads means less pollution. "
           />
         </div>
