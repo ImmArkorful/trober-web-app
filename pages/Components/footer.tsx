@@ -12,37 +12,58 @@ const Footer: NextPage = () => {
       <div className="flex flex-col items-start justify-between w-full py-5 text-white md:items-center md:py-12 lg:py-24 md:px-8 lg:px-16 md:flex-row ">
         <img
           alt=""
-          className="inline pl-5 h-14 md:pl-0"
+          className="self-start inline h-16 pl-5 mb-6 lg:h-20 md:mb-0 md:pl-0"
           src="https://res.cloudinary.com/troberapp-com/image/upload/v1665265209/Web%20app%20assets/Web/Trober_logo1_3_dhkgng.svg"
         />
-        <div className="flex flex-row justify-between w-full px-5 md:w-9/12 lg:justify-around lg:w-6/12">
-          <div className="flex flex-col justify-between md:flex-row lg:w-5/12">
-            <div className="flex flex-col text-sm font-semibold text-white md:mx-3 lg:mx-0 md:text-lg">
-              <p className="text-gray-500">Legal</p>
-              <Link href="/privacypolicy">
-                <a className="py-2 text-left hover:cursor-pointer">
-                  Privacy Policy
-                </a>
-              </Link>
-              <Link href="https://troberapp.medium.com/" passHref>
-                <a
-                  target="_blank"
-                  className="py-2 text-left hover:cursor-pointer"
-                >
-                  Blog
-                </a>
-              </Link>
-            </div>
-            {/* <div className="flex flex-col text-sm font-semibold text-white md:mx-3 lg:mx-0 md:text-lg">
-              <p className="text-gray-500">Offerings</p>
-              <a className="py-2 text-left ">Business</a>
-              <a className="py-2 text-left ">Drive for us</a>
-              <a className="py-2 text-left ">Bus Partners</a>
-              <a className="py-2 text-left ">Blog</a>
-            </div> */}
+        <div className="grid justify-between w-full grid-cols-2 grid-rows-2 px-5 text-gray-500 md:mt-4 md:grid-cols-4 md:grid-rows-none md:w-9/12">
+          <div>
+            <h1 className="mb-6 font-extrabold text-white md:text-lg lg:text-xl">
+              Our Polices
+            </h1>
+            <ul className="flex flex-col gap-4">
+              <li className="cursor-pointer hover:opacity-70">
+                Privacy Policy
+              </li>
+              <li className="cursor-pointer hover:opacity-70">
+                Terms & Conditions
+              </li>
+            </ul>
           </div>
-          <div className="flex flex-col text-sm font-semibold text-white md:mx-3 lg:mx-0 md:text-lg">
-            <p className="text-gray-500">Contact us</p>
+          <div>
+            <h1 className="mb-6 font-extrabold text-white md:text-lg lg:text-xl">
+              Who we are
+            </h1>
+            <ul className="flex flex-col gap-4">
+              <Link href="/about">
+                <li className="cursor-pointer hover:opacity-70">About Us</li>
+              </Link>
+              <li className="cursor-pointer hover:opacity-70">Media</li>
+            </ul>
+          </div>
+          <div>
+            <h1 className="mb-6 font-extrabold text-white md:text-lg lg:text-xl">
+              Offerings
+            </h1>
+            <ul className="flex flex-col gap-4">
+              <Link href="/services">
+                <li className="cursor-pointer hover:opacity-70">Business</li>
+              </Link>
+              <Link href="/services/school">
+                <li className="cursor-pointer hover:opacity-70">Schools</li>
+              </Link>
+              <Link href="/services/events">
+                <li className="cursor-pointer hover:opacity-70">Events</li>
+              </Link>
+              <Link href="/services/churches">
+                <li className="cursor-pointer hover:opacity-70">Churches</li>
+              </Link>
+            </ul>
+          </div>
+
+          <div className="flex flex-col text-sm font-semibold lg:mx-0 lg:text-lg">
+            <h1 className="mb-6 font-extrabold text-white md:text-lg lg:text-xl">
+              Contact us
+            </h1>
             <a
               onClick={async () => {
                 await TroberLogger('MailClicked');
@@ -61,7 +82,7 @@ const Footer: NextPage = () => {
             >
               +233 553 738 944
             </a>
-            <div className="flex justify-center py-2">
+            <div className="flex flex-row mt-14">
               <a href="https://web.facebook.com/groups/715306866452170">
                 <BsFacebook
                   onClick={async () => {
@@ -111,8 +132,8 @@ const Footer: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center pb-5 font-medium text-white md:text-base lg:text-2xl">
-        @Trober 2022
+      <div className="flex justify-center py-16 font-medium text-white border-t-8 border-[#ACFE14] md:text-base lg:text-2xl">
+        Copyright @ Trober Ltd. All Rights Reserved
       </div>
     </footer>
   );

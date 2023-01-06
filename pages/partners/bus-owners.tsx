@@ -16,6 +16,7 @@ const BusOwners = () => {
           headingSize="text-5xl  mb-14 md:mb-0"
           borderSize="border-b-8"
           text=""
+          route=""
           arrowPresent={false}
         />
       </div>
