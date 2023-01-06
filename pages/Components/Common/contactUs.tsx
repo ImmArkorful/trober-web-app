@@ -7,6 +7,7 @@ const ContactUs = ({ backgroundLg, backgroundSm }: ContactUsProps) => {
     <div
       className={`w-full my-32  md:min-h-[70%] 2xl:min-h-[90%] flex flex-col items-center justify-between py-14 2xl:py-44 
       ${backgroundLg}  ${backgroundSm} bg-cover bg-center `}
+      id="contact-form"
     >
       <span className="text-3xl text-white underline decoration-underlinecolor">
         Contact Us
