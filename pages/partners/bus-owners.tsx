@@ -13,11 +13,9 @@ const BusOwners = () => {
           image="/images/busOwnerspage.jpg"
           underLinedHeading="Bus Owner"
           heading="s"
-          headingSize="text-5xl  mb-14 md:mb-0"
-          borderSize="border-b-8"
+          pageFlyer
           text=""
           route=""
-          arrowPresent={false}
         />
       </div>
       <div className="flex flex-col items-center justify-center mt-24 mx-11 md:text-3xl">

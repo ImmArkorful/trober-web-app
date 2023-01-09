@@ -68,9 +68,7 @@ your business."
             image="images/bus-owner.jpg"
             underLinedHeading="Bus Owner"
             heading="s"
-            headingSize="text-2xl"
-            borderSize="border-b-2"
-            arrowPresent
+            pageFlyer={false}
             route="/partners/bus-owners"
             text="Earn extra income by listing your bus on our platform. We can assist in getting a driver for your bus even if you do not have one. "
           />
@@ -78,9 +76,7 @@ your business."
             image="images/manager.jpg"
             underLinedHeading="Fleet Mana"
             heading="gers"
-            headingSize="text-2xl"
-            borderSize="border-b-2"
-            arrowPresent
+            pageFlyer={false}
             route="/partners/fleet-managers"
             text="Increase orders for rides and reduce idle mileage by onboarding your drivers and fleet of buses. "
           />
@@ -88,9 +84,7 @@ your business."
             image="images/investors.jpg"
             underLinedHeading="Investors"
             heading=""
-            headingSize="text-2xl"
-            borderSize="border-b-2"
-            arrowPresent
+            pageFlyer={false}
             route="/partners/investors"
             text="Invest in Trober and lets move the masses with shared rides to save the planet. Less cars on our roads means less pollution. "
           />
