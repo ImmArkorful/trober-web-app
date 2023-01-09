@@ -10,14 +10,12 @@ const Investors = () => {
       <TestHeader />
       <div className="w-full mt-28">
         <PartnersFlyer
-          image="/images/fleetManagers.jpg"
+          image="https://res.cloudinary.com/troberapp-com/image/upload/v1673281545/Web%20app%20assets/Web/investors-lg_iucwdz.jpg"
           underLinedHeading="Investors"
           heading=""
-          headingSize="text-5xl mb-14 md:mb-0"
-          borderSize="border-b-8 pb-2"
+          pageFlyer
           text=""
           route=""
-          arrowPresent={false}
         />
       </div>
       <div className="flex flex-col items-center justify-center mt-24 mx-11 md:text-3xl">

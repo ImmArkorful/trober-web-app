@@ -26,16 +26,25 @@ module.exports = {
       },
       backgroundImage: {
         'businesswoman-image':
-          "url('/images/businesswoman-riding-bus-work.jpg')",
-        'businesswoman-mobile-bg': "url('/images/mobile-contactUs-bg.jpg')",
-        'businessMan-large': "url('/images/businessMan-lg.jpg')",
-        'businessMan-small': "url('/images/businessMan-sm.jpg')",
-        'school-lg': "url('/images/school-large.jpg')",
-        'school-sm': "url('/images/school-sm.jpg')",
-        'events-lg': "url('/images/events-lg.jpg')",
-        'events-sm': "url('/images/events-sm.jpg')",
-        'church-lg': "url('/images/church-lg.jpg')",
-        'church-sm': "url('/images/church-sm.jpg')",
+          "url('https://res.cloudinary.com/troberapp-com/image/upload/v1673280717/Web%20app%20assets/Web/business-woman-largeSC_mywuev.jpg')",
+        'businesswoman-mobile-bg':
+          "url('https://res.cloudinary.com/troberapp-com/image/upload/v1673280717/Web%20app%20assets/Web/businesswoman-riding-bus-work_ukx7ol.jpg')",
+        'businessMan-large':
+          "url('https://res.cloudinary.com/troberapp-com/image/upload/v1673281546/Web%20app%20assets/Web/businessMan-lg_sfljv1.jpg')",
+        'businessMan-small':
+          "url('https://res.cloudinary.com/troberapp-com/image/upload/v1673281542/Web%20app%20assets/Web/businessMan-sm_eek9rd.jpg')",
+        'school-lg':
+          "url('https://res.cloudinary.com/troberapp-com/image/upload/v1673281546/Web%20app%20assets/Web/school-large_tzwpvb.jpg')",
+        'school-sm':
+          "url('https://res.cloudinary.com/troberapp-com/image/upload/v1673281546/Web%20app%20assets/Web/school-sm_c7ucwo.jpg')",
+        'events-lg':
+          "url('https://res.cloudinary.com/troberapp-com/image/upload/v1673281544/Web%20app%20assets/Web/events-lg_gisbsp.jpg')",
+        'events-sm':
+          "url('https://res.cloudinary.com/troberapp-com/image/upload/v1673281544/Web%20app%20assets/Web/events-sm_rjpmaj.jpg')",
+        'church-lg':
+          "url('https://res.cloudinary.com/troberapp-com/image/upload/v1673281544/Web%20app%20assets/Web/church-lg_cu0hbc.jpg')",
+        'church-sm':
+          "url('https://res.cloudinary.com/troberapp-com/image/upload/v1673281543/Web%20app%20assets/Web/church-sm_iocodu.jpg')",
         'bus-owners-lg': "url('/images/bus-owners-lg.jpg')",
         'bus-owners-sm': "url('/images/bus-owners-sm.jpg')",
         'fleet-managers-lg': "url('/images/fleet-managers-lg.jpg')",
