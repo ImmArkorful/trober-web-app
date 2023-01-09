@@ -10,7 +10,7 @@ const BusOwners = () => {
       <TestHeader />
       <div className="w-full mt-28">
         <PartnersFlyer
-          image="/images/busOwnerspage.jpg"
+          image="https://res.cloudinary.com/troberapp-com/image/upload/v1673281543/Web%20app%20assets/Web/bus-owners-lg_j6jswq.jpg"
           underLinedHeading="Bus Owner"
           heading="s"
           pageFlyer
