@@ -136,6 +136,25 @@ const TestHeader: NextPage = () => {
     {
       route: '/partners',
       name: 'Partners',
+      dropdown: true,
+      subMenu: [
+        {
+          route: '/partners',
+          name: 'Home',
+        },
+        {
+          route: '/partners/bus-owners',
+          name: 'Bus Owners',
+        },
+        {
+          route: '/partners/fleet-managers',
+          name: 'Fleet Managers',
+        },
+        {
+          route: '/partners/investors',
+          name: 'Investors',
+        },
+      ],
     },
     {
       route: '/media',
