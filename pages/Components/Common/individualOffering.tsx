@@ -16,7 +16,7 @@ const IndividualOffering = ({
   text,
   color,
   src,
-  route,
+  route = '',
 }: OfferingProps) => {
   return (
     <Link href={route}>
