@@ -4,7 +4,10 @@ interface NoFormBannerProps {
   buttonText: string;
 }
 
-const contactForm = window.document.getElementById('contact-form')!;
+const contactForm =
+  typeof window !== 'undefined'
+    ? window.document.getElementById('contact-form')!
+    : null;
 
 const NoFormBanner = ({ title, paragraph, buttonText }: NoFormBannerProps) => {
   return (
@@ -25,7 +28,7 @@ const NoFormBanner = ({ title, paragraph, buttonText }: NoFormBannerProps) => {
           role="button"
           tabIndex={0}
           onClick={() => {
-            if (document) {
+            if (contactForm) {
               contactForm.scrollIntoView({
                 behavior: 'smooth',
               });
