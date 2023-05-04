@@ -16,11 +16,25 @@ const NoFormBanner = ({ title, paragraph, buttonText }: NoFormBannerProps) => {
         <p className="px-6 text-sm md:text-base lg:text-3xl lg:font-thin md:px-52 lg:px-52">
           {paragraph}
         </p>
-        <Link href="#contact-form">
-          <div className="bg-[#ACFE14] text-black rounded-xl p-3 w-32 font-bold mt-14 cursor-pointer">
-            {buttonText}
-          </div>
-        </Link>
+        {/* <Link href="#contact-form"> */}
+        <div
+          className="bg-[#ACFE14] text-black rounded-xl p-3 w-32 font-bold mt-14 cursor-pointer"
+          onKeyDown={() => {
+            console.log('keydown');
+          }}
+          role="button"
+          tabIndex={0}
+          onClick={() => {
+            if (document) {
+              document.getElementById('contact-form').scrollIntoView({
+                behavior: 'smooth',
+              });
+            }
+          }}
+        >
+          {buttonText}
+        </div>
+        {/* </Link> */}
       </div>
     </div>
   );
