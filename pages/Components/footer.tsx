@@ -21,9 +21,11 @@ const Footer: NextPage = () => {
               Our Polices
             </h1>
             <ul className="flex flex-col gap-4">
-              <li className="cursor-pointer hover:opacity-70">
-                Privacy Policy
-              </li>
+              <Link href="/privacy">
+                <li className="cursor-pointer hover:opacity-70">
+                  Privacy Policy
+                </li>
+              </Link>
               <li className="cursor-pointer hover:opacity-70">
                 Terms & Conditions
               </li>
