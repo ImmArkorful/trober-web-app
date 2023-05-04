@@ -4,6 +4,8 @@ interface NoFormBannerProps {
   buttonText: string;
 }
 
+const contactForm = window.document.getElementById('contact-form')!;
+
 const NoFormBanner = ({ title, paragraph, buttonText }: NoFormBannerProps) => {
   return (
     <div className="flex flex-col items-center justify-center w-full text-center lg:min-h-screen bg-gradient-to-r from-gradientstart to-gradientend ">
@@ -24,7 +26,7 @@ const NoFormBanner = ({ title, paragraph, buttonText }: NoFormBannerProps) => {
           tabIndex={0}
           onClick={() => {
             if (document) {
-              document.getElementById('contact-form').scrollIntoView({
+              contactForm.scrollIntoView({
                 behavior: 'smooth',
               });
             }
