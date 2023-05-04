@@ -25,7 +25,7 @@ const PrivacyPolicy = () => {
               <strong>
                 <span style={{ fontSize: '15px' }}>
                   <span data-custom-class="subtitle">
-                    Last updated August 10, 2022
+                    Last updated February 10, 2023
                   </span>
                 </span>
               </strong>
