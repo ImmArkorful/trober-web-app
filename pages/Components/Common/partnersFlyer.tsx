@@ -22,8 +22,7 @@ const PartnersFlyer = ({
   return (
     <div>
       <div
-        className={`relative flex justify-around mx-2 md:mx-0 rounded-md md:rounded-none h-112 md:w-full p-8 md:h-48 lg:h-80 2xl:h-112  ${
-          pageFlyer && `2xl:h-[36rem]`
+        className={`relative flex justify-around mx-2 md:mx-0 rounded-md md:rounded-none h-112 md:w-full p-8 md:h-48 lg:h-80 2xl:h-112 
         } bg-gradient-to-r from-gradientstart to-gradientend`}
       >
         <div className="absolute flex items-center md:items-start flex-col md:flex-row md:w-[95%] gap-7 -top-6 lg:-top-10">
