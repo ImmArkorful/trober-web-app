@@ -18,30 +18,34 @@ const Investors = () => {
           route=""
         />
       </div>
-      <div className="flex flex-col items-center justify-center mt-24 mx-11 md:text-3xl">
+      <div className="flex flex-col items-center justify-center md:px-20 2xl:px-44 mt-24 mx-11 md:text-3xl">
         <p className="mb-8">
-          Earn extra income by listing your bus on our platform. We can assist
-          in getting a driver for your bus even if you do not have one. Earn
-          extra income by listing your bus on our platform. We can assist in
-          getting a driver for your bus even if you do not have one.
+          Welcome to Trober, a leading mobility company revolutionizing mass
+          transportation in Ghana. Our innovative platform connects commuters to
+          independent bus service providers. With our easy-to-use app, riders
+          can book and pay for their ride in just a few taps, ensuring a
+          hassle-free commute every time.
         </p>
         <p className="mb-8">
-          Earn extra income by listing your bus on our platform. We can assist
-          in getting a driver for your bus even if you do not have one. Earn
-          extra income by listing your bus on our platform. We can assist in
-          getting a driver for your bus even if you do not have one.
+          Our platform not only benefits riders but also independent bus service
+          providers who can leverage Trober to grow their businesses and reach a
+          broader audience. By partnering with Trober, bus service providers
+          expand their reach, increase their customer base, and ultimately,
+          increase their revenue.
         </p>
         <p className="mb-8">
-          Earn extra income by listing your bus on our platform. We can assist
-          in getting a driver for your bus even if you do not have one. Earn
-          extra income by listing your bus on our platform. We can assist in
-          getting a driver for your bus even if you do not have one.
+          At Trober, we believe that shared mobility is vital for a sustainable
+          economy. With our large-capacity vehicles, we ensure group rides to
+          reduce traffic congestion and carbon emissions. We are not alone in
+          this journey. Our dedicated team, partners, fleet owners, and
+          stakeholders support us to make this happen. You are warmly welcome to
+          join us!
         </p>
         <p className="mb-8">
-          Earn extra income by listing your bus on our platform. We can assist
-          in getting a driver for your bus even if you do not have one. Earn
-          extra income by listing your bus on our platform. We can assist in
-          getting a driver for your bus even if you do not have one.
+          If you are looking to invest in an innovative mobility company that is
+          transforming transportation in Ghana and Africa at large, Trober is
+          here. Join us to create a more connected, efficient, timely,
+          convenient, and sustainable mobility solution for all.
         </p>
       </div>
       <ContactUs

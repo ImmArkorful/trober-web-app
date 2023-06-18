@@ -12,8 +12,8 @@ const About = () => {
       <div className="flex flex-col-reverse lg:flex-row">
         <div className="flex items-center justify-center pt-2 lg:pt-0 lg:w-3/6">
           <p className="px-1 text-lg font-semibold tracking-wide text-center md:w-4/6 lg:w-3/6 md:text-2xl">
-            Trober uses technology to connect riders to independent bus service
-            providers.
+            We use our technology to connect riders to independent bus service
+            provides.
           </p>
         </div>
         <div className="flex self-center pt-5 lg:pt-0 lg:w-2/6">
