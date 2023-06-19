@@ -6,8 +6,8 @@ import Footer from '../Components/footer';
 import TestHeader from '../Components/newTestHeader';
 import NoFormBanner from '../Components/noFormBanner';
 import AutomatedProcess from '../Components/Svgs/AutomatedProcess';
+import EarnIncome from '../Components/Svgs/EarnIncome';
 import BusinessAnalytics from '../Components/Svgs/BusinessAnalytics';
-import ComfortableSeats from '../Components/Svgs/ComfortableSeats';
 
 const reasonForTrober = [
   {
@@ -21,7 +21,7 @@ const reasonForTrober = [
     body: 'Manage trips form a central platform. Seamless booking, increased ridership',
   },
   {
-    svg: <ComfortableSeats />,
+    svg: <EarnIncome />,
     header: 'Earn Income',
     body: 'Register your drivers and fleet of buses on Trober to earn extra income.',
   },
@@ -65,7 +65,7 @@ your business."
         </div>
         <div className="flex flex-col w-full gap-20 mt-20">
           <PartnersFlyer
-            image="https://res.cloudinary.com/troberapp-com/image/upload/v1673281542/Web%20app%20assets/Web/bus-owner_reym3d.jpg"
+            image="https://res.cloudinary.com/troberapp-com/image/upload/v1673281543/Web%20app%20assets/Web/bus-owners-lg_j6jswq.jpg"
             underLinedHeading="Bus Owner"
             heading="s"
             pageFlyer={false}
@@ -73,7 +73,7 @@ your business."
             text="Earn extra income by listing your bus on our platform. We can assist in getting a driver for your bus even if you do not have one. "
           />
           <PartnersFlyer
-            image="https://res.cloudinary.com/troberapp-com/image/upload/v1673281545/Web%20app%20assets/Web/manager_ovbhrn.jpg"
+            image="https://res.cloudinary.com/troberapp-com/image/upload/v1673281545/Web%20app%20assets/Web/fleet-managers-lg_lecelk.jpg"
             underLinedHeading="Fleet Mana"
             heading="gers"
             pageFlyer={false}
