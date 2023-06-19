@@ -6,8 +6,8 @@ import Footer from '../Components/footer';
 import TestHeader from '../Components/newTestHeader';
 import NoFormBanner from '../Components/noFormBanner';
 import AutomatedProcess from '../Components/Svgs/AutomatedProcess';
+import EarnIncome from '../Components/Svgs/EarnIncome';
 import BusinessAnalytics from '../Components/Svgs/BusinessAnalytics';
-import ComfortableSeats from '../Components/Svgs/ComfortableSeats';
 
 const reasonForTrober = [
   {
@@ -21,7 +21,7 @@ const reasonForTrober = [
     body: 'Manage trips form a central platform. Seamless booking, increased ridership',
   },
   {
-    svg: <ComfortableSeats />,
+    svg: <EarnIncome />,
     header: 'Earn Income',
     body: 'Register your drivers and fleet of buses on Trober to earn extra income.',
   },
