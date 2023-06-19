@@ -65,7 +65,7 @@ your business."
         </div>
         <div className="flex flex-col w-full gap-20 mt-20">
           <PartnersFlyer
-            image="https://res.cloudinary.com/troberapp-com/image/upload/v1673281542/Web%20app%20assets/Web/bus-owner_reym3d.jpg"
+            image="https://res.cloudinary.com/troberapp-com/image/upload/v1673281543/Web%20app%20assets/Web/bus-owners-lg_j6jswq.jpg"
             underLinedHeading="Bus Owner"
             heading="s"
             pageFlyer={false}
@@ -73,7 +73,7 @@ your business."
             text="Earn extra income by listing your bus on our platform. We can assist in getting a driver for your bus even if you do not have one. "
           />
           <PartnersFlyer
-            image="https://res.cloudinary.com/troberapp-com/image/upload/v1673281545/Web%20app%20assets/Web/manager_ovbhrn.jpg"
+            image="https://res.cloudinary.com/troberapp-com/image/upload/v1673281545/Web%20app%20assets/Web/fleet-managers-lg_lecelk.jpg"
             underLinedHeading="Fleet Mana"
             heading="gers"
             pageFlyer={false}

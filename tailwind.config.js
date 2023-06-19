@@ -45,12 +45,18 @@ module.exports = {
           "url('https://res.cloudinary.com/troberapp-com/image/upload/v1673281544/Web%20app%20assets/Web/church-lg_cu0hbc.jpg')",
         'church-sm':
           "url('https://res.cloudinary.com/troberapp-com/image/upload/v1673281543/Web%20app%20assets/Web/church-sm_iocodu.jpg')",
-        'bus-owners-lg': "url('/images/bus-owners-lg.jpg')",
-        'bus-owners-sm': "url('/images/bus-owners-sm.jpg')",
-        'fleet-managers-lg': "url('/images/fleet-managers-lg.jpg')",
-        'fleet-managers-sm': "url('/images/fleet-managers-sm.jpg')",
-        'investors-lg': "url('/images/investors-lg.jpg')",
-        'investors-sm': "url('/images/investors-sm.jpg')",
+        'bus-owners-lg':
+          "url('https://res.cloudinary.com/troberapp-com/image/upload/v1673281543/Web%20app%20assets/Web/bus-owners-lg_j6jswq.jpg')",
+        'bus-owners-sm':
+          "url('https://res.cloudinary.com/troberapp-com/image/upload/v1673281543/Web%20app%20assets/Web/bus-owners-sm_sxyfgf.jpg')",
+        'fleet-managers-lg':
+          "url('https://res.cloudinary.com/troberapp-com/image/upload/v1673281545/Web%20app%20assets/Web/fleet-managers-lg_lecelk.jpg')",
+        'fleet-managers-sm':
+          "url('https://res.cloudinary.com/troberapp-com/image/upload/v1673281544/Web%20app%20assets/Web/fleet-managers-sm_aacbkc.jpg')",
+        'investors-lg':
+          "url('https://res.cloudinary.com/troberapp-com/image/upload/v1673281545/Web%20app%20assets/Web/investors-lg_iucwdz.jpg')",
+        'investors-sm':
+          "url('https://res.cloudinary.com/troberapp-com/image/upload/v1673281545/Web%20app%20assets/Web/investors-sm_hjvwtt.jpg')",
       },
     },
   },
