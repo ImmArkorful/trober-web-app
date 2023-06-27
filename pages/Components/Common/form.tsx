@@ -297,6 +297,8 @@ const Form = ({ display }: FormProps) => {
                     label: 'Subscription',
                     value: '',
                   });
+                  setDropoffLocationState('');
+                  setPickupLocationState('');
                   await TroberLogger('BookBusSubmitSuccess');
                   setIsLoading(false);
                   openModal();
@@ -421,6 +423,8 @@ const Form = ({ display }: FormProps) => {
                     value: '',
                   });
                   await TroberLogger('BookBusSubmitSuccess');
+                  setDropoffLocationState('');
+                  setPickupLocationState('');
                   setIsLoading(false);
                   openModal();
                 } catch (e: any) {
