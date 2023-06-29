@@ -12,6 +12,7 @@ import TroberLogger from '../../../utils/logEvent';
 import { RootState } from '../../../store/store';
 import { setActiveTab } from '../../../store/form/formTab';
 import Spinner from '../Svgs/Spinner.jsx';
+import PlacesAutoComplete from './PlacesAutoComplete';
 
 const customStyles = {
   content: {
@@ -105,7 +106,7 @@ const ErrorButton = (props: ErrorButtonProps) => {
     <div className="self-center mt-5 ">
       {error}
       <button
-        className="text-red-500 underline cursor-pointer ml-3"
+        className="ml-3 text-red-500 underline cursor-pointer"
         type="button"
         onClick={onClick}
       >
@@ -119,6 +120,16 @@ const Form = ({ display }: FormProps) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [pickupLocation, setPickupLocation] = useState('');
+  const [dropoffLocation, setDropoffLocation] = useState('');
+
+  const setPickupLocationState = (location: string) => {
+    return setPickupLocation(location);
+  };
+
+  const setDropoffLocationState = (location: string) => {
+    return setDropoffLocation(location);
+  };
 
   const dispatch = useDispatch();
   const activeTab = useSelector((state: RootState) => state.form.activeTab);
@@ -134,7 +145,6 @@ const Form = ({ display }: FormProps) => {
   const defaultValuesRental = {
     fullName: '',
     phoneNumber: '',
-    destination: '',
     duration: '',
   };
   const defaultValuesBusiness = {
@@ -145,8 +155,6 @@ const Form = ({ display }: FormProps) => {
   const defaultValuesDaily = {
     name: '',
     phoneNumber: '',
-    pickupLocation: '',
-    dropoffLocation: '',
     subscription: '',
   };
   const defaultLabel = 'Please select capacity of bus';
@@ -279,6 +287,8 @@ const Form = ({ display }: FormProps) => {
                     '/waitlist/saveUserRouteToWaitlist',
                     {
                       ...data,
+                      pickupLocation,
+                      dropoffLocation,
                       subscription: subscription.value,
                     }
                   );
@@ -287,6 +297,8 @@ const Form = ({ display }: FormProps) => {
                     label: 'Subscription',
                     value: '',
                   });
+                  setDropoffLocationState('');
+                  setPickupLocationState('');
                   await TroberLogger('BookBusSubmitSuccess');
                   setIsLoading(false);
                   openModal();
@@ -323,7 +335,7 @@ const Form = ({ display }: FormProps) => {
                   minLength: 9,
                 })}
               />
-              <input
+              {/* <input
                 type="text"
                 placeholder="Pickup Bus Stop"
                 className={`w-full py-3 px-4 mx-2 my-3 border rounded-lg ${
@@ -332,8 +344,16 @@ const Form = ({ display }: FormProps) => {
                 {...registerDaily('pickupLocation', {
                   required: 'Please enter your pickup bus stop',
                 })}
+              /> */}
+              <PlacesAutoComplete
+                stateSetter={setPickupLocationState}
+                placeholder="Enter pickup location"
               />
-              <input
+              <PlacesAutoComplete
+                stateSetter={setDropoffLocationState}
+                placeholder="Enter dropoff location"
+              />
+              {/* <input
                 type="text"
                 placeholder="Dropoff Bus Stop"
                 className={`w-full py-3 px-4 mx-2 my-3 border rounded-lg ${
@@ -342,7 +362,7 @@ const Form = ({ display }: FormProps) => {
                 {...registerDaily('dropoffLocation', {
                   required: 'Please enter your dropoff bus stop',
                 })}
-              />
+              /> */}
               <SelectDropDown
                 selectionColor={
                   subscription.label === 'Subscription' ? 'gray' : 'black'
@@ -394,6 +414,7 @@ const Form = ({ display }: FormProps) => {
                 try {
                   await axiosInstance.post('/booking/rental', {
                     ...data,
+                    destination: dropoffLocation,
                     typeOfBus: busType.value,
                   });
                   reset(defaultValuesRental);
@@ -402,6 +423,8 @@ const Form = ({ display }: FormProps) => {
                     value: '',
                   });
                   await TroberLogger('BookBusSubmitSuccess');
+                  setDropoffLocationState('');
+                  setPickupLocationState('');
                   setIsLoading(false);
                   openModal();
                 } catch (e: any) {
@@ -436,7 +459,7 @@ const Form = ({ display }: FormProps) => {
                   minLength: 9,
                 })}
               />
-              <input
+              {/* <input
                 type="text"
                 placeholder="Where will you be going?"
                 className={`w-full py-3 px-4 mx-2 my-3 border rounded-lg ${
@@ -445,7 +468,12 @@ const Form = ({ display }: FormProps) => {
                 {...register('destination', {
                   required: 'Please enter your destination',
                 })}
+              /> */}
+              <PlacesAutoComplete
+                stateSetter={setDropoffLocationState}
+                placeholder="Where will you be going?"
               />
+
               <SelectDropDown
                 selectionColor={
                   busType.label === 'Please select capacity of bus'
