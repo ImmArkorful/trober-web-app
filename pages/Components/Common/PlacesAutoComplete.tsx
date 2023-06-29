@@ -13,7 +13,7 @@ const PlacesAutoComplete = ({
     <Autocomplete
       apiKey={process.env.NEXT_PUBLIC_PLACES_KEY}
       options={{
-        types: ['(regions)'],
+        types: ['address'],
         componentRestrictions: { country: 'gh' },
         fields: ['formatted_address'],
       }}
