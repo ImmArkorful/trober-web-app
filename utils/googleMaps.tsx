@@ -9,13 +9,15 @@ export function loadGoogleMapsApi(
     apiKey: process.env.NEXT_PUBLIC_PLACES_KEY || '',
     version: 'weekly',
     libraries: ['places'],
-    region: 'gh',
   });
 
-  loader.load().then(() => {
+  loader.importLibrary('places').then(() => {
     const input: any = inputRef.current;
+    const options = {
+      componentRestrictions: { country: 'gh' },
+    };
     // eslint-disable-next-line no-undef
-    const autocomplete = new google.maps.places.Autocomplete(input);
+    const autocomplete = new google.maps.places.Autocomplete(input, options);
 
     autocomplete.addListener('place_changed', () => {
       const place = autocomplete.getPlace();

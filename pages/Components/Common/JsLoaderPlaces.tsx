@@ -3,9 +3,10 @@ import { loadGoogleMapsApi } from '../../../utils/googleMaps';
 
 interface JsLoaderPlacesProps {
   onSelect: (place: any) => void;
+  placeholder: string;
 }
 
-const JsLoaderPlaces = ({ onSelect }: JsLoaderPlacesProps) => {
+const JsLoaderPlaces = ({ onSelect, placeholder }: JsLoaderPlacesProps) => {
   const handlePlaceSelect = (place: any) => {
     onSelect(place);
   };
@@ -15,9 +16,12 @@ const JsLoaderPlaces = ({ onSelect }: JsLoaderPlacesProps) => {
   }, []);
 
   return (
-    <div>
-      <input ref={inputRef} type="text" placeholder="Enter a location" />
-    </div>
+    <input
+      ref={inputRef}
+      type="text"
+      placeholder={placeholder}
+      className="w-full py-3 px-4 mx-2 my-3 border-[#979797] border-[1px] rounded-lg "
+    />
   );
 };
 

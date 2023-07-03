@@ -12,7 +12,7 @@ import TroberLogger from '../../../utils/logEvent';
 import { RootState } from '../../../store/store';
 import { setActiveTab } from '../../../store/form/formTab';
 import Spinner from '../Svgs/Spinner.jsx';
-import PlacesAutoComplete from './PlacesAutoComplete';
+import JsLoaderPlaces from './JsLoaderPlaces';
 
 const customStyles = {
   content: {
@@ -345,12 +345,12 @@ const Form = ({ display }: FormProps) => {
                   required: 'Please enter your pickup bus stop',
                 })}
               /> */}
-              <PlacesAutoComplete
-                stateSetter={setPickupLocationState}
+              <JsLoaderPlaces
+                onSelect={setPickupLocationState}
                 placeholder="Enter pickup location"
               />
-              <PlacesAutoComplete
-                stateSetter={setDropoffLocationState}
+              <JsLoaderPlaces
+                onSelect={setDropoffLocationState}
                 placeholder="Enter dropoff location"
               />
               {/* <input
@@ -469,8 +469,8 @@ const Form = ({ display }: FormProps) => {
                   required: 'Please enter your destination',
                 })}
               /> */}
-              <PlacesAutoComplete
-                stateSetter={setDropoffLocationState}
+              <JsLoaderPlaces
+                onSelect={setDropoffLocationState}
                 placeholder="Where will you be going?"
               />
 
