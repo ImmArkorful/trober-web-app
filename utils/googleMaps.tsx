@@ -3,7 +3,7 @@ import { Loader } from '@googlemaps/js-api-loader';
 
 export function loadGoogleMapsApi(
   inputRef: React.RefObject<HTMLInputElement>,
-  onPlaceSelect: (place: string) => void
+  onPlaceSelect: (place: object) => void
 ) {
   const loader = new Loader({
     apiKey: process.env.NEXT_PUBLIC_PLACES_KEY || '',
@@ -21,7 +21,7 @@ export function loadGoogleMapsApi(
 
     autocomplete.addListener('place_changed', () => {
       const place = autocomplete.getPlace();
-      onPlaceSelect(place.formatted_address || '');
+      onPlaceSelect(place || '');
     });
   });
 }

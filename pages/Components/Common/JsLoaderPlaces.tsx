@@ -8,7 +8,7 @@ interface JsLoaderPlacesProps {
 
 const JsLoaderPlaces = ({ onSelect, placeholder }: JsLoaderPlacesProps) => {
   const handlePlaceSelect = (place: any) => {
-    onSelect(place);
+    onSelect(`${place.name} ${place.formatted_address}`);
   };
   const inputRef = useRef(null);
   useEffect(() => {
