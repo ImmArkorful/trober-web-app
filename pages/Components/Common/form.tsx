@@ -155,16 +155,16 @@ const Form = ({ display }: FormProps) => {
   const defaultValuesDaily = {
     name: '',
     phoneNumber: '',
-    subscription: '',
+    route: '',
   };
   const defaultLabel = 'Please select capacity of bus';
   const [busType, setBusType] = useState({
     value: '',
     label: defaultLabel,
   });
-  const [subscription, setSubscription] = useState({
+  const [route, setRoute] = useState({
     value: '',
-    label: 'Subscription',
+    label: 'Route',
   });
   const {
     register,
@@ -214,8 +214,8 @@ const Form = ({ display }: FormProps) => {
       label: defaultLabel,
       value: '',
     });
-    setSubscription({
-      label: 'Subscription',
+    setRoute({
+      label: 'Route',
       value: '',
     });
   };
@@ -289,11 +289,11 @@ const Form = ({ display }: FormProps) => {
                       ...data,
                       pickupLocation,
                       dropoffLocation,
-                      subscription: subscription.value,
+                      route: route.value,
                     }
                   );
                   resetDaily(defaultValuesDaily);
-                  setSubscription({
+                  setRoute({
                     label: 'Subscription',
                     value: '',
                   });
@@ -364,25 +364,31 @@ const Form = ({ display }: FormProps) => {
                 })}
               /> */}
               <SelectDropDown
-                selectionColor={
-                  subscription.label === 'Subscription' ? 'gray' : 'black'
-                }
+                selectionColor={route.label === 'Route' ? 'gray' : 'black'}
                 options={[
                   {
-                    value: 'payasyougo',
-                    label: 'Pay As You Go',
+                    value: 'Dansoman to East Legon',
+                    label: 'Dansoman to East Legon',
                   },
                   {
-                    value: 'Weekly',
-                    label: 'Weekly',
+                    value: 'Ogbojo to Accra',
+                    label: 'Ogbojo to Accra',
                   },
                   {
-                    value: 'Monthly',
-                    label: 'Monthly',
+                    value: 'Ogbojo to Circle',
+                    label: 'Ogbojo to Circle',
+                  },
+                  {
+                    value: 'Kasoa to East Legon',
+                    label: 'Kasoa to East Legon',
+                  },
+                  {
+                    value: 'Oyarifa to East Legon',
+                    label: 'Oyarifa to East Legon',
                   },
                 ]}
-                busType={subscription}
-                setBusType={setSubscription}
+                busType={route}
+                setBusType={setRoute}
               />
               {/* {errors.duration && (
                 <span className="pb-1 pl-4 text-sm text-red-500">
