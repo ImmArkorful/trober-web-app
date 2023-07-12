@@ -365,6 +365,8 @@ const Form = ({ display }: FormProps) => {
               /> */}
               <SelectDropDown
                 selectionColor={route.label === 'Route' ? 'gray' : 'black'}
+                busType={route}
+                setBusType={setRoute}
                 options={[
                   {
                     value: 'Dansoman to East Legon',
@@ -387,8 +389,6 @@ const Form = ({ display }: FormProps) => {
                     label: 'Oyarifa to East Legon',
                   },
                 ]}
-                busType={route}
-                setBusType={setRoute}
               />
               {/* {errors.duration && (
                 <span className="pb-1 pl-4 text-sm text-red-500">
