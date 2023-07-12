@@ -94,7 +94,7 @@ const Button = (props: ButtonProps) => {
         type="submit"
         value="Submit"
       >
-        {isLoading ? <Spinner /> : 'Submit'}
+        {isLoading ? <Spinner /> : 'Join Bus'}
       </button>
     </div>
   );
@@ -335,34 +335,6 @@ const Form = ({ display }: FormProps) => {
                   minLength: 9,
                 })}
               />
-              {/* <input
-                type="text"
-                placeholder="Pickup Bus Stop"
-                className={`w-full py-3 px-4 mx-2 my-3 border rounded-lg ${
-                  errorsDaily.pickupLocation ? errorBorder : defaultBorder
-                }`}
-                {...registerDaily('pickupLocation', {
-                  required: 'Please enter your pickup bus stop',
-                })}
-              /> */}
-              <JsLoaderPlaces
-                onSelect={setPickupLocationState}
-                placeholder="Enter pickup location"
-              />
-              <JsLoaderPlaces
-                onSelect={setDropoffLocationState}
-                placeholder="Enter dropoff location"
-              />
-              {/* <input
-                type="text"
-                placeholder="Dropoff Bus Stop"
-                className={`w-full py-3 px-4 mx-2 my-3 border rounded-lg ${
-                  errorsDaily.dropoffLocation ? errorBorder : defaultBorder
-                }`}
-                {...registerDaily('dropoffLocation', {
-                  required: 'Please enter your dropoff bus stop',
-                })}
-              /> */}
               <SelectDropDown
                 selectionColor={route.label === 'Route' ? 'gray' : 'black'}
                 busType={route}
@@ -390,11 +362,15 @@ const Form = ({ display }: FormProps) => {
                   },
                 ]}
               />
-              {/* {errors.duration && (
-                <span className="pb-1 pl-4 text-sm text-red-500">
-                  {errors.duration.message}
-                </span>
-              )} */}
+              <JsLoaderPlaces
+                onSelect={setPickupLocationState}
+                placeholder="Enter pickup location"
+              />
+              <JsLoaderPlaces
+                onSelect={setDropoffLocationState}
+                placeholder="Enter dropoff location"
+              />
+
               <div className="self-center">
                 {error ? (
                   <ErrorButton error={error} onClick={() => setError('')} />
