@@ -283,22 +283,19 @@ const Form = ({ display }: FormProps) => {
                 await TroberLogger('DailySubmitClicked');
                 clearErrorsDaily();
                 try {
-                  await axiosInstance.post(
-                    '/waitlist/saveUserRouteToWaitlist',
-                    {
-                      ...data,
-                      pickupLocation,
-                      dropoffLocation,
-                      route: route.value,
-                    }
-                  );
-                  resetDaily(defaultValuesDaily);
+                  await axiosInstance.post('/waitlist', {
+                    ...data,
+                    pickupLocation,
+                    dropoffLocation,
+                    route: route.value,
+                  });
                   setRoute({
-                    label: 'Subscription',
+                    label: 'Route',
                     value: '',
                   });
                   setDropoffLocationState('');
                   setPickupLocationState('');
+                  resetDaily(defaultValuesDaily);
                   await TroberLogger('BookBusSubmitSuccess');
                   setIsLoading(false);
                   openModal();
@@ -363,10 +360,12 @@ const Form = ({ display }: FormProps) => {
                 ]}
               />
               <JsLoaderPlaces
+                value={pickupLocation}
                 onSelect={setPickupLocationState}
                 placeholder="Enter pickup location"
               />
               <JsLoaderPlaces
+                value={dropoffLocation}
                 onSelect={setDropoffLocationState}
                 placeholder="Enter dropoff location"
               />
@@ -394,7 +393,7 @@ const Form = ({ display }: FormProps) => {
                 setIsLoading(true);
                 clearErrors();
                 try {
-                  await axiosInstance.post('/booking/rental', {
+                  await axiosInstance.post('/booking/rent-bus', {
                     ...data,
                     destination: dropoffLocation,
                     typeOfBus: busType.value,
@@ -441,17 +440,8 @@ const Form = ({ display }: FormProps) => {
                   minLength: 9,
                 })}
               />
-              {/* <input
-                type="text"
-                placeholder="Where will you be going?"
-                className={`w-full py-3 px-4 mx-2 my-3 border rounded-lg ${
-                  errors.destination ? errorBorder : defaultBorder
-                }`}
-                {...register('destination', {
-                  required: 'Please enter your destination',
-                })}
-              /> */}
               <JsLoaderPlaces
+                value={dropoffLocation}
                 onSelect={setDropoffLocationState}
                 placeholder="Where will you be going?"
               />

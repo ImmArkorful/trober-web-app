@@ -4,9 +4,14 @@ import { loadGoogleMapsApi } from '../../../utils/googleMaps';
 interface JsLoaderPlacesProps {
   onSelect: (place: any) => void;
   placeholder: string;
+  value: string;
 }
 
-const JsLoaderPlaces = ({ onSelect, placeholder }: JsLoaderPlacesProps) => {
+const JsLoaderPlaces = ({
+  onSelect,
+  placeholder,
+  value,
+}: JsLoaderPlacesProps) => {
   const handlePlaceSelect = (place: any) => {
     if (place.formatted_address.includes(place.name)) {
       onSelect(place.formatted_address);
@@ -23,6 +28,10 @@ const JsLoaderPlaces = ({ onSelect, placeholder }: JsLoaderPlacesProps) => {
     <input
       ref={inputRef}
       type="text"
+      value={value}
+      onChange={(e) => {
+        onSelect(e.target.value);
+      }}
       placeholder={placeholder}
       className="w-full py-3 px-4 mx-2 my-3 border-[#979797] border-[1px] rounded-lg "
     />
