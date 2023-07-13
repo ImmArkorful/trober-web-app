@@ -6,9 +6,9 @@ import 'slick-carousel/slick/slick-theme.css';
 import { initializeApp } from 'firebase/app';
 import { Analytics, getAnalytics } from 'firebase/analytics';
 import { Provider } from 'react-redux';
+import Script from 'next/script';
 import { store } from '../store/store';
 import firebaseConfig from '../utils/contants';
-import Script from 'next/script';
 
 const app = initializeApp(firebaseConfig);
 
