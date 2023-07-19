@@ -7,6 +7,7 @@ interface ModalProps {
   afterOpenModal: () => void;
   closeModal: () => void;
   customStyles: object;
+  urlPresent: boolean;
 }
 
 const SuccessModal = ({
@@ -14,6 +15,7 @@ const SuccessModal = ({
   afterOpenModal,
   closeModal,
   customStyles,
+  urlPresent,
 }: ModalProps) => {
   return (
     <div>
@@ -40,7 +42,7 @@ const SuccessModal = ({
             type="submit"
             value="Submit"
           >
-            Back to trober
+            {urlPresent ? 'Click to Join Whatsapp Group' : 'Back to trober'}
           </button>
         </div>
       </Modal>
