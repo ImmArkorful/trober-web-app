@@ -13,6 +13,7 @@ import { RootState } from '../../../store/store';
 import { setActiveTab } from '../../../store/form/formTab';
 import Spinner from '../Svgs/Spinner.jsx';
 import JsLoaderPlaces from './JsLoaderPlaces';
+import RouteSelectDropDown from './RouteSelect';
 
 const customStyles = {
   content: {
@@ -123,6 +124,11 @@ const Form = ({ display }: FormProps) => {
   const [pickupLocation, setPickupLocation] = useState('');
   const [dropoffLocation, setDropoffLocation] = useState('');
 
+  const openInNewTab = (url: string): void => {
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+    if (newWindow) newWindow.opener = null;
+  };
+
   const setPickupLocationState = (location: string) => {
     return setPickupLocation(location);
   };
@@ -165,6 +171,7 @@ const Form = ({ display }: FormProps) => {
   const [route, setRoute] = useState({
     value: '',
     label: 'Route',
+    url: '',
   });
   const {
     register,
@@ -217,6 +224,7 @@ const Form = ({ display }: FormProps) => {
     setRoute({
       label: 'Route',
       value: '',
+      url: '',
     });
   };
 
@@ -289,10 +297,6 @@ const Form = ({ display }: FormProps) => {
                     dropoffLocation,
                     route: route.value,
                   });
-                  setRoute({
-                    label: 'Route',
-                    value: '',
-                  });
                   setDropoffLocationState('');
                   setPickupLocationState('');
                   resetDaily(defaultValuesDaily);
@@ -332,7 +336,7 @@ const Form = ({ display }: FormProps) => {
                   minLength: 9,
                 })}
               />
-              <SelectDropDown
+              <RouteSelectDropDown
                 selectionColor={route.label === 'Route' ? 'gray' : 'black'}
                 busType={route}
                 setBusType={setRoute}
@@ -340,22 +344,27 @@ const Form = ({ display }: FormProps) => {
                   {
                     value: 'Dansoman to East Legon',
                     label: 'Dansoman to East Legon',
+                    url: 'https://chat.whatsapp.com/LLTzVQXmV0TGAwyhU7nvYn',
                   },
                   {
                     value: 'Ogbojo to Accra',
                     label: 'Ogbojo to Accra',
+                    url: 'https://chat.whatsapp.com/GJMqot0eOW4IINAQ52gIp1',
                   },
                   {
                     value: 'Ogbojo to Circle',
                     label: 'Ogbojo to Circle',
+                    url: 'https://chat.whatsapp.com/E6ITqXplNjX0Xf92WBkl5j',
                   },
                   {
                     value: 'Kasoa to East Legon',
                     label: 'Kasoa to East Legon',
+                    url: 'https://chat.whatsapp.com/BfWrHYPQNWl1znn8YzEzlI',
                   },
                   {
                     value: 'Oyarifa to East Legon',
                     label: 'Oyarifa to East Legon',
+                    url: '',
                   },
                 ]}
               />
@@ -558,10 +567,9 @@ const Form = ({ display }: FormProps) => {
                 })}
               />
               <div className="self-center">
-                {error ? (
+                <Button isLoading={isLoading} />
+                {error && (
                   <ErrorButton error={error} onClick={() => setError('')} />
-                ) : (
-                  <Button isLoading={isLoading} />
                 )}
               </div>
             </form>
@@ -574,7 +582,16 @@ const Form = ({ display }: FormProps) => {
           //   closeModal();
           // }, 5000);
         }}
-        closeModal={() => closeModal()}
+        closeModal={() => {
+          if (route.url) openInNewTab(route.url);
+          setRoute({
+            label: 'Route',
+            value: '',
+            url: '',
+          });
+          closeModal();
+        }}
+        urlPresent={route.url.length > 0}
         customStyles={customStyles}
         modalIsOpen={modalIsOpen}
       />
