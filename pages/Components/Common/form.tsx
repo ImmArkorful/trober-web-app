@@ -364,7 +364,7 @@ const Form = ({ display }: FormProps) => {
                   {
                     value: 'Oyarifa to East Legon',
                     label: 'Oyarifa to East Legon',
-                    url: '',
+                    url: 'https://chat.whatsapp.com/Fv2G3eaMPAU8glQRlH2lpg',
                   },
                 ]}
               />
