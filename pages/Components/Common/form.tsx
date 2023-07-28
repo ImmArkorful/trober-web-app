@@ -104,7 +104,7 @@ const Button = (props: ButtonProps) => {
 const ErrorButton = (props: ErrorButtonProps) => {
   const { error, onClick } = props;
   return (
-    <div className="self-center mt-5 ">
+    <div className="mt-5 text-center ">
       {error}
       <button
         className="ml-3 text-red-500 underline cursor-pointer"
@@ -212,7 +212,6 @@ const Form = ({ display }: FormProps) => {
     dispatch(setActiveTab(newValue));
   };
 
-  // added code
   const handleReset = () => {
     resetDaily(defaultValuesDaily);
     resetBusiness(defaultValuesBusiness);
@@ -226,6 +225,7 @@ const Form = ({ display }: FormProps) => {
       value: '',
       url: '',
     });
+    setError('');
   };
 
   return (
@@ -291,18 +291,28 @@ const Form = ({ display }: FormProps) => {
                 await TroberLogger('DailySubmitClicked');
                 clearErrorsDaily();
                 try {
-                  await axiosInstance.post('/waitlist', {
-                    ...data,
-                    pickupLocation,
-                    dropoffLocation,
-                    route: route.value,
-                  });
-                  setDropoffLocationState('');
-                  setPickupLocationState('');
-                  resetDaily(defaultValuesDaily);
-                  await TroberLogger('BookBusSubmitSuccess');
-                  setIsLoading(false);
-                  openModal();
+                  if (route.value && pickupLocation && dropoffLocation) {
+                    await axiosInstance.post('/waitlist', {
+                      ...data,
+                      pickupLocation,
+                      dropoffLocation,
+                      route: route.value,
+                    });
+                    setDropoffLocationState('');
+                    setPickupLocationState('');
+                    resetDaily(defaultValuesDaily);
+                    await TroberLogger('BookBusSubmitSuccess');
+                    setIsLoading(false);
+                    openModal();
+                  }
+                  if (!route.value) {
+                    setError('Please select a route');
+                    setIsLoading(false);
+                  }
+                  if (!pickupLocation || !dropoffLocation) {
+                    setError('Please select location');
+                    setIsLoading(false);
+                  }
                 } catch (e: any) {
                   if (e instanceof Error) {
                     await TroberLogger('BookBusSubmitFailed', {
@@ -366,6 +376,11 @@ const Form = ({ display }: FormProps) => {
                     label: 'Oyarifa to East Legon',
                     url: 'https://chat.whatsapp.com/Fv2G3eaMPAU8glQRlH2lpg',
                   },
+                  {
+                    value: 'Others',
+                    label: 'Others',
+                    url: '',
+                  },
                 ]}
               />
               <JsLoaderPlaces
@@ -378,12 +393,10 @@ const Form = ({ display }: FormProps) => {
                 onSelect={setDropoffLocationState}
                 placeholder="Enter dropoff location"
               />
-
-              <div className="self-center">
-                {error ? (
+              <div className="flex flex-col items-center justify-center w-full">
+                <Button isLoading={isLoading} />
+                {error && (
                   <ErrorButton error={error} onClick={() => setError('')} />
-                ) : (
-                  <Button isLoading={isLoading} />
                 )}
               </div>
             </form>
@@ -402,21 +415,27 @@ const Form = ({ display }: FormProps) => {
                 setIsLoading(true);
                 clearErrors();
                 try {
-                  await axiosInstance.post('/booking/rent-bus', {
-                    ...data,
-                    destination: dropoffLocation,
-                    typeOfBus: busType.value,
-                  });
-                  reset(defaultValuesRental);
-                  setBusType({
-                    label: defaultLabel,
-                    value: '',
-                  });
-                  await TroberLogger('BookBusSubmitSuccess');
-                  setDropoffLocationState('');
-                  setPickupLocationState('');
-                  setIsLoading(false);
-                  openModal();
+                  if (busType.value && dropoffLocation) {
+                    await axiosInstance.post('/booking/rent-bus', {
+                      ...data,
+                      destination: dropoffLocation,
+                      typeOfBus: busType.value,
+                    });
+                    reset(defaultValuesRental);
+                    setBusType({
+                      label: defaultLabel,
+                      value: '',
+                    });
+                    await TroberLogger('BookBusSubmitSuccess');
+                    setDropoffLocationState('');
+                    setPickupLocationState('');
+                    setIsLoading(false);
+                    openModal();
+                  }
+                  if (!busType.value || !dropoffLocation) {
+                    setIsLoading(false);
+                    setError('Please select a bus type and location');
+                  }
                 } catch (e: any) {
                   if (e instanceof Error) {
                     await TroberLogger('BookBusSubmitFailed', {
@@ -490,11 +509,10 @@ const Form = ({ display }: FormProps) => {
                   {errors.duration.message}
                 </span>
               )} */}
-              <div className="self-center">
-                {error ? (
+              <div className="flex flex-col items-center justify-center w-full">
+                <Button isLoading={isLoading} />
+                {error && (
                   <ErrorButton error={error} onClick={() => setError('')} />
-                ) : (
-                  <Button isLoading={isLoading} />
                 )}
               </div>
             </form>
@@ -566,7 +584,7 @@ const Form = ({ display }: FormProps) => {
                   },
                 })}
               />
-              <div className="self-center">
+              <div className="flex flex-col items-center justify-center w-full">
                 <Button isLoading={isLoading} />
                 {error && (
                   <ErrorButton error={error} onClick={() => setError('')} />
