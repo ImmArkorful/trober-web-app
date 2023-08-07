@@ -11,6 +11,7 @@ import SuccessModal from '../../home/Components/Modal';
 import TroberLogger from '../../../utils/logEvent';
 import { RootState } from '../../../store/store';
 import { setActiveTab } from '../../../store/form/formTab';
+import DateSelector, { formatDateString } from './DateSelector';
 import Spinner from '../Svgs/Spinner.jsx';
 import JsLoaderPlaces from './JsLoaderPlaces';
 import RouteSelectDropDown from './RouteSelect';
@@ -123,6 +124,9 @@ const Form = ({ display }: FormProps) => {
   const [error, setError] = useState('');
   const [pickupLocation, setPickupLocation] = useState('');
   const [dropoffLocation, setDropoffLocation] = useState('');
+  const [calenderError, setCalenderError] = useState('');
+  const [dateRange, setDateRange] = useState<Array<Date | null>>([null, null]);
+  const [startDate, endDate] = dateRange;
 
   const openInNewTab = (url: string): void => {
     const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
@@ -151,7 +155,6 @@ const Form = ({ display }: FormProps) => {
   const defaultValuesRental = {
     fullName: '',
     phoneNumber: '',
-    duration: '',
   };
   const defaultValuesBusiness = {
     fullName: '',
@@ -414,12 +417,22 @@ const Form = ({ display }: FormProps) => {
                 await TroberLogger('BookBusSubmitClicked');
                 setIsLoading(true);
                 clearErrors();
+                if (startDate == null || endDate == null) {
+                  setCalenderError('Please enter duration');
+                  setIsLoading(false);
+                }
                 try {
-                  if (busType.value && dropoffLocation) {
+                  if (
+                    busType.value &&
+                    dropoffLocation &&
+                    startDate &&
+                    endDate
+                  ) {
                     await axiosInstance.post('/booking/rent-bus', {
                       ...data,
                       destination: dropoffLocation,
                       typeOfBus: busType.value,
+                      duration: formatDateString(startDate, endDate),
                     });
                     reset(defaultValuesRental);
                     setBusType({
@@ -493,22 +506,12 @@ const Form = ({ display }: FormProps) => {
                 busType={busType}
                 setBusType={setBusType}
               />
-              <input
-                type="number"
-                placeholder="How long will you need it for? (days)"
-                className={`w-full py-3 px-4 mx-2 my-3 border rounded-lg ${
-                  errors.duration ? errorBorder : defaultBorder
-                }`}
-                {...register('duration', {
-                  required:
-                    "Please enter the number of days you'll need the bus",
-                })}
+              <DateSelector
+                setDateRange={setDateRange}
+                startDate={startDate}
+                endDate={endDate}
+                calendarError={calenderError}
               />
-              {/* {errors.duration && (
-                <span className="pb-1 pl-4 text-sm text-red-500">
-                  {errors.duration.message}
-                </span>
-              )} */}
               <div className="flex flex-col items-center justify-center w-full">
                 <Button isLoading={isLoading} />
                 {error && (
