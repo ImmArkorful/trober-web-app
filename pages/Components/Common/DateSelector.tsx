@@ -26,6 +26,7 @@ const DateSelector = ({
       onChange={(update) => {
         setDateRange(update);
       }}
+      dateFormat="MMM d, yyyy"
       placeholderText="How long will you need"
       isClearable
       wrapperClassName="w-full"
