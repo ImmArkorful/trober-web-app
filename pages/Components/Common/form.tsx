@@ -339,7 +339,7 @@ const Form = ({ display }: FormProps) => {
                 })}
               />
               <input
-                type="number"
+                type="text"
                 placeholder="Phone Number"
                 className={`w-full py-3 px-4 mx-2 my-3 border rounded-lg ${
                   errorsDaily.phoneNumber ? errorBorder : defaultBorder
