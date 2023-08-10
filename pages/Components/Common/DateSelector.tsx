@@ -3,8 +3,8 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { format } from 'date-fns';
 
-const formatDateString = (start: Date, end: Date) => {
-  return `${format(start, 'MMM d, yyyy')}-${format(end, 'MMM d, yyyy')}`;
+const formatDateString = (date: Date) => {
+  return `${format(date, 'MMM d, yyyy')}`;
 };
 
 interface DateSelectorProps {

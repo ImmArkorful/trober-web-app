@@ -432,7 +432,8 @@ const Form = ({ display }: FormProps) => {
                       ...data,
                       destination: dropoffLocation,
                       typeOfBus: busType.value,
-                      duration: formatDateString(startDate, endDate),
+                      startDate: formatDateString(startDate),
+                      endDate: formatDateString(endDate),
                     });
                     reset(defaultValuesRental);
                     setBusType({
