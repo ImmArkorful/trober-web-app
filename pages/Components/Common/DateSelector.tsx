@@ -1,9 +1,10 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { format } from 'date-fns';
 
-const formatDateString = (start: Date | null, end: Date | null) => {
-  return `${start?.toLocaleDateString()}-${end?.toLocaleDateString()}`;
+const formatDateString = (start: Date, end: Date) => {
+  return `${format(start, 'MMM d, yyyy')}-${format(end, 'MMM d, yyyy')}`;
 };
 
 interface DateSelectorProps {

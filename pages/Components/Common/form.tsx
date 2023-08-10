@@ -443,6 +443,7 @@ const Form = ({ display }: FormProps) => {
                     setDropoffLocationState('');
                     setPickupLocationState('');
                     setIsLoading(false);
+                    setDateRange([null, null]);
                     openModal();
                   }
                   if (!busType.value || !dropoffLocation) {
