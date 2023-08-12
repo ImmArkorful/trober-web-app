@@ -40,7 +40,6 @@ const DropDown = ({ page, router }: DropDownProps) => {
           } mr-5 text-xl duration-500 hover:${color} pr-3`}
           onClick={() => {
             setMenuOpen(!menuOpen);
-            menuOpen ? disableScroll.on() : disableScroll.off();
           }}
         >
           {page.name}
@@ -99,6 +98,7 @@ const TestHeader: NextPage = () => {
     setIsVisible(!isVisible);
   };
   const handleToggleMenu = () => {
+    !isVisible ? disableScroll.on() : disableScroll.off();
     !isVisible
       ? setMenuStyle(
           'transition-all ease-in duration-500 top-[70px] opacity-100'
@@ -145,6 +145,10 @@ const TestHeader: NextPage = () => {
     },
   ];
 
+  useEffect(() => {
+    disableScroll.off();
+  }, []);
+  
   return (
     <header>
       <nav className="p-5 shadow bg-primary md:flex md:items-center md:justify-between">
