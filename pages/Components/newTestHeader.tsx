@@ -38,7 +38,10 @@ const DropDown = ({ page, router }: DropDownProps) => {
           className={`flex flex-row items-center hover:cursor-pointer ${
             router.pathname.includes(page.route) && color
           } mr-5 text-xl duration-500 hover:${color} pr-3`}
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={() => {
+            setMenuOpen(!menuOpen);
+            menuOpen ? disableScroll.on() : disableScroll.off();
+          }}
         >
           {page.name}
           <div className="hidden md:block">
@@ -96,7 +99,6 @@ const TestHeader: NextPage = () => {
     setIsVisible(!isVisible);
   };
   const handleToggleMenu = () => {
-    !isVisible ? disableScroll.on() : disableScroll.off();
     !isVisible
       ? setMenuStyle(
           'transition-all ease-in duration-500 top-[70px] opacity-100'
@@ -223,6 +225,7 @@ const TestHeader: NextPage = () => {
           <div className="flex flex-row justify-center w-full gap-3 md:hidden">
             <button
               onClick={() => {
+                if (router.pathname !== '/') router.push('/');
                 dispatch(setActiveTab(0));
                 window.scrollTo({ top: 300, behavior: 'smooth' });
                 handleToggleMenu();
@@ -236,6 +239,7 @@ const TestHeader: NextPage = () => {
             </button>
             <button
               onClick={() => {
+                if (router.pathname !== '/') router.push('/');
                 dispatch(setActiveTab(1));
                 window.scrollTo({ top: 300, behavior: 'smooth' });
                 handleToggleMenu();
@@ -249,6 +253,7 @@ const TestHeader: NextPage = () => {
             </button>
             <button
               onClick={() => {
+                if (router.pathname !== '/') router.push('/');
                 dispatch(setActiveTab(2));
                 window.scrollTo({ top: 300, behavior: 'smooth' });
                 handleToggleMenu();
