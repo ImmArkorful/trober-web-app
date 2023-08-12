@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 import Link from 'next/link';
 import { BiMenu } from 'react-icons/bi';
@@ -40,7 +40,6 @@ const DropDown = ({ page, router }: DropDownProps) => {
           } mr-5 text-xl duration-500 hover:${color} pr-3`}
           onClick={() => {
             setMenuOpen(!menuOpen);
-            menuOpen ? disableScroll.on() : disableScroll.off();
           }}
         >
           {page.name}
@@ -99,6 +98,7 @@ const TestHeader: NextPage = () => {
     setIsVisible(!isVisible);
   };
   const handleToggleMenu = () => {
+    !isVisible ? disableScroll.on() : disableScroll.off();
     !isVisible
       ? setMenuStyle(
           'transition-all ease-in duration-500 top-[70px] opacity-100'
@@ -144,6 +144,10 @@ const TestHeader: NextPage = () => {
       name: 'Media',
     },
   ];
+
+  useEffect(() => {
+    disableScroll.off();
+  }, []);
 
   return (
     <header>
