@@ -139,10 +139,10 @@ const TestHeader: NextPage = () => {
       route: '/partners',
       name: 'Partners',
     },
-    {
-      route: '/media',
-      name: 'Media',
-    },
+    // {
+    //   route: '/media',
+    //   name: 'Media',
+    // },
   ];
 
   useEffect(() => {
